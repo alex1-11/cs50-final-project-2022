@@ -23,13 +23,16 @@ and optional attributes:
 There is also a Project class for classifying tasks to certain projects (aka big tasks, "elephants", lists, thematic backlogs etc.):
 - title (the only mandatory)
 - parent ('None' by default) - for allowing sub-projects and sub-lists;
-- active True
+- active ('True' by default
 - color (#FFFFFF white by default)
 - area
 
-
+#TODO:
 Alert module
 Repeat module (and recurrance patterns)
+Task creation module, quick add, properties picker and detector for typing those properties
+Task view and edit modules
+Project view and edit modules
 
 
 
