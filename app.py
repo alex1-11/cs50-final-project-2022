@@ -13,6 +13,7 @@ class Task:
 
     def rename(self, newtitle):
         self.title = newtitle
-        
+
     def update(self, title, date, tags, project, context)
+        self.
 
