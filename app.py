@@ -18,12 +18,12 @@ class Task:
 
 class Project:
     def __init__(self, title, parent=None, active=True, color='#FFFFFF',
-                 area=None):
+                 section=None):
         self.title = title
         self.parent = parent
         self.active = active
         self.color = color
-        self.area = area
+        self.section = section
 
 test = Task("Test task1")
 print(test.parent)

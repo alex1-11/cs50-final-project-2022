@@ -3,7 +3,7 @@ Stop when satisfied with result!
 No need to finish all the optional features!
 ______________________________________________________
 
-A todo app inspired by David Alen's Getting things done(R), Todoist and numerous similar apps
+A todo app inspired by David Allen's Getting things done(R), Todoist and numerous similar apps
 
 Every Task is considered as a Class object and has mandatory attribute:
 - title,
@@ -23,21 +23,21 @@ and optional attributes:
 There is also a Project class for classifying tasks to certain projects (aka big tasks, "elephants", lists, thematic backlogs etc.):
 - title (the only mandatory)
 - parent ('None' by default) - for allowing sub-projects and sub-lists;
-- active ('True' by default
-- color (#FFFFFF white by default)
-- area
+- active ('True' by default) - allows to disable and freeze projects;
+- color (#FFFFFF white by default) - allows to visually customize projects and it's tasks;
+- section ('None' by default) - allows to group projects;
 
-#TODO:
+**TODO:**
 Alert module
 Repeat module (and recurrance patterns)
 Task creation module, quick add, properties picker and detector for typing those properties
 Task view and edit modules
 Project view and edit modules
+    Frozen (inactive) projects section
 
 
 
-
-Ideas possible to implement in future:
+**Ideas possible to implement in future:**
 - auto detect due dates and time (in russian and english)
 - google calendar synch
 - gamification with points for completing tasks and leveling for users
