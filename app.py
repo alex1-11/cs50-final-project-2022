@@ -1,14 +1,10 @@
 class Task:
-    def __init__(self, title):
+    def __init__(self, title, date, tags):
         self.title = title
-        self.duedate = 
+        self.duedate = date
+        self.tags = tags
     def rename(self, newtitle):
         self.title = newtitle
 
-task1 = Task("do it")
+task1 = Task('taskone', '2022-10-10', )
 print(task1.title)
-task1.rename("New task title")
-print(task1.title)
-
-task2 = Task("init task creation")
-print(task2.title)
