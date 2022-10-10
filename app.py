@@ -2,10 +2,12 @@ from sqlalchemy import Column, Integer, Unicode, UnicodeText, String
 
 
 class Task:
-    def __init__(self, title, date=None, time=None, context=None,
-                 project=None, priority=None, tags=None, note=None,
-                 alarms=None, active=True, parent=None, repeat=None):
+    def __init__(self, title, done=False, date=None, time=None,
+                 context=None, project=None, priority=None, tags=None,
+                 note=None, alarms=None, active=True, parent=None,
+                 repeat=None):
         self.title = title
+        self.done = done
         self.date = date
         self.time = time
         self.context = context

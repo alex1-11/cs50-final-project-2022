@@ -8,6 +8,7 @@ A todo app inspired by David Allen's Getting things done® (GTD®), Todoist and 
 Every Task is considered as a Class object and has mandatory attribute:
 - title,
 and optional attributes:
+- done ('False' by default)
 - date ('None' by default) - to specify a due date for a task;
 - time ('None' by default) - specify a due time;
 - context ('None' by default) - where or with which tool a task can be done;
