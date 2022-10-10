@@ -1,6 +1,7 @@
 GO ONE FEATURE AT A TIME !
 Stop when satisfied with result!
 No need to finish all the optional features!
+______________________________________________________
 
 A todo app inspired by David Alen's Getting things done(R), Todoist and numerous similar apps
 
