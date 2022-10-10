@@ -47,7 +47,7 @@ Database layer
     |          |       | desc        |
     |          |       |             |
     +----------+       +-------------+
-    Tables: tasks, contexts, projects, tags(!?) ?
+    Tables: users, tasks, contexts, projects, tags(!?) ?
 
 **Ideas possible to implement in future:**
 - auto detect due dates and time (in russian and english)
