@@ -48,6 +48,7 @@ Database layer
     +----------+       +-------------+
     Tables: users, tasks, contexts, projects, tags(!?) ?
     Many to many relationship!
+    !! https://www.digitalocean.com/community/tutorials/how-to-use-many-to-many-database-relationships-with-flask-and-sqlite 
 
 **Ideas possible to implement in future:**
 - auto detect due dates and time (in russian and english)
