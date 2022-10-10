@@ -17,3 +17,6 @@ class Task:
     def update(self, title, date, tags, project, context)
         self.
 
+class Project:
+    def __init__(self, title, )
+
