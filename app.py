@@ -1,6 +1,7 @@
 class Task:
     def __init__(self, title, date=None, time=None, context=None,
-                 project=None, priority=None, tags=None, note=None, alarms=None):
+                 project=None, priority=None, tags=None, note=None,
+                 alarms=None, active=True):
         self.title = title
         self.date = date
         self.time = time
@@ -10,6 +11,7 @@ class Task:
         self.tags = tags
         self.note = note
         self.alarms = alarms
+        self.active = active
 
     def rename(self, newtitle):
         self.title = newtitle
@@ -18,5 +20,10 @@ class Task:
         self.
 
 class Project:
-    def __init__(self, title, )
+    def __init__(self, title, parent=None, level=0, active=True, color='#FFFFFF'):
+        self.title = title
+        self.parent = parent
+        self.level = level
+        self.active = active
+        self.color = color
 
