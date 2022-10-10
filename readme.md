@@ -40,4 +40,5 @@ Ideas possible to implement in future:
 - gamification with points for completing tasks and leveling for users
 - tasks and projects review routine
 - custom (manual) ordering of projects/tasks
+- ability to export/import data to/from other task managers and todo apps (e.g. via .csv files)
 - ...
