@@ -4,31 +4,34 @@ Every Task is considered as a Class object and has mandatory attribute:
 - title,
 and optional attributes:
 - date ('None' by default) - to specify a due date for a task;
-- time ('None' by default);
+- time ('None' by default) - ;
 - context ('None' by default) - where or with which tool a task can be done;
 - project ('None' by default) - to group tasks under specific goal;
-- priority ('None' by default);
-- tags ('None' by default);
-- note ('None' by default);
-- alarms ('None' by default);
-- active ('True' by default);
+- priority ('None' by default) - speaks by itself, has None and 3 levels of priority;
+- tags ('None' by default) - holds lists of tags to group tasks by persons, places, topics etc.;
+- note ('None' by default) - allows to hold discription and notes related to task;
+- alarms ('None' by default) - allows to set reminders on tasks;
+- active ('True' by default) - allows to filter and remove tasks from certain views;
 - parent ('None' by default) - allows to create sub-tasks and checklists;
 - repeat ('None' by default).
 
-There is also a Project class for classifying tasks to certain projects (aka big tasks, "elephants", etc.):
+There is also a Project class for classifying tasks to certain projects (aka big tasks, "elephants", lists, thematic backlogs etc.):
 - title (the only mandatory)
-- parent
-- active True,
+- parent ('None' by default) - for allowing sub-projects and sub-lists;
+- active True
 - color (#FFFFFF white by default)
 - area
 
 
+Alert module
 
 
 
 
 
 Ideas possible to implement in future:
+- google calendar synch
 - gamification with points for completing tasks and leveling for users
 - tasks and projects review routine
+- custom (manual) ordering of projects/tasks
 - ...
