@@ -56,4 +56,5 @@ Database layer
 - tasks and projects review routine
 - custom (manual) ordering of projects/tasks
 - ability to export/import data to/from other task managers and todo apps (e.g. via .csv files)
+- teams and teamwork, executors and liable employees
 - ...
