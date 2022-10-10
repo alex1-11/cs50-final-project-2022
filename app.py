@@ -20,7 +20,8 @@ class Task:
         self.
 
 class Project:
-    def __init__(self, title, parent=None, level=0, active=True, color='#FFFFFF'):
+    def __init__(self, title, parent=None, level=0, active=True,
+    color='#FFFFFF'):
         self.title = title
         self.parent = parent
         self.level = level
