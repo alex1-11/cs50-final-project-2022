@@ -16,9 +16,19 @@ and optional attributes:
 - repeat ('None' by default).
 
 There is also a Project class for classifying tasks to certain projects (aka big tasks, "elephants", etc.):
-- title,
+- title (the only mandatory)
 - parent
-- level =0
 - active True,
 - color (#FFFFFF white by default)
 - area
+
+
+
+
+
+
+
+Ideas possible to implement in future:
+- gamification with points for completing tasks and leveling for users
+- tasks and projects review routine
+- ...

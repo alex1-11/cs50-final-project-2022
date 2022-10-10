@@ -17,13 +17,13 @@ class Task:
 
 
 class Project:
-    def __init__(self, title, parent=None, level=0, active=True,
-                 color='#FFFFFF'):
+    def __init__(self, title, parent=None, active=True, color='#FFFFFF',
+                 area=None):
         self.title = title
         self.parent = parent
-        self.level = level
         self.active = active
         self.color = color
+        self.area = area
 
 test = Task("Test task1")
 print(test.parent)
