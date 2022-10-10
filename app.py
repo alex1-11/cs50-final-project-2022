@@ -1,7 +1,5 @@
 class Task:
-    def __init__(self, title, date=None, time=None, context=None,
-                 project=None, priority=None, tags=None, note=None,
-                 alarms=None, active=True):
+    def __init__(self, title, date=None, time=None, context=None, project=None, priority=None, tags=None, note=None, alarms=None, active=True):
         self.title = title
         self.date = date
         self.time = time
