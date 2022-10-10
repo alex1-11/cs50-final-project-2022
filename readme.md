@@ -38,6 +38,16 @@ Project view and edit modules
 Database layer
     Maybe use `sqlalchemy`? https://stackoverflow.com/questions/2047814/is-it-possible-to-store-python-class-objects-in-sqlite
 
+    Possible schema instance
+    +----------+       +-------------+
+    | List     |       | Task        |
+    +----------+       +-------------+
+    | id (pk)  <---+   | id (pk)     |
+    | name     |   +---+ listid (fk) |
+    |          |       | desc        |
+    |          |       |             |
+    +----------+       +-------------+
+    Tables: tasks, contexts, projects, tags(!?) ?
 
 **Ideas possible to implement in future:**
 - auto detect due dates and time (in russian and english)
