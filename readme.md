@@ -34,7 +34,8 @@ Task creation module, quick add, properties picker and detector for typing those
 Task view and edit modules
 Project view and edit modules
     Frozen (inactive) projects section
-
+Database layer
+    Maybe use `sqlalchemy`? https://stackoverflow.com/questions/2047814/is-it-possible-to-store-python-class-objects-in-sqlite
 
 
 **Ideas possible to implement in future:**
