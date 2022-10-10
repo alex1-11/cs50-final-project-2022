@@ -1,8 +1,7 @@
 class Task:
-    title = ""
-    duedate = ""
     def __init__(self, title):
         self.title = title
+        self.duedate = 
     def rename(self, newtitle):
         self.title = newtitle
 
