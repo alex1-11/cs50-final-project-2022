@@ -1,3 +1,6 @@
+from sqlalchemy import Column, Integer, Unicode, UnicodeText, String
+
+
 class Task:
     def __init__(self, title, date=None, time=None, context=None,
                  project=None, priority=None, tags=None, note=None,
