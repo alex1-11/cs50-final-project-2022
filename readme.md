@@ -3,7 +3,7 @@ Stop when satisfied with result!
 No need to finish all the optional features!
 ______________________________________________________
 
-A todo app inspired by David Allen's Getting things done(R), Todoist and numerous similar apps
+A todo app inspired by David Allen's Getting things done® (GTD®), Todoist and numerous similar apps
 
 Every Task is considered as a Class object and has mandatory attribute:
 - title,
