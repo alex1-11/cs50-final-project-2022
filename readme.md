@@ -16,9 +16,9 @@ and optional attributes:
 - repeat ('None' by default).
 
 There is also a Project class for classifying tasks to certain projects (aka big tasks, "elephants", etc.):
-- title
+- title, 
 - parent
 - level =0
 - active True,
 - color (#FFFFFF white by default)
-!- goal
+!- area
