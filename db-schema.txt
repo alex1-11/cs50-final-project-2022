@@ -13,7 +13,7 @@ CREATE TABLE tasks (
 	priority integer NOT NULL,
 	date date,
 	datetime datetime,
-	context_id integer REFERENCES contexts(id) ON DELETE SET NULL,
+	context_id integer REFERENCES contexts(id) ON DELETE SET NULL ON UPDATE CASCADE,
 	project_id integer REFERENCES projects(id) ON DELETE SET NULL,
 	note text,
 	parent_id integer,
