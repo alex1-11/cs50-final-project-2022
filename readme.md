@@ -55,11 +55,13 @@ Task creation module
             detector for typing those properties
     tags picker
     project picker
-
+Tasks view and different filtered views
 Task view and edit modules
+Projects view
 Project view and edit modules
     Frozen (inactive) projects section
-User settings module
+User Settings module
+    Auto-create alarm for due datetime
 Tags module
 Alarms module
 Repeat module (and recurrance patterns)

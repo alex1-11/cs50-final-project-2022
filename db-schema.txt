@@ -1,0 +1,70 @@
+CREATE TABLE users (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name text,
+	password text
+);
+
+CREATE TABLE tasks (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	created datetime,
+	user_id integer,
+	title text,
+	status text,
+	priority integer,
+	date date,
+	datetime datetime,
+	context_id integer,
+	project_id text,
+	note text,
+	parent_id integer,
+	repeat text
+);
+
+CREATE TABLE projects (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	created datetime,
+	title text,
+	status text,
+	color text,
+	section text
+);
+
+CREATE TABLE tags (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	title text
+);
+
+CREATE TABLE task_tags (
+	task_id integer,
+	tag_id integer
+);
+
+CREATE TABLE context (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	title text
+);
+
+CREATE TABLE alarms (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	task_id integer,
+	datetime datetime
+);
+
+CREATE TABLE settings (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	setting text
+);
+
+CREATE TABLE user_settings (
+	user_id integer,
+	setting_id integer
+);
+
+
+
+
+
+
+
+
+
