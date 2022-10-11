@@ -17,9 +17,7 @@ CREATE TABLE tasks (
 	project_id integer REFERENCES projects(id) ON DELETE SET NULL,
 	note text,
 	parent_id integer,
-	repeat text,
-
-	FOREIGN KEY(project_id)
+	repeat text
 );
 
 CREATE TABLE projects (
