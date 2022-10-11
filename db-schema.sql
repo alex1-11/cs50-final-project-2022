@@ -48,12 +48,12 @@ CREATE TABLE contexts (
 CREATE TABLE alarms (
 	id integer PRIMARY KEY AUTOINCREMENT,
 	task_id integer NOT NULL REFERENCES tasks(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	datetime datetime NOT NULL;
+	datetime datetime NOT NULL
 );
 
 CREATE TABLE settings (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	setting text UNIQUE NOT NULL;
+	setting text UNIQUE NOT NULL
 );
 
 CREATE TABLE user_settings (
