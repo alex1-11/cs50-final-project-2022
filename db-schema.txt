@@ -31,12 +31,13 @@ CREATE TABLE projects (
 
 CREATE TABLE tags (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	title text
+	title text UNIQUE NOT NULL
 );
 
 CREATE TABLE task_tags (
-	task_id integer,
-	tag_id integer
+	task_id integer NOT NULL REFERS tasks(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	tag_id integer NOT NULL,
+	UNIQUE (task_id, tag_id)
 );
 
 CREATE TABLE contexts (
