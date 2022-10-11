@@ -57,8 +57,10 @@ CREATE TABLE settings (
 );
 
 CREATE TABLE user_settings (
-	user_id integer,
-	setting_id integer
+	user_id integer NOT NULL REFERS users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	setting_id integer NOT NULL REFERS settings(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	state integer NOT NULL
+	UNIQUE (user_id, setting_id)
 );
 
 
