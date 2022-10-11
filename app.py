@@ -3,9 +3,9 @@ from sqlalchemy import Column, Integer, Unicode, UnicodeText, String
 
 class Task:
     def __init__(self, title, done=False, date=None, time=None,
-                 context=None, project=None, priority=None, tags=None,
+                 context=None, project=None, priority=0, tags=None,
                  note=None, alarms=None, active=True, parent=None,
-                 repeat=None):
+                 repeat=None, created='CURRENT_TIMESTAMP'):
         self.title = title
         self.done = done
         self.date = date
@@ -19,6 +19,7 @@ class Task:
         self.active = active
         self.parent = parent
         self.repeat = repeat
+        self.created = created
 
 
 class Project:
