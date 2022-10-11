@@ -6,11 +6,11 @@ CREATE TABLE users (
 
 CREATE TABLE tasks (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	created datetime,
-	user_id integer,
-	title text,
-	status text,
-	priority integer,
+	created datetime NOT NULL,
+	user_id integer NOT NULL,
+	title text NOT NULL,
+	status text NOT NULL,
+	priority integer NOT NULL,
 	date date,
 	datetime datetime,
 	context_id integer,
