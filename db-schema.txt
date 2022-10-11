@@ -1,6 +1,6 @@
 CREATE TABLE users (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	name text NOT NULL,
+	name text NOT NULL UNIQUE,
 	hash text NOT NULL
 );
 
@@ -22,7 +22,7 @@ CREATE TABLE tasks (
 
 CREATE TABLE projects (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	created datetime,
+	created datetime DEFAULT=,
 	title text,
 	status text,
 	color text,
