@@ -47,7 +47,7 @@ CREATE TABLE contexts (
 
 CREATE TABLE alarms (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	task_id integer NOT NULL REFERS tasks(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	task_id integer NOT NULL REFERENCES tasks(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	datetime datetime NOT NULL;
 );
 
@@ -57,8 +57,8 @@ CREATE TABLE settings (
 );
 
 CREATE TABLE user_settings (
-	user_id integer NOT NULL REFERS users(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	setting_id integer NOT NULL REFERS settings(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	user_id integer NOT NULL REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	setting_id integer NOT NULL REFERENCES settings(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	state integer NOT NULL,
 	UNIQUE (user_id, setting_id)
 );
