@@ -44,8 +44,10 @@ Database layer
     +----------+       +-------------+
     Tables: users, tasks, contexts, projects, tags(!?) ?
     Many to many relationship!
-    !! https://www.digitalocean.com/community/tutorials/how-to-use-many-to-many-database-relationships-with-flask-and-sqlite
-    !! https://fmhelp.filemaker.com/help/18/fmp/en/index.html#page/FMP_Help%2Fmany-to-many-relationships.html%23
+    https://www.digitalocean.com/community/tutorials/how-to-use-many-to-many-database-relationships-with-flask-and-sqlite
+    https://fmhelp.filemaker.com/help/18/fmp/en/index.html#page/FMP_Help%2Fmany-to-many-relationships.html%23
+
+    ! Foreign keys doc: https://www.sqlite.org/foreignkeys.html
 
     image.png
 Task creation module
