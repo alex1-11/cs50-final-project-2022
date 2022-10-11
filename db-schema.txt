@@ -14,7 +14,7 @@ CREATE TABLE tasks (
 	date date,
 	datetime datetime,
 	context_id integer REFERENCES contexts(id) ON DELETE SET NULL ON UPDATE CASCADE,
-	project_id integer REFERENCES projects(id) ON DELETE SET NULL,
+	project_id integer REFERENCES projects(id) ON DELETE SET NULL ON UPDATE CASCADE,
 	note text,
 	parent_id integer,
 	repeat text
@@ -42,7 +42,7 @@ CREATE TABLE task_tags (
 
 CREATE TABLE contexts (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	title text
+	title text UNIQUE NOT NULL
 );
 
 CREATE TABLE alarms (
