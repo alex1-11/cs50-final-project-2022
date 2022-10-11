@@ -17,7 +17,8 @@ CREATE TABLE tasks (
 	project_id text,
 	note text,
 	parent_id integer,
-	repeat text
+	repeat text,
+	FOREIGN KEY(trackartist) REFERENCES artist(artistid)
 );
 
 CREATE TABLE projects (
