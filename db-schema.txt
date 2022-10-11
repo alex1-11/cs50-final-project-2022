@@ -22,9 +22,9 @@ CREATE TABLE tasks (
 
 CREATE TABLE projects (
 	id integer PRIMARY KEY AUTOINCREMENT,
-	created datetime DEFAULT=,
-	title text,
-	status text,
+	created datetime DEFAULT CURRENT_TIMESTAMP,
+	title text NOT NULL,
+	status text DEFAULT 'active' NOT NULL,
 	color text,
 	section text
 );
