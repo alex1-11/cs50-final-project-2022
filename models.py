@@ -76,7 +76,7 @@ class Context(Base):
     title = Column(String)
 
 class Alarm(Base):
-
+    
 
 
     # TODO: How to set constraint on columns?
