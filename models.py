@@ -59,7 +59,12 @@ class Task(Base):
 
 class Project(Base):
     __tablename__ = "projects"
-    id = Column()
+    id = Column(Integer, primary_key=True)
+    lol, created = Column(String)
+    title = Column(String)
+    status = Column(String)
+    color = Column(String)
+    section = Column(String)
 
 
 
