@@ -1,4 +1,7 @@
-from Flask import 
+from flask import Flask
+
+
+from models import User, Setting, Task, Project, Tag, Context, Alarm
 
 
 class Task:
