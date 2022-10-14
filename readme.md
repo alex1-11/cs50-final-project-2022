@@ -48,6 +48,7 @@ Database layer
     https://fmhelp.filemaker.com/help/18/fmp/en/index.html#page/FMP_Help%2Fmany-to-many-relationships.html%23
 
     ! Foreign keys doc: https://www.sqlite.org/foreignkeys.html
+    ! sqlalchemy https://realpython.com/python-sqlite-sqlalchemy/#working-with-sqlalchemy-and-python-objects
 
     image.png
 Task creation module
