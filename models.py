@@ -5,6 +5,9 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base
 
+# Possible problems with `back_populates="settings"` (not "setting")
+# and with `id = Column(Integer, primary_key=True)` (not "user_id", etc. for all classes)
+
 
 task_tags = Table(
     "task_tags",
@@ -21,19 +24,23 @@ user_settings = Table(
     Column("state", Integer)
 )
 
-class Users(Base):
+class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
     name = Column(String)
     hash = Column(String)
     settings = relationship(
-        "Settings", secondary=user_settings, back_populates="users"
+        "Setting", secondary=user_settings, back_populates="users"
     )
 
+class Setting(Base):
+    __tablename__ = "settings"
+    id = Column(Integer, primary_key=True)
+    setting = Column(String)
+    user = relationship(
+        "User", secondary=user_settings, back_populates="settings"
+    )
 
-
-
-
-
-
-
+class Task(Base):
+    __tablename__ = "tasks"
+    
