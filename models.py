@@ -76,6 +76,10 @@ class Context(Base):
     title = Column(String)
 
 class Alarm(Base):
+    __tablename__ = "alarms"
+    id = Column(Integer, primary_key=True)
+    task_id = Column(Integer, ForeignKey("tasks.id"))
+    datetime = Column(String)
     
 
 
