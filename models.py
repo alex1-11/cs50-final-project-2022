@@ -45,9 +45,25 @@ class Task(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True)
     created = Column(String)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    title = Column(String)
+    status = Column(String)
+    priority = Column(Integer)
+    date = Column(String)
+    datetime = Column(String)
+    context_id = Column(Integer, ForeignKey("contexts.id"))
+    project_id = Column(Integer, ForeignKey("projects.id"))
+    note = Column(String)
+    parent_id = Column(Integer),
+    repeat = Column(String)
+
+class Project(Base):
+    __tablename__ = "projects"
+    id = Column()
 
 
 
 
-    # TODO: How to set 
+    # TODO: How to set constraint on columns?
+    # How to define default values for columns?
 
