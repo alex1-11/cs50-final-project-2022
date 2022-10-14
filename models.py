@@ -60,12 +60,22 @@ class Task(Base):
 class Project(Base):
     __tablename__ = "projects"
     id = Column(Integer, primary_key=True)
-    lol, created = Column(String)
+    created = Column(String)
     title = Column(String)
     status = Column(String)
     color = Column(String)
     section = Column(String)
 
+class Tag(Base):
+    __tablename__ = "tags"
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+
+class Context(Base):
+    __tablename__ = "contexts"
+    title = Column(String)
+
+class Alarm(Base):
 
 
 
