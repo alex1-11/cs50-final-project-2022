@@ -30,7 +30,9 @@ def after_request(response):
     return response
 
 
-#
+# Decorate route for login
+def login_required(f)
+
 
 @app.route("/")
 
