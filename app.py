@@ -46,11 +46,8 @@ def login_required(f):
     return decorated_function
 
 
-
 @app.route("/")
-
-# TODO: @login_required
-
+@login_required
 def index():
     """Show dashboard of today's tasks"""
 
