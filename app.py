@@ -84,7 +84,7 @@ def login():
 
         # TODO: Remember which user has logged in
         # session["user_id"] = rows[0]["id"]
-        username = escape(username)
+        # username = escape(username)
 
         # Redirect user to home page
-        flash(f"Welcome back, {username}!")
+        flash(f"Welcome, {username}!")
