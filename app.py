@@ -35,4 +35,20 @@ def after_request(response):
 def index()
     """Show dashboard of today's tasks"""
 
-    # Get user
+    # TODO: Get user's tasks
+
+    return render_template("index.html") #, tasks=tasks)
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """Log user in"""
+
+    # Forget any user_id
+    session.clear()
+
+    # User reached route via POST (as by submitting a form)
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return 
