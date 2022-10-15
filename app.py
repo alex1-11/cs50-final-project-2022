@@ -51,4 +51,5 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return 
+            flash("Must provide usename:)
+            return
