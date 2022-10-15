@@ -31,7 +31,9 @@ def after_request(response):
 
 
 @app.route("/")
-@login_required
+
+# TODO: @login_required
+
 def index()
     """Show dashboard of today's tasks"""
 
@@ -55,4 +57,13 @@ def login():
             return login
 
         # Ensure password was submitted
-        if not request.form.get("password")
+        if not request.form.get("password"):
+            flash("Must provide password")
+            return login
+
+        # TODO: Query database for username
+        # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
+
+        # TODO: Ensure username exists and password is correct
+        # if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+        #     return apology("invalid username and/or password", 403)
