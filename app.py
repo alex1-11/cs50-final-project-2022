@@ -39,7 +39,7 @@ def login_required(f):
     CS50 Finance problemset
     """
     @wraps(f)
-    def decorated_function(*args, *kwargs):
+    def decorated_function(*args, **kwargs):
         if session.get("user_id") is None:
             return redirect("/login")
         return f(*args, **kwargs)
@@ -51,7 +51,7 @@ def login_required(f):
 
 # TODO: @login_required
 
-def index()
+def index():
     """Show dashboard of today's tasks"""
 
     # TODO: Get user's tasks
