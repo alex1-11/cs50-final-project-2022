@@ -75,6 +75,7 @@ class Tag(Base):
 
 class Context(Base):
     __tablename__ = "contexts"
+    id = Column(Integer, primary_key=True)
     title = Column(String)
 
 class Alarm(Base):
