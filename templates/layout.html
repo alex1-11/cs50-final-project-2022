@@ -20,7 +20,9 @@
     </head>
 
     <body>
+
         <!-- navbar goes here -->
+
         {% if get_flashed_messages() %}
             <header>
                 <div class="alert alert-primary mb-0 text-center" role="alert">
@@ -29,12 +31,12 @@
             </header>
         {% endif %}
 
-        <main class="container-fluid py-5 text-center">
+        <main class="">
             {% block main %}{% endblock %}
         </main>
 
         <footer class="mb-5 small text-center text-muted">
-            Data provided by <a href="https://iexcloud.io/">IEX</a>
+            Made by Alex1-11 as a Final project for CS50 2022
         </footer>
 
         <!-- bootstrap's js -->
