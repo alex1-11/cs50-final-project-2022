@@ -131,9 +131,12 @@ def register():
         # Add new user to database
         with Session(db) as dbsession:
             newuser = User(
-                
+                name = username,
+                hash = generate_password_hash(request.form.get("password")),
             )
-            username
+            dbsession.add(newuser)
+            dbsession.commit()
+            
 
 
     else:
