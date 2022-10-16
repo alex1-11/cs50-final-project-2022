@@ -56,7 +56,7 @@ class Task(Base):
     context_id = Column(Integer, ForeignKey("contexts.id"))
     project_id = Column(Integer, ForeignKey("projects.id"))
     note = Column(String)
-    parent_id = Column(Integer),
+    parent_id = Column(Integer, ForeignKey("tasks.id"))
     repeat = Column(String)
 
 class Project(Base):
