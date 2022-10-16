@@ -84,9 +84,8 @@ def login():
             return render_template("login.html")
 
         # TODO: Query database for username
-        with DbSession.begin() as db:
-            select = db.select
-            dbsession.close()
+        # with DbSession.begin() as db:
+        #     select = db.select
         # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
 
         # TODO: Ensure username exists and password is correct
