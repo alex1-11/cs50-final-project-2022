@@ -1,6 +1,10 @@
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from functools import wraps
+from flask_wtf import FlaskForm
+from wtforms import StringField
+from wtforms.validators import DataRequired
+
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
@@ -18,6 +22,11 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+# Define class for forms
+class MyForm(FlaskForm):
+    name = StringField('name',validators=[DataRequired()])
+
 
 # TODO: Configure db for app using SQLAlchemy
 
