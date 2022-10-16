@@ -31,7 +31,7 @@ class User(Base):
     name = Column(String)
     hash = Column(String)
     settings = relationship(
-        "Setting", secondary=user_settings, back_populates="user"
+        "Setting", secondary=user_settings, back_populates="user_id"
     )
 
 class Setting(Base):
