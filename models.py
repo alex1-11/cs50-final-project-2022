@@ -38,8 +38,8 @@ class Setting(Base):
     __tablename__ = "settings"
     id = Column(Integer, primary_key=True)
     setting = Column(String)
-    user = relationship(
-        "User", secondary=user_settings, back_populates="setting"
+    users = relationship(
+        "User", secondary=user_settings, back_populates="settings"
     )
 
 class Task(Base):
