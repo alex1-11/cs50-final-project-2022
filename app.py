@@ -1,5 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
+import flask_session
 from functools import wraps
 
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -20,12 +20,13 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Cofigure session to use filesystem (intead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+flask_session.Session(app)
 
 
 # TODO: Configure db for app using SQLAlchemy
-sql_engine = create_engine("sqlite:///project.db", echo=True, future=True)
-SqlSession = sessionmaker(sql_engine)
+db = create_engine("sqlite:///project.db", echo=True, future=True)
+SessionDB
+
 
 @app.after_request
 def after_request(response):
@@ -83,7 +84,7 @@ def login():
             return render_template("login.html")
 
         # TODO: Query database for username
-        with Sqlsessiondb() as db:
+        with Session(db) as dbsession:
             select = db.select
             dbsession.close()
         # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
