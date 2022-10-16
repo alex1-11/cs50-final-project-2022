@@ -5,7 +5,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-engine = create_engine("sqlite:///project.db", echo=True, future=True)
 
 # Possible problems with `back_populates="settings"` (not "setting")
 # and with `id = Column(Integer, primary_key=True)` (not "user_id", etc. for all classes)

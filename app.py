@@ -4,6 +4,7 @@ from functools import wraps
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from sqlalchemy import create_engine
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
 # from helpers import login_required, apology
 # from flask_sqlalchemy import SQLAlchemy
@@ -22,7 +23,7 @@ Session(app)
 
 
 # TODO: Configure db for app using SQLAlchemy
-
+db = create_engine("sqlite:///project.db", echo=True, future=True)
 
 
 @app.after_request
