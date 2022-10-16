@@ -136,8 +136,8 @@ def register():
             )
             dbsession.add(newuser)
             dbsession.commit()
-            
-
+        flash("Registered")
+        return redirect("/login")
 
     else:
         return render_template("register.html")
