@@ -1,10 +1,11 @@
 from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
+import flask_session
 from functools import wraps
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
 # from helpers import login_required, apology
 # from flask_sqlalchemy import SQLAlchemy
@@ -19,7 +20,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Cofigure session to use filesystem (intead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+flask_session.Session(app)
 
 
 # TODO: Configure db for app using SQLAlchemy
@@ -128,7 +129,11 @@ def register():
             return redirect("/register")
 
         # Add new user to database
-        with
+        with Session(db) as dbsession:
+            newuser = User(
+                
+            )
+            username
 
 
     else:
