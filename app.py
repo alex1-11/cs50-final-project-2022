@@ -124,7 +124,7 @@ def register():
             return redirect("/register")
 
         # Ensure password confirmation is matching
-        if request.form.get("password") != request.form.get("confirmation"):
+        if not request.form.get("password") == request.form.get("confirm"):
             flash("Passwords do not match")
             return redirect("/register")
 
