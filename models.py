@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from app import db
 # https://realpython.com/python-sqlite-sqlalchemy/#working-with-sqlalchemy-and-python-objects
 
-Base = declarative_base
+Base = declarative_base()
 
 # Possible problems with `back_populates="settings"` (not "setting")
 # and with `id = Column(Integer, primary_key=True)` (not "user_id", etc. for all classes)
