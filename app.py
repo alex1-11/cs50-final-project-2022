@@ -68,12 +68,12 @@ def login():
         # TODO: https://flask-wtf.readthedocs.io/en/1.0.x/form/#secure-form
         if not request.form.get("username"):
             flash("Must provide usename")
-            return login
+            return render_template("login.html")
 
         # Ensure password was submitted
         if not request.form.get("password"):
             flash("Must provide password")
-            return login
+            return render_template("login.html")
 
         # TODO: Query database for username
         # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
