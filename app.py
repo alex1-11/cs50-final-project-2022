@@ -92,4 +92,10 @@ def login():
     else:
         return render_template("login.html")
 
-        
+@app.route("/register", methods = ["GET", "POST"])
+def register():
+    if request.method == "POST":
+        pass
+
+    else:
+        return render_template("register.html")
