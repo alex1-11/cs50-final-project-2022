@@ -94,7 +94,8 @@ def login():
         # username = escape(username)
 
         # Redirect user to home page
-        flash(f"Welcome, {username}!")
+        # flash(f"Welcome, {username}!")
+        return redirect("/")
 
     else:
         return render_template("login.html")
