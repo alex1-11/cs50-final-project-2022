@@ -87,7 +87,7 @@ def login():
 
         # TODO: Query database for username
         with DbSession.begin() as db:
-            selection = select(User).where(user.name==username)
+            selection = select(User).where(User.name==username)
             print(selection)
             result = db.execute(selection).scalars()
             print(result)
