@@ -111,10 +111,10 @@ def register():
             return redirect("/register")
 
         # Ensure username is not already taken
-        username = str.lower(username)
-        usercheck = db.execute("SELECT username FROM users WHERE username = ?", username)
-        if len(usercheck) > 0 and username == usercheck[0]["username"]:
-            return apology("username is already taken")
+        # TODO: usercheck = db.execute("SELECT username FROM users WHERE username = ?", username)
+        # if len(usercheck) > 0 and str.lower(username) == str.lower(usercheck[0]["username"]):
+        #     flash("Sorry! The username is already taken")
+        #     return redirect("/register")
 
 
         # Ensure password was submitted
@@ -127,7 +127,7 @@ def register():
             flash("Passwords do not match")
             return redirect("/register")
 
-        #
+        # Add new user to database
 
 
     else:
