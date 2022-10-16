@@ -4,7 +4,7 @@ from functools import wraps
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
 # from helpers import login_required, apology
@@ -88,8 +88,9 @@ def login():
         # TODO: Query database for username
         with DbSession.begin() as db:
             selection = select(User).where(user.name==username)
-            db.execute(selection).scalars()
-
+            print(selection)
+            result = db.execute(selection).scalars()
+            print(result)
             # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
 
         # TODO: Ensure username exists and password is correct
