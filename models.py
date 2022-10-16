@@ -1,10 +1,12 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
+from sqlalchemy import Column, Integer, String, ForeignKey, Table, create_engine
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
 from app import db
 # https://realpython.com/python-sqlite-sqlalchemy/#working-with-sqlalchemy-and-python-objects
 
 Base = declarative_base()
+
+engine = create_engine("sqlite:///project.db", echo=True, future=True)
 
 # Possible problems with `back_populates="settings"` (not "setting")
 # and with `id = Column(Integer, primary_key=True)` (not "user_id", etc. for all classes)
