@@ -24,8 +24,8 @@ flask_session.Session(app)
 
 
 # TODO: Configure db for app using SQLAlchemy
-db = create_engine("sqlite:///project.db", echo=True, future=True)
-SessionDB
+db_engine = create_engine("sqlite:///project.db", echo=True, future=True)
+DbSession = sessionmaker(db_engine)
 
 
 @app.after_request
@@ -84,7 +84,7 @@ def login():
             return render_template("login.html")
 
         # TODO: Query database for username
-        with Session(db) as dbsession:
+        with DbSession() as db:
             select = db.select
             dbsession.close()
         # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
@@ -134,7 +134,7 @@ def register():
             return redirect("/register")
 
         # Add new user to database
-        with Session(db) as dbsession, dbsession.begin():
+        with Db() as dbsession, dbsession.begin():
             newuser = User(
                 name = username,
                 hash = generate_password_hash(request.form.get("password")),
