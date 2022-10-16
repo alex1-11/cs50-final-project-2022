@@ -26,6 +26,7 @@ Session(app)
 # Define class for forms
 class MyForm(FlaskForm):
     name = StringField('name',validators=[DataRequired()])
+    password =
 
 
 # TODO: Configure db for app using SQLAlchemy
