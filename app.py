@@ -84,7 +84,7 @@ def login():
             return render_template("login.html")
 
         # TODO: Query database for username
-        with DbSession() as db:
+        with DbSession.begin() as db:
             select = db.select
             dbsession.close()
         # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
@@ -134,12 +134,12 @@ def register():
             return redirect("/register")
 
         # Add new user to database
-        with Db() as dbsession, dbsession.begin():
+        with DbSession.begin() as db:
             newuser = User(
                 name = username,
                 hash = generate_password_hash(request.form.get("password")),
             )
-            dbsession.add(newuser)
+            db.add(newuser)
 
         flash("Registered")
         return redirect("/login")
