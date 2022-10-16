@@ -88,3 +88,6 @@ def login():
 
         # Redirect user to home page
         flash(f"Welcome, {username}!")
+
+    else:
+        return render_template("login.html")
