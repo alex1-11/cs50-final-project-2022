@@ -100,8 +100,35 @@ def login():
 
 @app.route("/register", methods = ["GET", "POST"])
 def register():
+    """Register new user"""
+
     if request.method == "POST":
-        pass
+
+        # Ensure username was typed in
+        username = request.form.get("username")
+        if not username:
+            flash("Must provide usename")
+            return redirect("/register")
+
+        # Ensure username is not already taken
+        username = str.lower(username)
+        usercheck = db.execute("SELECT username FROM users WHERE username = ?", username)
+        if len(usercheck) > 0 and username == usercheck[0]["username"]:
+            return apology("username is already taken")
+
+
+        # Ensure password was submitted
+        if not request.form.get("password"):
+            flash("Must provide password")
+            return redirect("/register")
+
+        # Ensure password confirmation is matching
+        if request.form.get("password") != request.form.get("confirmation"):
+            flash("Passwords do not match")
+            return redirect("/register")
+
+        #
+
 
     else:
         return render_template("register.html")

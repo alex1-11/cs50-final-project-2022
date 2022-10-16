@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block main %}
-    <form action="login" method="post">
+    <form action="/register" method="post">
         <div>
-            <input autocomplete="off" autofocus id="username" placeholder="Type Username" type="text">
+            <input autocomplete="off" autofocus id="username" name="username" placeholder="Username" type="text">
         </div>
         <div>
-            <input id="password" name="password" placeholder="Type password" type="password">
+            <input id="password" name="password" placeholder="Password" type="password">
         </div>
         <div>
             <input id="confirm" name="confirm" placeholder="Repeat password" type="password">
