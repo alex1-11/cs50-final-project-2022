@@ -31,7 +31,7 @@ class User(Base):
     name = Column(String)
     hash = Column(String)
     settings = relationship(
-        "Setting", secondary=user_settings, back_populates="users"
+        "Setting", secondary=user_settings, back_populates="user"
     )
 
 class Setting(Base):
@@ -39,7 +39,7 @@ class Setting(Base):
     id = Column(Integer, primary_key=True)
     setting = Column(String)
     user = relationship(
-        "User", secondary=user_settings, back_populates="settings"
+        "User", secondary=user_settings, back_populates="setting"
     )
 
 class Task(Base):
