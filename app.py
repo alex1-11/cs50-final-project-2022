@@ -128,6 +128,7 @@ def register():
             return redirect("/register")
 
         # Add new user to database
+        with
 
 
     else:
