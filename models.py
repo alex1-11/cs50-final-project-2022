@@ -58,7 +58,7 @@ class Task(Base):
     parent_id = Column(Integer, ForeignKey("tasks.id"))
     repeat = Column(String)
     tags = relationship(
-        "Tag", secondary=task_tags, back_populates="users"
+        "Tag", secondary=task_tags, back_populates="tasks"
     )
 
 class Project(Base):
