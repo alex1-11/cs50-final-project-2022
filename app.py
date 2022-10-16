@@ -1,9 +1,6 @@
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from functools import wraps
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -23,13 +20,10 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Define class for forms
-class MyForm(FlaskForm):
-    name = StringField('name',validators=[DataRequired()])
-    password =
-
 
 # TODO: Configure db for app using SQLAlchemy
+
+
 
 @app.after_request
 def after_request(response):
@@ -40,7 +34,7 @@ def after_request(response):
     return response
 
 
-# Decorate route for login
+# Decorate route for login requirement
 def login_required(f):
     """
     Decorates routes to require login.
