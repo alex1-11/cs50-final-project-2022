@@ -74,6 +74,9 @@ class Tag(Base):
     __tablename__ = "tags"
     id = Column(Integer, primary_key=True)
     title = Column(String)
+    users = relationship(
+        "User", secondary=task_tags, back_populates="tags"
+    )
 
 class Context(Base):
     __tablename__ = "contexts"
