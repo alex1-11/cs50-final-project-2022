@@ -85,7 +85,7 @@ def login():
             flash("Must provide password")
             return render_template("login.html")
 
-        # TODO: Query database for username
+        # TODO: Query database for username !!!!!!!!!!!!!!!!!!!
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
             print(selection)
