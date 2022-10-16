@@ -133,13 +133,13 @@ def register():
             return redirect("/register")
 
         # Add new user to database
-        with Session(db) as dbsession:
+        with Session(db) as dbsession, dbsession.begin():
             newuser = User(
                 name = username,
                 hash = generate_password_hash(request.form.get("password")),
             )
             dbsession.add(newuser)
-            dbsession.commit()
+            
         flash("Registered")
         return redirect("/login")
 
