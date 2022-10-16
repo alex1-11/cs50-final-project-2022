@@ -25,7 +25,7 @@ Session(app)
 
 # TODO: Configure db for app using SQLAlchemy
 sql_engine = create_engine("sqlite:///project.db", echo=True, future=True)
-db = sessionmaker(sql_engine)
+SqlSession = sessionmaker(sql_engine)
 
 @app.after_request
 def after_request(response):
@@ -83,7 +83,7 @@ def login():
             return render_template("login.html")
 
         # TODO: Query database for username
-        with db as dbsession:
+        with Sqlsessiondb() as db:
             select = db.select
             dbsession.close()
         # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
