@@ -1,11 +1,11 @@
 from flask import Flask, flash, redirect, render_template, request, session
-import flask_session
+from flask_session import Session
 from functools import wraps
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
 # from helpers import login_required, apology
 # from flask_sqlalchemy import SQLAlchemy
@@ -20,7 +20,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Cofigure session to use filesystem (intead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-flask_session.Session(app)
+Session(app)
 
 
 # TODO: Configure db for app using SQLAlchemy
@@ -139,7 +139,7 @@ def register():
                 hash = generate_password_hash(request.form.get("password")),
             )
             dbsession.add(newuser)
-            
+
         flash("Registered")
         return redirect("/login")
 
