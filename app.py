@@ -88,7 +88,9 @@ def login():
         # TODO: Query database for username
         with DbSession.begin() as db:
             selection = select(User).where(user.name(username))
-        rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
+
+
+            # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
 
         # TODO: Ensure username exists and password is correct
         # if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
