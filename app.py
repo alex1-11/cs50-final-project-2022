@@ -67,6 +67,7 @@ def login():
         # Ensure username was submitted
         # TODO: https://flask-wtf.readthedocs.io/en/1.0.x/form/#secure-form
         if not request.form.get("username"):
+            print(request.form.get("username"))
             flash("Must provide usename")
             return render_template("login.html")
 
