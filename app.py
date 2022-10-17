@@ -164,7 +164,7 @@ def index():
                 # TODO: set default values for classes, add constraints
                 # TODO?: deconstruct project, context, tags, priority from title
                 user_id = session["user_id"],
-                created = func.utc_timestamp
+                # created = func.utc_timestamp
             )
             db.add(task_new)
         return redirect("/")

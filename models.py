@@ -45,7 +45,7 @@ class Setting(Base):
 class Task(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True)
-    created = Column(DateTime(), server_default=func.now())
+    created = Column(DateTime(), default=func.now())
     user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String(100), nullable=False)
     status = Column(String, default='active')
