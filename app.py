@@ -5,7 +5,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy import create_engine, select, func
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
-# import datetime
+
+import datetime
 from sqlalchemy.dialects.sqlite import DATETIME
 
 # Configure application (thanks to CS50 Finance problemset)
@@ -163,6 +164,7 @@ def index():
                 # TODO: set default values for classes, add constraints
                 # TODO?: deconstruct project, context, tags, priority from title
                 user_id = session["user_id"],
+                created = datetime.datetime.now
             )
             db.add(task_new)
         return redirect("/")
