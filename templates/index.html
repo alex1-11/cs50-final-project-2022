@@ -12,5 +12,11 @@
             <button type="submit">Add</button>
         </div>
     </form>
+    <div>
+        <p>Task list:</p>
+        {% for task in tasks %}
+            <p>{{ task.created }} || {{ task.title }}</p>
+        {% endfor %}
+    </div>
 
 {% endblock %}
