@@ -19,10 +19,12 @@
                 <form action="/" method="POST">
                     <input type="hidden" id="task_mark" name="task_mark" value="{{ task.id }}">
                     <button type="submit" style="display: contents;">
-                        {{ if task.status == 'active' }}
+                        {% if task.status == 'active' %}
                             ◯
-                        {{ else }}
-                            
+                        {% else %}
+                            ✓
+                        {% endif %}
+
                     </button>
                     <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
