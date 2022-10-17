@@ -152,8 +152,8 @@ def register():
 @app.route("/")
 @login_required
 def index():
-    """Show dashboard of today's tasks"""
+    """Show dashboard of today's tasks, grouped by contexts"""
 
-    # TODO: Get user's tasks
-    
+    # TODO: Get user's tasks, grouped by contexts
+
     return render_template("index.html") #, tasks=tasks)
