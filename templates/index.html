@@ -18,7 +18,7 @@
             <p>
                 <form action="/" method="POST">
                     <input type="hidden" name="task_done" value="{{ task.id }}">
-                    <button type="submit" style="display: contents;">Complete</button>
+                    <button type="submit" style="display: contents;">◯</button>
                     <span>[{{ task.state }}] {{ task.created }} || {{ task.title }} ||</span>
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
                 </form>
