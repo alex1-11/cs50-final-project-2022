@@ -175,7 +175,7 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
-                    .where(id == request.form["task_done"])
+                    .where(Task.id == request.form["task_done"])
                     .values(status="done")
                 )
 
