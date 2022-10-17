@@ -167,8 +167,15 @@ def index():
                 # created = func.utc_timestamp
             )
             db.add(task_new)
+
         return redirect("/")
+
     # TODO: Get user's tasks, grouped by contexts
 
     else:
+        # Load up tasks to show out
+        with DbSession.begin() as db:
+            selection = 
+
+
         return render_template("index.html") #, tasks=tasks)
