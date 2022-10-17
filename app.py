@@ -90,7 +90,7 @@ def login():
             selection = select(User).where(User.name==username)
             print(">>>selection: ", selection)
             result = db.execute(selection).scalars().one()
-            print(">>>result: ", result.name)
+            print(">>>result: ", result.id)
             # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
 
         # TODO: Ensure username exists and password is correct
@@ -103,7 +103,8 @@ def login():
 
         # Redirect user to home page
         # flash(f"Welcome, {username}!")
-        return redirect("/")
+        return redirect("/login")
+        # return redirect("/")
 
     else:
         return render_template("login.html")
