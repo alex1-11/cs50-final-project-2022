@@ -16,12 +16,12 @@
         <p>Task list:</p>
         {% for task in tasks %}
             <p>
-                    <form action="/" method="POST">
-                        <input type="hidden" name="task_done" value="{{ task.id }}">
-                        <button type="submit" style="display: inblock;">Complete</button>
-                    </form>
-                [{{ task.state }}] {{ task.created }} || {{ task.title }} ||
-                <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
+                <form action="/" method="POST">
+                    <input type="hidden" name="task_done" value="{{ task.id }}">
+                    <button type="submit" style="display: contents;">Complete</button>
+                    <span>[{{ task.state }}] {{ task.created }} || {{ task.title }} ||</span>
+                    <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
+                </form>
             </p>
         {% endfor %}
     </div>
