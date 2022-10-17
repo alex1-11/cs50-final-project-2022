@@ -160,7 +160,7 @@ def index():
 
         # Add new task
         # TODO: if submited form is 'task_new'
-        if request.form["task_new"]:
+        if request.form["task_new"] is not None:
             with DbSession.begin() as db:
                 task_new = Task(
                     title = request.form.get("task_new"),
@@ -172,7 +172,7 @@ def index():
             return redirect("/")
 
         # TODO: Complete the task
-        if request.form["task_mark"]:
+        if request.form["task_mark"] is not None:
             with DbSession.begin() as db:
                 task = db.execute(
                     select(Task)
