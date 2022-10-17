@@ -145,7 +145,7 @@ def register():
 
         # Registration succed. Redirect to login
         flash("Registered. Now you can login into your account")
-        return redirect("/login")
+        return render_template("login.html")
 
     else:
         return render_template("register.html")
