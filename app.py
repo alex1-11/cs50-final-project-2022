@@ -172,6 +172,7 @@ def index():
 
         # TODO: Complete the task
         if request.form["task_done"]:
+            print(">>>>",request.form["task_done"])
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
