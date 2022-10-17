@@ -183,6 +183,7 @@ def index():
                     .where(Task.id == task.id)
                     .values(status="active" if task.status == "done" else "active")
                 )
+            return redirect("/")
 
         # TODO: Delete the task
 
