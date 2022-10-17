@@ -175,7 +175,9 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
-                    .where(Task.id == request.form["task_done"]))
+                    .where(id == request.form["task_done"])
+                    .values(state="done")
+                )
 
         # TODO: Delete the task
 
