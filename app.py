@@ -158,15 +158,17 @@ def index():
     if request.method == "POST":
 
         # Add new task
+        # TODO: if submited form is 'task_new'
         with DbSession.begin() as db:
             task_new = Task(
                 title = request.form.get("task_new"),
                 # TODO: set default values for classes, add constraints
                 # TODO?: deconstruct project, context, tags, priority from title
                 user_id = session["user_id"],
-                # created = func.utc_timestamp
             )
             db.add(task_new)
+
+        # TODO: Complete a task
 
         return redirect("/")
 
