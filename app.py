@@ -1,14 +1,10 @@
 from flask import Flask, flash, redirect, render_template, request, session
 import flask_session
 from functools import wraps
-
 from werkzeug.security import check_password_hash, generate_password_hash
-
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
-# from helpers import login_required, apology
-# from flask_sqlalchemy import SQLAlchemy
 
 
 # Configure application (thanks to CS50 Finance problemset)
@@ -21,7 +17,6 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 flask_session.Session(app)
-
 
 # TODO: Configure db for app using SQLAlchemy
 db_engine = create_engine("sqlite:///project.db", echo=True, future=True)
@@ -51,15 +46,6 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-
-@app.route("/")
-@login_required
-def index():
-    """Show dashboard of today's tasks"""
-
-    # TODO: Get user's tasks
-
-    return render_template("index.html") #, tasks=tasks)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -105,6 +91,18 @@ def login():
     else:
         return render_template("login.html")
 
+
+@app.route("/logout")
+def logout():
+    """Log user out, close the session"""
+
+    # Forget any user_id
+    session.clear()
+
+    # Redirect to login form
+    return redirect("/login")
+
+
 @app.route("/register", methods = ["GET", "POST"])
 def register():
     """Register new user"""
@@ -149,3 +147,13 @@ def register():
 
     else:
         return render_template("register.html")
+
+
+@app.route("/")
+@login_required
+def index():
+    """Show dashboard of today's tasks"""
+
+    # TODO: Get user's tasks
+
+    return render_template("index.html") #, tasks=tasks)
