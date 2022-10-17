@@ -175,7 +175,12 @@ def index():
     else:
         # Load up tasks to show out
         with DbSession.begin() as db:
-            selection = 
+            tasks = db.execute(select(Task)).scalars().all()
+            if tasks:
+                return render_template("index.html", tasks=tasks)
+            else:
+                flash("No tasks left")
+                return render_template("index.html")
 
 
-        return render_template("index.html") #, tasks=tasks)
+
