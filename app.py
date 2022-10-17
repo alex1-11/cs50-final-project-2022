@@ -168,17 +168,20 @@ def index():
                     user_id = session["user_id"],
                 )
                 db.add(task_new)
-
-            # TODO: Complete a task
-
             return redirect("/")
 
-    # TODO: Get user's tasks, grouped by contexts
+        # TODO: Complete the task
+
+        # TODO: Delete the task
+
+        # TODO: Edit the task
+
 
     # GET request shows the UI
     else:
-        # Load up tasks to show out
+        # TODO: Get user's tasks, grouped by contexts
         # TODO: AJAX for diff views?
+        # Connect to db, load up tasks and show them out
         with DbSession.begin() as db:
             # TODO: join other tables into selection to pass info about the project,
             # context, tags etc.
