@@ -15,7 +15,9 @@
     <div>
         <p>Task list:</p>
         {% for task in tasks %}
-            <p>{{ task.created }} || {{ task.title }}</p>
+            <p value="{{ task.id }}">
+                {{ task.created }} || {{ task.title }}
+            </p>
         {% endfor %}
     </div>
 
