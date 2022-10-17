@@ -164,6 +164,7 @@ def index():
                 # TODO?: deconstruct project, context, tags, priority from title
                 user_id = session["user_id"],
             )
+            db.add(task_new)
         return redirect("/")
     # TODO: Get user's tasks, grouped by contexts
 
