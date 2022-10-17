@@ -21,8 +21,10 @@
                     <button type="submit" style="display: contents;">
                         {% if task.status == 'active' %}
                             ◯
-                        {% else %}
+                        {% elif task.status == 'done' %}
                             ✓
+                        {% else %}
+                            -
                         {% endif %}
 
                     </button>
