@@ -88,16 +88,15 @@ def login():
         # TODO: Query database for username
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
-            print(">>>selection: ", selection)
             user = db.execute(selection).scalars().first()
-            if user:
-                print(">>>result: ", user.id)
-            else:
-                print(">>>result: ", user)
+            print(user)
 
         # TODO: Ensure username exists and password is correct
-        # if not user or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-        #     return apology("invalid username and/or password", 403)
+        if not user or not check_password_hash(user.hash, request.form.get("password")):
+            flash("Incorrect username/password")
+            print("NO")
+            return redirect("/login")
+
 
         # TODO: Remember which user has logged in
         # session["user_id"] = rows[0]["id"]
