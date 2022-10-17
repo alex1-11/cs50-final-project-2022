@@ -49,7 +49,7 @@ class Task(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String)
     status = Column(String)
-    priority = Column(Integer)
+    priority = Column(Integer, default=0)
     date = Column(String)
     datetime = Column(String)
     context_id = Column(Integer, ForeignKey("contexts.id"))
