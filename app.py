@@ -171,12 +171,16 @@ def index():
             return redirect("/")
 
         # TODO: Complete the task
-        print(">>>>",request.form["task_done"])
-        if request.form["task_done"]:
+        print(">>>>",request.form["task_mark"])
+        if request.form["task_mark"]:
             with DbSession.begin() as db:
                 db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_mark])
+                )
+                db.execute(
                     update(Task)
-                    .where(Task.id == request.form["task_done"])
+                    .where(Task.id == request.form["task_mark"])
                     .values(status="done")
                 )
 
