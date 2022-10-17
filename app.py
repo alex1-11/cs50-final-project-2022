@@ -86,6 +86,7 @@ def login():
             return render_template("login.html")
 
         # TODO: Query database for username
+        user = None
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
             user = db.execute(selection).scalars().first()
