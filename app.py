@@ -143,7 +143,8 @@ def register():
             )
             db.add(newuser)
 
-        flash("Registered")
+        # Registration succed. Redirect to login
+        flash("Registered. Now you can login into your account")
         return redirect("/login")
 
     else:
