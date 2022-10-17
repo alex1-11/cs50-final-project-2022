@@ -16,7 +16,7 @@
         <p>Task list:</p>
         {% for task in tasks %}
             <p value="{{ task.id }}">
-                {{ task.created }} || {{ task.title }}
+                {{ task.created }} || {{ task.title }} || <a href="/project{{ task.project_id }}">{{ task.project }}</a>
             </p>
         {% endfor %}
     </div>
