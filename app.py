@@ -162,11 +162,9 @@ def index():
                 title = request.form.get("task_new"),
                 # TODO: set default values for classes, add constraints
                 # TODO?: deconstruct project, context, tags, priority from title
-                user_id = session["user_id"]
-                created =
-
+                user_id = session["user_id"],
             )
-
+        return redirect("/")
     # TODO: Get user's tasks, grouped by contexts
 
     else:
