@@ -17,7 +17,7 @@
         {% for task in tasks %}
             <p>
                 <form action="/" method="POST">
-                    <input type="hidden" id="task_mark" name="task_mark" value="{{ task.id }}">
+                    <input type="hidden" name="task_mark" value="{{ task.id }}">
                     <button type="submit" style="display: contents;">
                         {% if task.status == 'active' %}
                             ◯
