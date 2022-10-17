@@ -180,11 +180,18 @@ def index():
                 ).scalars().first()
                 print('>>>', task)
                 print(task.id, task.status)
-                db.execute(
-                    update(Task)
-                    .where(Task.id == task.id)
-                    .values(status="active" if task.status == "done" else "done")
-                )
+                if task.status == "done":
+                    db.execute(
+                        update(Task)
+                        .where(Task.id == task.id)
+                        .values(status="active")
+                    )
+                elif task.status == "active":
+                    db.execute(
+                        update(Task)
+                        .where(Task.id == task.id)
+                        .values(status="done")
+                    )
             return redirect("/")
 
         # TODO: Delete the task
