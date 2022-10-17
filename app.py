@@ -178,7 +178,6 @@ def index():
                     select(Task)
                     .where(Task.id == request.form["task_mark"])
                 )
-                if task
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_mark"])
