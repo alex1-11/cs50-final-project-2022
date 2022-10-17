@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
-
+import datetime
 
 # Configure application (thanks to CS50 Finance problemset)
 app = Flask(__name__)
@@ -160,9 +160,10 @@ def index():
             task_new = Task(
                 title = request.form.get("task_new"),
                 # TODO: set default values for classes, add constraints
+                # TODO?: deconstruct project, context, tags, priority from title
                 user_id = session["user_id"]
-                created
-                status
+                created =
+
             )
 
     # TODO: Get user's tasks, grouped by contexts
