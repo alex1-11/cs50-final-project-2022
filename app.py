@@ -72,12 +72,11 @@ def login():
     if request.method == "POST":
 
         # Ensure username was submitted
-        # TODO: https://flask-wtf.readthedocs.io/en/1.0.x/form/#secure-form
-        if not request.form.get("username"):
-            print(request.form.get("username"))
+        # TODO?: https://flask-wtf.readthedocs.io/en/1.0.x/form/#secure-form
+        username = request.form.get("username")
+        if not username:
             flash("Must provide usename")
             return render_template("login.html")
-        username = request.form.get("username")
 
 
         # Ensure password was submitted
