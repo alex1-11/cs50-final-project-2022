@@ -85,7 +85,7 @@ def login():
 
         # Query database for username and check credentials
         with DbSession.begin() as db:
-            selection = select(User).where(User.name==username)
+            selection = select(User).where(User.name == username)
             user = db.execute(selection).scalars().first()
 
             # Ensure username exists and password is correct
@@ -119,10 +119,12 @@ def register():
 
         # Ensure username is not already taken
         # TODO: usercheck = db.execute("SELECT username FROM users WHERE username = ?", username)
-        # if len(usercheck) > 0 and str.lower(username) == str.lower(usercheck[0]["username"]):
-        #     flash("Sorry! The username is already taken")
-        #     return redirect("/register")
-
+        with DbSession.begin() as db:
+            selection = select(User).where(User.name == username)
+            user_exists = db.execute(selection).scalars().first()
+            if user_exists:
+                flash("Sorry! The username is already taken")
+                return redirect("/register")
 
         # Ensure password was submitted
         if not request.form.get("password"):
