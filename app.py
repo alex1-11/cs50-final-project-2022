@@ -166,8 +166,6 @@ def index():
                 # TODO?: deconstruct project, context, tags, priority from title
                 user_id = session["user_id"],
             )
-            print(">>>request.form.get(): ", request.form.get("task_new"))
-            print(">>>request.form.get(): ", request.form["task_new"])
             db.add(task_new)
 
         # TODO: Complete a task
