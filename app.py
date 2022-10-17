@@ -181,7 +181,7 @@ def index():
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_mark"])
-                    .values(status="done")
+                    .values(status="active" if task.status == "done" else "active")
                 )
 
         # TODO: Delete the task
