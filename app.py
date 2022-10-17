@@ -2,7 +2,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 import flask_session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
-from sqlalchemy import create_engine, select, func
+from sqlalchemy import create_engine, select, update
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm, task_tags, user_settings
 
@@ -173,9 +173,9 @@ def index():
         # TODO: Complete the task
         if request.form["task_done"]:
             with DbSession.begin() as db:
-                task_done = db.execute(
-                    select(Task)
-                    .where(id == request.form["task_done"]))
+                db.execute(
+                    update(Task)
+                    .where(Task.id == request.form["task_done"]))
 
         # TODO: Delete the task
 
