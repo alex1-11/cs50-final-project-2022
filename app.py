@@ -108,7 +108,7 @@ def logout():
     return redirect("/login")
 
 
-@app.route("/register", methods = ["GET", "POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     """Register new user"""
 
@@ -141,8 +141,8 @@ def register():
         # Add new user to database
         with DbSession.begin() as db:
             newuser = User(
-                name = username,
-                hash = generate_password_hash(request.form.get("password")),
+                name=username,
+                hash=generate_password_hash(request.form.get("password")),
             )
             db.add(newuser)
 
@@ -154,7 +154,7 @@ def register():
         return render_template("register.html")
 
 
-@app.route("/", methods = ["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
     """Show dashboard of today's tasks, grouped by contexts"""
@@ -162,16 +162,15 @@ def index():
         # print(">>>>",request.form["task_mark"])
 
         # Add new task
-        # TODO: if submited form is 'task_new'
         if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
-                    title = request.form.get("task_new"),
+                    title=request.form.get("task_new"),
                     # TODO: set default values for classes,
                     # add constraints
                     # TODO?: deconstruct project, context, tags,
                     # priority from title
-                    user_id = session["user_id"],
+                    user_id=session["user_id"],
                 )
                 db.add(task_new)
             return redirect("/")
@@ -203,7 +202,6 @@ def index():
 
         # TODO: Edit the task
 
-
     # GET request shows the UI
     else:
         # TODO: Get user's tasks, grouped by contexts
@@ -218,6 +216,4 @@ def index():
             else:
                 flash("No tasks left")
                 return render_template("index.html")
-
-
 
