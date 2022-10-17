@@ -78,13 +78,12 @@ def login():
             flash("Must provide usename")
             return render_template("login.html")
 
-
         # Ensure password was submitted
         if not request.form.get("password"):
             flash("Must provide password")
             return render_template("login.html")
 
-        # Query database for username
+        # Query database for username and check credentials
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
             user = db.execute(selection).scalars().first()
@@ -101,8 +100,8 @@ def login():
         # Redirect user to home page
         flash(f"Welcome, {username}!")
         return redirect("/")
-        # return redirect("/")
 
+    # GET clause
     else:
         return render_template("login.html")
 
