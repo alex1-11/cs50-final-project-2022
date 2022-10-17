@@ -1,3 +1,5 @@
+// https://video.cs50.io/dQcBs4S-wEQ?start=474
+
 function ajax_request(argument)
 {
     var aj = new XMLHttpRequest();
