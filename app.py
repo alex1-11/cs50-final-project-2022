@@ -149,11 +149,14 @@ def register():
         return render_template("register.html")
 
 
-@app.route("/")
+@app.route("/", methods = ["GET", "POST"])
 @login_required
 def index():
     """Show dashboard of today's tasks, grouped by contexts"""
+    if request.method == "POST":
+        pass
 
     # TODO: Get user's tasks, grouped by contexts
 
-    return render_template("index.html") #, tasks=tasks)
+    else:
+        return render_template("index.html") #, tasks=tasks)
