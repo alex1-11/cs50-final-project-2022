@@ -159,25 +159,29 @@ def index():
 
         # Add new task
         # TODO: if submited form is 'task_new'
-        with DbSession.begin() as db:
-            task_new = Task(
-                title = request.form.get("task_new"),
-                # TODO: set default values for classes, add constraints
-                # TODO?: deconstruct project, context, tags, priority from title
-                user_id = session["user_id"],
-            )
-            db.add(task_new)
+        if request.form["task_new"]:
+            with DbSession.begin() as db:
+                task_new = Task(
+                    title = request.form.get("task_new"),
+                    # TODO: set default values for classes, add constraints
+                    # TODO?: deconstruct project, context, tags, priority from title
+                    user_id = session["user_id"],
+                )
+                db.add(task_new)
 
-        # TODO: Complete a task
+            # TODO: Complete a task
 
-        return redirect("/")
+            return redirect("/")
 
     # TODO: Get user's tasks, grouped by contexts
 
+    # GET request shows the UI
     else:
         # Load up tasks to show out
         # TODO: AJAX for diff views?
         with DbSession.begin() as db:
+            # TODO: join other tables into selection to pass info about the project,
+            # context, tags etc.
             tasks = db.execute(select(Task)).scalars().all()
             if tasks:
                 return render_template("index.html", tasks=tasks)
