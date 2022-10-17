@@ -24,9 +24,8 @@
                         {% elif task.status == 'done' %}
                             ✓
                         {% else %}
-                            -
+                            —
                         {% endif %}
-
                     </button>
                     <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->

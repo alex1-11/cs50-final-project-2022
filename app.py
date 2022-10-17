@@ -174,10 +174,11 @@ def index():
         print(">>>>",request.form["task_mark"])
         if request.form["task_mark"]:
             with DbSession.begin() as db:
-                db.execute(
+                task = db.execute(
                     select(Task)
-                    .where(Task.id == request.form["task_mark])
+                    .where(Task.id == request.form["task_mark"])
                 )
+                if task
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_mark"])
