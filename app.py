@@ -159,7 +159,9 @@ def index():
         with DbSession.begin() as db:
             task_new = Task(
                 title = request.form.get("task_new"),
-                c
+                # TODO: set default values for classes, add constraints
+                created
+                status
             )
 
     # TODO: Get user's tasks, grouped by contexts
