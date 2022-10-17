@@ -156,11 +156,11 @@ def register():
 def index():
     """Show dashboard of today's tasks, grouped by contexts"""
     if request.method == "POST":
-        print(">>>>",request.form["task_mark"])
+        # print(">>>>",request.form["task_mark"])
 
         # Add new task
         # TODO: if submited form is 'task_new'
-        if request.form["task_new"] is not None:
+        if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
                     title = request.form.get("task_new"),
@@ -172,7 +172,7 @@ def index():
             return redirect("/")
 
         # TODO: Complete the task
-        if request.form["task_mark"] is not None:
+        if request.form.get("task_mark"):
             with DbSession.begin() as db:
                 task = db.execute(
                     select(Task)
