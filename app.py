@@ -156,6 +156,7 @@ def register():
 def index():
     """Show dashboard of today's tasks, grouped by contexts"""
     if request.method == "POST":
+        print(">>>>",request.form["task_mark"])
 
         # Add new task
         # TODO: if submited form is 'task_new'
@@ -171,7 +172,6 @@ def index():
             return redirect("/")
 
         # TODO: Complete the task
-        print(">>>>",request.form["task_mark"])
         if request.form["task_mark"]:
             with DbSession.begin() as db:
                 task = db.execute(
