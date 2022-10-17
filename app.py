@@ -180,7 +180,7 @@ def index():
                 )
                 db.execute(
                     update(Task)
-                    .where(Task.id == request.form["task_mark"])
+                    .where(Task.id == task.id)
                     .values(status="active" if task.status == "done" else "active")
                 )
 
