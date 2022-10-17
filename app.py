@@ -85,27 +85,23 @@ def login():
             flash("Must provide password")
             return render_template("login.html")
 
-        # TODO: Query database for username
-        user = None
+        # Query database for username
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
             user = db.execute(selection).scalars().first()
-            print(user)
 
-        # TODO: Ensure username exists and password is correct
-        if not user or not check_password_hash(user.hash, request.form.get("password")):
-            flash("Incorrect username/password")
-            return render_template("login.html")
+            # Ensure username exists and password is correct
+            if not user or not check_password_hash(user.hash, request.form.get("password")):
+                flash("Incorrect username/password")
+                return render_template("login.html")
 
-
-
-        # TODO: Remember which user has logged in
-        # session["user_id"] = rows[0]["id"]
-        # username = escape(username)
+            # Remember which user has logged in
+            session["user_id"] = user.id
+            session["user_name"] = user.name
 
         # Redirect user to home page
-        # flash(f"Welcome, {username}!")
-        return redirect("/login")
+        flash(f"Welcome, {username}!")
+        return redirect("/")
         # return redirect("/")
 
     else:
