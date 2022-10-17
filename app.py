@@ -183,7 +183,7 @@ def index():
                 db.execute(
                     update(Task)
                     .where(Task.id == task.id)
-                    .values(status="active" if task.status == "done" else "active")
+                    .values(status="active" if task.status == "done" else "done")
                 )
             return redirect("/")
 
