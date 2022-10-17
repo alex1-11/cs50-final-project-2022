@@ -173,7 +173,9 @@ def index():
         # TODO: Complete the task
         if request.form["task_done"]:
             with DbSession.begin() as db:
-                task_done = db.execute(select(Task))
+                task_done = db.execute(
+                    select(Task)
+                    .where(id == request.form["task_done"]))
 
         # TODO: Delete the task
 
