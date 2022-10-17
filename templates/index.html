@@ -6,7 +6,7 @@
 
 {% block main %}
     <p>TODO</p>
-    <form action="/" method="post">
+    <form action="/" method="POST">
         <div>
             <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text">
             <button type="submit">Add</button>
@@ -16,6 +16,11 @@
         <p>Task list:</p>
         {% for task in tasks %}
             <p value="{{ task.id }}">
+                <div>
+                    <form action="/" method="POST">
+                        <button
+                    </form>
+                </div>
                 {{ task.created }} || {{ task.title }} ||
                 <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
             </p>

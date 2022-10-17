@@ -171,6 +171,9 @@ def index():
             return redirect("/")
 
         # TODO: Complete the task
+        if request.form["task_done"]:
+            with DbSession.begin() as db:
+                task_done = db.execute(select(Task))
 
         # TODO: Delete the task
 
