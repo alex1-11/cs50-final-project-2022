@@ -89,8 +89,8 @@ def login():
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
             print(">>>selection: ", selection)
-            result = db.execute(selection).scalars()
-            print(">>>result: ", result)
+            result = db.execute(selection).scalars().one()
+            print(">>>result: ", result.name)
             # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
 
         # TODO: Ensure username exists and password is correct
