@@ -77,8 +77,13 @@ def login():
             user = db.execute(selection).scalars().first()
 
             # Ensure username exists and password is correct
-            if not (user and
-                check_password_hash(user.hash, request.form["password"])):
+            if (not user or
+                    not check_password_hash(
+                        user.hash,
+                        request.form["password"]
+                    )
+                ):
+                # Then: Wrong credentials
                 flash("Incorrect username/password")
                 return render_template("login.html")
 
