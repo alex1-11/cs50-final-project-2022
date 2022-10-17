@@ -89,12 +89,11 @@ def login():
         with DbSession.begin() as db:
             selection = select(User).where(User.name==username)
             print(">>>selection: ", selection)
-            result = db.execute(selection).scalars().one()
-            print(">>>result: ", result.id)
-            # rows = db.execute("SELECT * FROM users WHERE username = ?", str.lower(request.form.get("username")))
+            user = db.execute(selection).scalars().one()
+            print(">>>result: ", user.id)
 
         # TODO: Ensure username exists and password is correct
-        # if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+        # if not user or not check_password_hash(rows[0]["hash"], request.form.get("password")):
         #     return apology("invalid username and/or password", 403)
 
         # TODO: Remember which user has logged in
