@@ -18,7 +18,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 flask_session.Session(app)
 
-# TODO: Configure db for app using SQLAlchemy
+# Configure db for app using SQLAlchemy
 db_engine = create_engine("sqlite:///project.db", echo=True, future=True)
 DbSession = sessionmaker(db_engine)
 
@@ -155,5 +155,5 @@ def index():
     """Show dashboard of today's tasks"""
 
     # TODO: Get user's tasks
-
+    
     return render_template("index.html") #, tasks=tasks)
