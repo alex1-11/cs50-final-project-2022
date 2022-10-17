@@ -154,7 +154,13 @@ def register():
 def index():
     """Show dashboard of today's tasks, grouped by contexts"""
     if request.method == "POST":
-        pass
+
+        # Add new task
+        with DbSession.begin() as db:
+            task_new = Task(
+                title = request.form.get("task_new"),
+                c
+            )
 
     # TODO: Get user's tasks, grouped by contexts
 

@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block main %}
-    TODO
+    <p>TODO</p>
+    <form action="/" method="post">
+        <div>
+            <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text">
+            <button type="submit">Add</button>
+        </div>
+    </form>
+
 {% endblock %}
