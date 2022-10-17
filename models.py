@@ -48,7 +48,7 @@ class Task(Base):
     created = Column(String)
     user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String)
-    status = Column(String)
+    status = Column(String, default='active')
     priority = Column(Integer, default=0)
     date = Column(String)
     datetime = Column(String)

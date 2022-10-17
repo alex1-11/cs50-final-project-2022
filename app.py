@@ -160,6 +160,7 @@ def index():
             task_new = Task(
                 title = request.form.get("task_new"),
                 # TODO: set default values for classes, add constraints
+                user_id = session["user_id"]
                 created
                 status
             )
