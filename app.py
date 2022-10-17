@@ -176,7 +176,7 @@ def index():
 
     else:
         # Load up tasks to show out
-        # TODO: AJAX?
+        # TODO: AJAX for diff views?
         with DbSession.begin() as db:
             tasks = db.execute(select(Task)).scalars().all()
             if tasks:
