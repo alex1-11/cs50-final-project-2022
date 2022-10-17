@@ -111,20 +111,11 @@ def register():
 
     if request.method == "POST":
 
-        # Ensure username was typed in
+        # Ensure username was submitted
         username = request.form.get("username")
         if not username:
             flash("Must provide usename")
             return redirect("/register")
-
-        # Ensure username is not already taken
-        # TODO: usercheck = db.execute("SELECT username FROM users WHERE username = ?", username)
-        with DbSession.begin() as db:
-            selection = select(User).where(User.name == username)
-            user_exists = db.execute(selection).scalars().first()
-            if user_exists:
-                flash("Sorry! The username is already taken")
-                return redirect("/register")
 
         # Ensure password was submitted
         if not request.form.get("password"):
@@ -135,6 +126,14 @@ def register():
         if not request.form.get("password") == request.form.get("confirm"):
             flash("Passwords do not match")
             return redirect("/register")
+
+        # Ensure username is not already taken
+        with DbSession.begin() as db:
+            selection = select(User).where(User.name == username)
+            user_exists = db.execute(selection).scalars().first()
+            if user_exists:
+                flash("Sorry! The username is already taken")
+                return redirect("/register")
 
         # Add new user to database
         with DbSession.begin() as db:
