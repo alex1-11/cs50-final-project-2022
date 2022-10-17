@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table, create_engine
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Table, create_engine, func
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
 # https://realpython.com/python-sqlite-sqlalchemy/#working-with-sqlalchemy-and-python-objects
@@ -45,7 +45,7 @@ class Setting(Base):
 class Task(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True)
-    created = Column(String, DateTime())
+    created = Column(DateTime(), server_default=func.now())
     user_id = Column(Integer, ForeignKey("users.id"))
     title = Column(String(100), nullable=False)
     status = Column(String, default='active')
