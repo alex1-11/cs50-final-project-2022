@@ -94,8 +94,8 @@ def login():
         # TODO: Ensure username exists and password is correct
         if not user or not check_password_hash(user.hash, request.form.get("password")):
             flash("Incorrect username/password")
-            print("NO")
-            return redirect("/login")
+            return render_template("login.html")
+
 
 
         # TODO: Remember which user has logged in
