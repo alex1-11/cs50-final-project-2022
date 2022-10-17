@@ -59,6 +59,7 @@ Task creation module
     tags picker
     project picker
 Tasks view and different filtered views
+    ! Use AJAX! and jquery(?) for updating div with GET requests
 Task view and edit modules
 Projects view
 Project view and edit modules
