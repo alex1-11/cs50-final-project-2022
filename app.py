@@ -90,7 +90,7 @@ def login():
             selection = select(User).where(User.name==username)
             print(">>>selection: ", selection)
             user = db.execute(selection).scalars().one()
-            print(">>>result: ", user.fetchone())
+            print(">>>result: ", user.id)
 
         # TODO: Ensure username exists and password is correct
         # if not user or not check_password_hash(rows[0]["hash"], request.form.get("password")):
