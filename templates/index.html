@@ -15,10 +15,11 @@
     <div>
         <p>Task list:</p>
         {% for task in tasks %}
-            <p value="{{ task.id }}">
+            <p>
                 <div>
                     <form action="/" method="POST">
-                        <button
+                        <input type
+                        <button type="submit">Complete</button>
                     </form>
                 </div>
                 {{ task.created }} || {{ task.title }} ||
