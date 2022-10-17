@@ -77,7 +77,9 @@ def login():
             user = db.execute(selection).scalars().first()
 
             # Ensure username exists and password is correct
-            if not user or not check_password_hash(user.hash, request.form.get("password")):
+            if not user or not check_password_hash(
+                user.hash, request.form.get("password")
+            ):
                 flash("Incorrect username/password")
                 return render_template("login.html")
 
@@ -164,8 +166,10 @@ def index():
             with DbSession.begin() as db:
                 task_new = Task(
                     title = request.form.get("task_new"),
-                    # TODO: set default values for classes, add constraints
-                    # TODO?: deconstruct project, context, tags, priority from title
+                    # TODO: set default values for classes,
+                    # add constraints
+                    # TODO?: deconstruct project, context, tags,
+                    # priority from title
                     user_id = session["user_id"],
                 )
                 db.add(task_new)
@@ -205,8 +209,8 @@ def index():
         # TODO: AJAX for diff views?
         # Connect to db, load up tasks and show them out
         with DbSession.begin() as db:
-            # TODO: join other tables into selection to pass info about the project,
-            # context, tags etc.
+            # TODO: join other tables into selection to pass info
+            # about the project, context, tags etc.
             tasks = db.execute(select(Task)).scalars().all()
             if tasks:
                 return render_template("index.html", tasks=tasks)
