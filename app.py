@@ -206,6 +206,8 @@ def index():
         # TODO: Delete the task
 
         # TODO: Edit the task
+        # ? Maybe collect data in front-end and
+        # ? update it with time pattern to back end
 
     # GET request shows the UI
     else:
