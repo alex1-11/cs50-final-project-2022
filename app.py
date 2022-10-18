@@ -62,6 +62,7 @@ def login():
 
         # Ensure username was submitted
         # TODO?: https://flask-wtf.readthedocs.io/en/1.0.x/form/#secure-form
+        # ! https://flask.palletsprojects.com/en/2.2.x/patterns/wtforms/
         username = request.form.get("username")
         if not username:
             flash("Must provide usename")
