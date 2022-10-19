@@ -209,7 +209,7 @@ def index():
                     .where(Task.id == request.form["task_delete"])
                     .values(status="bin")
                 )
-                return redirect("/")
+            return redirect("/")
 
         if request.form.get("bin_empty"):
             print(">>>>: request.form.get('bin_empty')")
@@ -218,7 +218,7 @@ def index():
                     delete(Task)
                     .where(Task.status == "bin")
                 )
-                return redirect("/")
+            return redirect("/")
 
 
         # TODO: Edit the task
