@@ -31,7 +31,7 @@
                     <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
                 </form>
-                <div id="edit_block" hidden>
+                <div id="edit_block">
                     <button type="button"></button>
                     <form action="/" method="POST">
                         <button type="submit" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
