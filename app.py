@@ -226,6 +226,7 @@ def index():
                 db.execute(
                     delete(Task)
                     .where(Task.status.endswith('bin', autoescape=True))
+                    .synchronize_session
                 )
             return redirect("/")
 
