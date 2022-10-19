@@ -223,6 +223,7 @@ def index():
         # TODO: Edit the task
         # ? Maybe collect data in front-end and
         # ? update it with time pattern to back end
+        
         return redirect("/")
     # GET request shows the UI
     else:
