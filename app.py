@@ -217,7 +217,7 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
-                    .where(Task.status.contains('_bin') )
+                    .where(Task.status.endswith('_bin'))
                 )
 
         # Empty trash bin. Permanently deletes tasks with "_bin" in status
@@ -225,7 +225,7 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     delete(Task)
-                    .where(Task.status == "_bin")
+                    .where(Task.status.endswith('_bin'))
                 )
             return redirect("/")
 
