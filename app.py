@@ -167,7 +167,6 @@ def index():
         # print(">>>>",request.form["task_mark"])
 
         # Add new task
-        print(">>> ", request.form.get("task_new"))
         if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
@@ -224,7 +223,7 @@ def index():
         # TODO: Edit the task
         # ? Maybe collect data in front-end and
         # ? update it with time pattern to back end
-
+        return redirect("/")
     # GET request shows the UI
     else:
         # TODO: Get user's tasks, grouped by contexts
