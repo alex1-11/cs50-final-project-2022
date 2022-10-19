@@ -215,8 +215,7 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     delete(Task)
-                    .where(Task.status == 
-
+                    .where(Task.status == "bin")
                 )
 
 
