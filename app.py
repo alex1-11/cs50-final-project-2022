@@ -204,6 +204,7 @@ def index():
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
+                
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_delete"])
@@ -223,7 +224,7 @@ def index():
         # TODO: Edit the task
         # ? Maybe collect data in front-end and
         # ? update it with time pattern to back end
-        
+
         return redirect("/")
     # GET request shows the UI
     else:
