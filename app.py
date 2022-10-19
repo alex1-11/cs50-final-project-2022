@@ -225,7 +225,7 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     delete(Task)
-                    .where(Task.status.endswith('bin', autoescape=True))
+                    .where(c.status.endswith('bin', autoescape=True))
                 )
             return redirect("/")
 
