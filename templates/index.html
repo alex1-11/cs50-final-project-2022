@@ -30,7 +30,11 @@
                     <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
                 </form>
+                <form action="/" method="POST">
+                    <input type="hidden" name="task_delete" value="{{ task.id }}"
+                </form>
             </p>
+
         {% endfor %}
     </div>
 

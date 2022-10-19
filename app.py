@@ -201,16 +201,16 @@ def index():
                     )
             return redirect("/")
 
-        # TODO: Delete the task (moves task )
+        # TODO: Delete the task (moves task to "trash bin" which makes it possible to undo)
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
-                task = db.execute(
-                    select(Task)
-                    .where(Task.id == request.form["task_delete"])
-                ).scalars().first()
                 db.execute(
                     update(Task)
+                    .where(Task.id == request.form["task_delete"])
+                    .values(status="bin")
                 )
+                return redirect("/")
+
 
 
         # TODO: Edit the task
