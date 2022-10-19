@@ -217,7 +217,7 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
-                    .where(Task.status == )
+                    .where(Task.status.contains('_bin') )
                 )
 
         # Empty trash bin. Permanently deletes tasks with "_bin" in status
