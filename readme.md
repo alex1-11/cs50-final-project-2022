@@ -76,7 +76,7 @@ Repeat module (and recurrance patterns)
 - google calendar synch
 - gamification with points for completing tasks and leveling for users
 - tasks and projects review routine
-- custom (manual) ordering of projects/tasks
+- custom (manual) ordering of projects/tasks (add position column)
 - ability to export/import data to/from other task managers and todo apps (e.g. via .csv files)
 - teams and teamwork, executors and liable employees
 - ...
