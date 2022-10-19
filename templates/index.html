@@ -15,10 +15,9 @@
     <div>
         <p>Task list:</p>
         {% for task in tasks %}
-            <p>
+            <div>
                 <form action="/" method="POST">
-                    <input type="hidden" name="task_mark" value="{{ task.id }}">
-                    <button type="submit" style="display: contents;">
+                    <button type="submit" name="task_mark" value="{{ task.id }}" style="display: contents;">
                         {% if task.status == 'active' %}
                             ◯
                         {% elif task.status == 'done' %}
@@ -31,11 +30,12 @@
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
                 </form>
                 <div id="edit_block">
+                    <button type="button"></button>
                     <form action="/" method="POST">
                         <button type="submit" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
                     </form>
                 </div>
-            </p>
+            </div>
         {% endfor %}
     </div>
     <div>
