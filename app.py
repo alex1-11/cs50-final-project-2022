@@ -217,6 +217,7 @@ def index():
                     delete(Task)
                     .where(Task.status == "bin")
                 )
+                return redirect("/")
 
 
 
