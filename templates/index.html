@@ -32,16 +32,15 @@
                 </form>
                 <form action="/" method="POST">
                     <input type="hidden" name="task_delete" value="{{ task.id }}">
-                    <button type="submit" style="display: contents;">
-                        🗑️
-                    </button>
+                    <button type="submit" style="display: contents;">🗑️</button>
                 </form>
             </p>
         {% endfor %}
     </div>
     <div>
         <form action="/" method="POST">
-            <input type="hidden" name="bin_
+            <input type="hidden" name="bin_empty">
+            <button type="submit">Empty bin (no undo!)</button>
         </form>
     </div>
 

@@ -2,7 +2,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 import flask_session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
-from sqlalchemy import create_engine, select, update
+from sqlalchemy import create_engine, select, update, delete
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm
 from models import task_tags, user_settings
@@ -210,6 +210,14 @@ def index():
                     .values(status="bin")
                 )
                 return redirect("/")
+
+        if request.form.get("bin_empty"):
+            with DbSession.begin() as db:
+                db.execute(
+                    delete(Task)
+                    .where(Task.status == 
+
+                )
 
 
 
