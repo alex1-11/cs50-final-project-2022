@@ -208,11 +208,13 @@ def index():
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_delete"])
+                    # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
                     .values(status=Task.status + "_bin")
                 )
             return redirect("/")
 
-        # Restore the deleted task (removes "_bin" from status)
+        # TODO: Restore the deleted task (removes "_bin" from end of status)
+        # https://www.w3schools.com/python/python_ref_string.asp
         if request.form.get("task_restore"):
             with DbSession.begin() as db:
                 db.execute(
