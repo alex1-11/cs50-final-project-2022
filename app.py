@@ -167,6 +167,7 @@ def index():
         # print(">>>>",request.form["task_mark"])
 
         # Add new task
+        print(">>> ", request.form.get("task_new"))
         if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
