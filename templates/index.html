@@ -32,8 +32,7 @@
                 </form>
                 <div id="edit_block">
                     <form action="/" method="POST">
-                        <input type="hidden" name="task_delete" value="{{ task.id }}">
-                        <button type="submit" style="display: contents;">🗑️</button>
+                        <button type="submit" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
                     </form>
                 </div>
             </p>
