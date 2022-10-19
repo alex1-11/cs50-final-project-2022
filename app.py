@@ -212,6 +212,7 @@ def index():
                 return redirect("/")
 
         if request.form.get("bin_empty"):
+            print(">>>>: request.form.get('bin_empty')")
             with DbSession.begin() as db:
                 db.execute(
                     delete(Task)
