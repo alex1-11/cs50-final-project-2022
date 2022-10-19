@@ -170,6 +170,7 @@ def index():
         if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
+                    # Uses .strip() method to remove whitespaces
                     title=request.form.get("task_new").strip(),
                     # TODO: set default values for classes,
                     # add constraints
