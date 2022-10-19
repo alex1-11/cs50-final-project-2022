@@ -220,7 +220,6 @@ def index():
                 return redirect("/")
 
 
-
         # TODO: Edit the task
         # ? Maybe collect data in front-end and
         # ? update it with time pattern to back end
