@@ -187,8 +187,6 @@ def index():
                     select(Task)
                     .where(Task.id == request.form["task_mark"])
                 ).scalars().first()
-                print('>>>', task)
-                print(task.id, task.status)
                 if task.status == "done":
                     db.execute(
                         update(Task)
@@ -203,7 +201,17 @@ def index():
                     )
             return redirect("/")
 
-        # TODO: Delete the task
+        # TODO: Delete the task (moves task )
+        if request.form.get("task_delete"):
+            with DbSession.begin() as db:
+                task = db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_delete"])
+                ).scalars().first()
+                db.execute(
+                    update(Task)
+                )
+
 
         # TODO: Edit the task
         # ? Maybe collect data in front-end and
