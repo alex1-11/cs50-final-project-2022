@@ -205,19 +205,27 @@ def index():
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
-
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_delete"])
-                    .values(status="bin")
+                    .values(status=Task.status + "_bin")
                 )
             return redirect("/")
 
+        # Restore the deleted task (removes "_bin" from status)
+        if request.form.get("task_restore"):
+            with DbSession.begin() as db:
+                db.execute(
+                    update(Task)
+                    .where(Task.status == )
+                )
+
+        # Empty trash bin. Permanently deletes tasks with "_bin" in status
         if request.form.get("bin_empty"):
             with DbSession.begin() as db:
                 db.execute(
                     delete(Task)
-                    .where(Task.status == "bin")
+                    .where(Task.status == "_bin")
                 )
             return redirect("/")
 
