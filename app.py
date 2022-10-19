@@ -170,7 +170,7 @@ def index():
         if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
-                    title=request.form.get("task_new"),
+                    title=strip(request.form.get("task_new"),)
                     # TODO: set default values for classes,
                     # add constraints
                     # TODO?: deconstruct project, context, tags,
@@ -204,7 +204,7 @@ def index():
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
-                
+
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_delete"])
