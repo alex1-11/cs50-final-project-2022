@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block main %}
+    <p>TEST VIEW !:</p>
+    <form action="/" method="POST">
+        <div>
+            <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+            <button type="submit">Add</button>
+        </div>
+    </form>
+
+
+    <div>
+        <p>TEST VIEW !:</p>
+        {% for task in tasks %}
+            <div>
+                <form action="/" method="POST">
+                    <button type="{% if task.status in ['active', 'done'] %}submit{% else %}button{% endif %}" name="task_mark" value="{{ task.id }}" style="display: contents;">
+                        {% if task.status == 'active' %}
+                            ◯
+                        {% elif task.status == 'done' %}
+                            ✓
+                        {% else %}
+                            —
+                        {% endif %}
+                    </button>
+                    <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
+                    <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
+                    <button type="submit" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Empty bin
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">WARNING!</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            This action will lead to inrestorable deletion of tasks in the trash bin. No undo!
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <form action="/" method="POST">
+                <button type="submit" name="bin_empty" value="1" class="btn btn-primary">DELETE PERMANENTLY</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
