@@ -13,4 +13,4 @@ function addtask(event) {
     event.preventDefault();
 };
 
-document.querySelector("#task_new_trigger").addEventListener("submit", addtask);
+document.querySelector("#add_new_task").addEventListener("submit", addtask);
