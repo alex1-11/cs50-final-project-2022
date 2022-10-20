@@ -3,7 +3,7 @@
 // if ADD NEW TASK
 
 function addtask(event) {
-    let task_new = new FormData(document.querySelector("#add_new_task"));
+    const task_new = new FormData(document.querySelector("#add_new_task"));
     const tasklist_end_div = getElementById("tasklist_end");
     fetch('/', {
         "method": "POST",
