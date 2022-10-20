@@ -9,7 +9,8 @@ function addtask(event) {
         "method": "POST",
         "body": task_new,
     }).then(response => response.json)
-    .then(json => tasklist_end_div.innerHtml = json)
+    .then(json => console.log("JSOOOOON: ", json))
+    // .then(json => tasklist_end_div.innerHtml = json)
     .catch((error) => {
         console.error('Error:', error)
     })
