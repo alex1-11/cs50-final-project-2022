@@ -6,7 +6,7 @@ const form_add_new_task = document.querySelector("#form_add_new_task")
 const tasklist_end_div = document.querySelector("#tasklist_end")
 
 function add_new_task(event) {
-    const task_form_data = new FormData(form)
+    const task_form_data = new FormData(form_add_new_task)
     fetch('/', {
         "method": "POST",
         "body": task_form_data,
