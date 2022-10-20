@@ -167,8 +167,6 @@ def index():
         # print(">>>>",request.form["task_mark"])
 
         # Add new task
-        print(">>>", request.form.get("task_new_trigger"))
-        print(">>>", request.form.get("task_new"))
         if request.form.get("task_new"):
             with DbSession.begin() as db:
                 task_new = Task(
@@ -183,16 +181,7 @@ def index():
 
                 db.add(task_new)
                 db.flush()
-                # html = make_response(render_template("test.html", task=task_new))
-                # print(">>>", html)
-                # html.get_data(as_text=True)
-                # print(">>>", html)
-                return render_template("test.html", task=task_new)
-                # print(">>>>: ", task_new)
-                # task_new = as_dict(task_new)
-                # print(">>>>: ", task_new)
-                # return jsonify(task_new)
-            # return redirect("/")
+                return render_template("task_new.html", task=task_new)
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
         if request.form.get("task_mark"):
