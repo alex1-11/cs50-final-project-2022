@@ -8,7 +8,7 @@ function addtask(event) {
     fetch('/', {
         "method": "POST",
         "body": task_new,
-    }).then(response => response.json)
+    }).then(response => response.json())
     .then(json => console.log("JSOOOOON: ", json))
     // .then(json => tasklist_end_div.innerHtml = json)
     .catch((error) => {
