@@ -179,7 +179,6 @@ def index():
                     # priority from title
                     user_id=session["user_id"],
                 )
-
                 db.add(task_new)
                 db.flush()
                 return render_template("task_new.html", task=task_new)
