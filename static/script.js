@@ -10,8 +10,7 @@ function addtask(event) {
         "method": "POST",
         "body": task_new,
     }).then(response => response.text)
-    .then(text => tasklist_end_div.inserAdjacentHTML("beforebegin", text)
-    )
+    .then(text => tasklist_end_div.inserAdjacentHTML("beforebegin", text))
 };
 
 document.querySelector("#task_new_trigger").addEventListener("submit", (event) => addtask(event));
