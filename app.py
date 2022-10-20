@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, make_response
 import flask_session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -181,8 +181,8 @@ def index():
                 print(task_new.__dict__)
                 db.add(task_new)
                 db.flush()
-                html = render_template("test.html", task=task_new)
-                return html
+                html = make_response(render_template("test.html", task=task_new))
+                return html.get_data(as_text=True)
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
