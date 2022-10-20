@@ -181,7 +181,8 @@ def index():
                 print(task_new.__dict__)
                 db.add(task_new)
                 db.flush()
-                return render_template("test.html", task=task_new)
+                html = render_template("test.html", task=task_new)
+                return html
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
