@@ -178,8 +178,8 @@ def index():
                     # priority from title
                     user_id=session["user_id"],
                 )
-                db.add(task_new)
                 print(task_new.__dict__)
+                db.add(task_new)
                 return task_new.__dict__
             # return redirect("/")
 
