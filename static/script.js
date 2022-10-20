@@ -1,8 +1,8 @@
-const tasks_data = {{ tasks|tojson}};
+// const tasks_data = {{ tasks|tojson}};
 
 // if ADD NEW TASK
 
-querySelector("#task_new_trigger").addEventListener("click", addtask());
+document.querySelector("#task_new_trigger").addEventListener("click", addtask());
 function addtask() {
     event.preventDefault();
     let task_new = new FormData(document.querySelector("#add_new_task"));
