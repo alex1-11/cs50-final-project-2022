@@ -9,7 +9,7 @@ function addtask(event) {
         "method": "POST",
         "body": task_new,
     }).then(response => response.text)
-    .then(text => tasklist_end_div.inserAdjacentHTML("beforebegin", text))
+    .then(text => tasklist_end_div.insertAdjacentHTML("beforebegin", text))
     event.preventDefault();
 };
 
