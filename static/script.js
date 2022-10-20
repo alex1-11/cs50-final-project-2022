@@ -10,6 +10,9 @@ function addtask(event) {
         "body": task_new,
     }).then(response => response.text)
     .then(text => tasklist_end_div.insertAdjacentHTML("beforebegin", text))
+    .catch((error) => {
+        console.error('Error:', error);
+      });
     event.preventDefault();
 };
 
