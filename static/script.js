@@ -9,8 +9,8 @@ function addtask(event) {
         "method": "POST",
         "body": task_new,
     }).then(response => response.text())
-    .then(text => console.log("TEXT: ", text))
     .then(text => tasklist_end_div.insertAdjacentHTML('beforebegin', text))
+    .then(text => console.log("TEXT: ", text))
     .catch((error) => {
         console.error('Error:', error)
     })
