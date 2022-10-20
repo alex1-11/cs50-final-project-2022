@@ -22,8 +22,8 @@ form_add_new_task.addEventListener("submit", add_new_task)
 
 
 // DELETE TASK TO BIN
-function task_delete(event) {
-    const delete_trigger_div
+function task_delete(event, this) {
+    const delete_trigger_div = document.querySelector("#del_task_id_${this.value}")
 
 
 
