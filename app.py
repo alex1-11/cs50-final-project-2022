@@ -179,9 +179,8 @@ def index():
                     user_id=session["user_id"],
                 )
                 db.add(task_new)
-                dtask_new = dict(task_new)
-                print(dtask_new)
-                return dtask_new
+                print(task_new.__dict__)
+                return task_new.__dict__
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
