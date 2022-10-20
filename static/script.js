@@ -38,7 +38,7 @@ function task_delete(this) {
     })
 }
 
-task_form.addEventListener('submit', task_delete(this)
+task_form.addEventListener('submit', task_delete(this))
 
 // TODO: right click menu
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
