@@ -4,7 +4,7 @@
 
 document.querySelector("#task_new_trigger").addEventListener("click", addtask());
 function addtask() {
-    event.preventDefault();
+    Event.preventDefault();
     let task_new = new FormData(document.querySelector("#add_new_task"));
     const tasklist_end_div = getElementById("tasklist_end");
     fetch('/', {
