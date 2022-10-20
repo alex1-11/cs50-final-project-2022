@@ -5,7 +5,7 @@ let task_new = new FormData(document.querySelector("#add_new_task"))
 fetch('/', {
     "method": "POST",
     "headers": {"Content-Type": "application/json"},
-    "body": task_new,
+    "body": JSON.stringify(task_new),
 }).then(response => response.json())
     .then(data => {
         ??
