@@ -187,7 +187,7 @@ def index():
                 # print(">>>", html)
                 # html.get_data(as_text=True)
                 # print(">>>", html)
-                return render_template("test.html", task=task_new)
+                return task_new
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
