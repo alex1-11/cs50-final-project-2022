@@ -214,11 +214,11 @@ def index():
                     .values(status=Task.status + "_bin")
                 )
                 db.flush()
-                db.execute(
+                task = db.execute(
                     select(Task)
                     .where(Task.id == request.form["task_delete"])
-                )
-                return render_template("task_new.html")
+                ).scalars().first()
+                return render_template("task_new.html", task=task)
 
         # TODO: Restore the deleted task (removes "_bin" from end of status)
         # https://www.w3schools.com/python/python_ref_string.asp
