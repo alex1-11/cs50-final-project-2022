@@ -205,6 +205,7 @@ def index():
             return redirect("/")
 
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
+        print('>>>>', request.form.get("task_delete"))
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
                 db.execute(
