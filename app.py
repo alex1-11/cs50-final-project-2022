@@ -213,7 +213,12 @@ def index():
                     # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
                     .values(status=Task.status + "_bin")
                 )
-                return redirect("/")
+                db.flush()
+                db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_delete"])
+                )
+                return render_template("task_new.html")
 
         # TODO: Restore the deleted task (removes "_bin" from end of status)
         # https://www.w3schools.com/python/python_ref_string.asp
