@@ -2,7 +2,7 @@
 
 // if ADD NEW TASK
 
-document.querySelector("#task_new_trigger").addEventListener("click", addtask());
+document.querySelector("#task_new_trigger").addEventListener("submit", (event) => addtask(event));
 function addtask(event) {
     event.preventDefault();
     let task_new = new FormData(document.querySelector("#add_new_task"));
