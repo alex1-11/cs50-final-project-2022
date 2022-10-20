@@ -16,7 +16,7 @@ function add_new_task(event) {
         console.error('Error:', error)
     })
     event.preventDefault()
-    form.reset()
+    form_add_new_task.reset()
 }
 
 form_add_new_task.addEventListener("submit", add_new_task)
