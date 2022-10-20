@@ -180,6 +180,7 @@ def index():
                 )
                 print(task_new.__dict__)
                 db.add(task_new)
+                db.refresh(task_new)
                 return render_template("test.html", task=task_new)
             # return redirect("/")
 
