@@ -35,3 +35,6 @@ function task_delete(this) {
         console.error('Error:', error)
     })
 }
+
+// TODO: right click menu
+// https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
