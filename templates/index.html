@@ -20,7 +20,7 @@
     <div id="tasklist">
         <p>Task list:</p>
         {% for task in tasks %}
-            <div>
+            <div id="task_id{{ task.id }}" >
                 <form action="/" method="POST">
                     <button type="{% if task.status in ['active', 'done'] %}submit{% else %}button{% endif %}" name="task_mark" value="{{ task.id }}" style="display: contents;">
                         {% if task.status == 'active' %}
