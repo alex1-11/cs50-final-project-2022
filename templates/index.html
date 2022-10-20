@@ -16,7 +16,7 @@
     </form>
 
 
-    <div>
+    <div id="tasklist">
         <p>Task list:</p>
         {% for task in tasks %}
             <div>
@@ -36,6 +36,7 @@
                 </form>
             </div>
         {% endfor %}
+        <span id="tasklist_end"></span>
     </div>
 
     <!-- Button trigger modal -->
