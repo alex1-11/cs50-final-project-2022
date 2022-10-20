@@ -36,6 +36,7 @@ function task_delete(event, this) {
     .catch(arror => {
         console.error('Error:', error)
     })
+    event.preventDefault()
 }
 
 task_form.addEventListener('submit', forEach(task_delete(event, this)))
