@@ -19,9 +19,10 @@
 
     <div id="tasklist">
         <p>Task list:</p>
+
         {% for task in tasks %}
             <div id="task_id_{{ task.id }}" >
-                <form action="/" method="POST">
+                <form class=".task_form">
                     <button type="{% if task.status in ['active', 'done'] %}submit{% else %}button{% endif %}" name="task_mark" value="{{ task.id }}" style="display: contents;">
                         {% if task.status == 'active' %}
                             ◯
@@ -33,10 +34,11 @@
                     </button>
                     <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
                     <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
-                    <button type="button" id="del_task_id_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
+                    <button type="submit" id="del_task_id_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
                 </form>
             </div>
         {% endfor %}
+        
         <div id="tasklist_end"></div>
     </div>
 
