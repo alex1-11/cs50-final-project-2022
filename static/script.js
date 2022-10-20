@@ -5,7 +5,7 @@
 const form_add_new_task = document.querySelector("#form_add_new_task")
 const tasklist_end_div = document.querySelector("#tasklist_end")
 
-function addtask(event) {
+function add_new_task(event) {
     const task_form_data = new FormData(form)
     fetch('/', {
         "method": "POST",
@@ -19,4 +19,4 @@ function addtask(event) {
     form.reset()
 }
 
-form_add_new_task.addEventListener("submit", addtask)
+form_add_new_task.addEventListener("submit", add_new_task)
