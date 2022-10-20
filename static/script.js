@@ -1,7 +1,6 @@
 // const tasks_data = {{ tasks|tojson}};
 
-// if ADD NEW TASK
-
+// ADD NEW TASK
 const form_add_new_task = document.querySelector("#form_add_new_task")
 const tasklist_end_div = document.querySelector("#tasklist_end")
 
@@ -20,3 +19,9 @@ function add_new_task(event) {
 }
 
 form_add_new_task.addEventListener("submit", add_new_task)
+
+
+// DELETE TASK TO BIN
+function task_delete(event) {
+    const delete_trigger
+}
