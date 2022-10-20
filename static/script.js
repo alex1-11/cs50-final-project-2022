@@ -24,7 +24,7 @@ form_add_new_task.addEventListener("submit", add_new_task)
 // DELETE TASK TO BIN
 let task_form = document.querySelectorAll('form.task_form')
 
-function task_delete(this) {
+function task_delete(event, this) {
     const target_div = document.querySelector(`#del_task_id_${this.value}`)
     let data = new FormData()
     data.append(this.name: this.value)
@@ -38,7 +38,7 @@ function task_delete(this) {
     })
 }
 
-task_form.addEventListener('submit', forEach(task_delete(this)))
+task_form.addEventListener('submit', forEach(task_delete(event, this)))
 
 // TODO: right click menu
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
