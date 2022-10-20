@@ -20,7 +20,7 @@ function add_new_task(event) {
 
 form_add_new_task.addEventListener("submit", add_new_task)
 
-
+// TODO: check where script.js goes for 'onclick' (must before)
 // DELETE TASK TO BIN
 function task_delete(this) {
     const target_div = document.querySelector(`#del_task_id_${this.value}`)
