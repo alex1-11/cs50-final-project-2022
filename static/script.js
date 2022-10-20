@@ -2,7 +2,6 @@
 
 // if ADD NEW TASK
 
-document.querySelector("#task_new_trigger").addEventListener("submit", (event) => addtask(event));
 function addtask(event) {
     event.preventDefault();
     let task_new = new FormData(document.querySelector("#add_new_task"));
@@ -14,3 +13,5 @@ function addtask(event) {
     .then(text => tasklist_end_div.inserAdjacentHTML("beforebegin", text)
     )
 };
+
+document.querySelector("#task_new_trigger").addEventListener("submit", (event) => addtask(event));
