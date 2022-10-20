@@ -181,7 +181,7 @@ def index():
                 db.add(task_new)
             return redirect("/")
 
-        # TODO: Complete the task
+        # Complete the task (can't complete/re-add frozen, binned tasks)
         if request.form.get("task_mark"):
             with DbSession.begin() as db:
                 task = db.execute(
