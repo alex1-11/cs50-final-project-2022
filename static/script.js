@@ -9,11 +9,7 @@ function addtask(event) {
         "method": "POST",
         "body": task_new,
     }).then((response) => response.text)
-    .then((text) => {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(text, "text/html");
-    })
-    .then((html) => tasklist_end_div.insertAdjacentHTML("beforebegin", html))
+    .then(json => console.log(json))
     .catch((error) => {
         console.error('Error:', error);
     });
