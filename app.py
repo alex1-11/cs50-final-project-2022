@@ -261,7 +261,8 @@ def index():
 def test():
     """TEST ROUTE"""
     if request.method == "GET":
-        render_template("test.html")
+        return render_template("test.html")
 
     if request.method == "POST":
         pass
+    
