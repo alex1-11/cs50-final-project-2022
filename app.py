@@ -179,7 +179,8 @@ def index():
                     user_id=session["user_id"],
                 )
                 db.add(task_new)
-            return redirect("/")
+            return JSON
+            # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
         if request.form.get("task_mark"):
