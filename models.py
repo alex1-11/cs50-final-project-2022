@@ -5,8 +5,11 @@ from sqlalchemy.ext.declarative import as_declarative
 
 # https://realpython.com/python-sqlite-sqlalchemy/#working-with-sqlalchemy-and-python-objects
 
-Base = declarative_base()
-
+@as_declarative()
+class Base:
+    def _asdict(self):
+        return {c.key: getattr(self, c.key)
+                for c in inspect(self).mapper.column_attrs}
 
 # Possible problems with `back_populates="settings"` (not "setting")
 # and with `id = Column(Integer, primary_key=True)` (not "user_id", etc. for all classes)
