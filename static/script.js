@@ -1,1 +1,1 @@
-tasks_data = {{ tasks|tojson}}
+const tasks_data = {{ tasks|tojson}}
