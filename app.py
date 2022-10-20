@@ -187,7 +187,7 @@ def index():
                 # print(">>>", html)
                 # html.get_data(as_text=True)
                 # print(">>>", html)
-                return jsonify([i.to_json() for i in task_new.__dict__])
+                return jsonify(task_new)
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
