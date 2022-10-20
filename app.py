@@ -180,7 +180,7 @@ def index():
                 )
                 print(task_new.__dict__)
                 db.add(task_new)
-                return task_new.__dict__
+                return render_template("test.html", task=task_new)
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
