@@ -13,4 +13,4 @@ function addtask(event) {
     .then(text => tasklist_end_div.inserAdjacentHTML("beforebegin", text))
 };
 
-document.querySelector("#task_new_trigger").addEventListener("submit", (event) => addtask(event));
+document.querySelector("#task_new_trigger").addEventListener("submit", addtask);
