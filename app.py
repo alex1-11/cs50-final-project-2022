@@ -255,4 +255,13 @@ def index():
                 flash("No tasks left")
                 return render_template("index.html")
 
-@route
+
+@app.route("/test", methods=["GET", "POST"])
+@login_required
+def test():
+    """TEST ROUTE"""
+    if request.method == "GET":
+        render_template("test.html")
+
+    if request.method == "POST":
+        pass
