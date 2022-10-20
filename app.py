@@ -168,6 +168,8 @@ def index():
 
         # Add new task
         if request.form.get("task_new_trigger") and request.form.get("task_new"):
+            print(">>>", request.form.get("task_new_trigger"))
+            print(">>>", request.form.get("task_new"))
             with DbSession.begin() as db:
                 task_new = Task(
                     # Uses .strip() method to remove whitespaces from input
