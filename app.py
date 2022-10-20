@@ -183,11 +183,11 @@ def index():
                 print(task_new.__dict__)
                 db.add(task_new)
                 db.flush()
-                html = make_response(render_template("test.html", task=task_new))
-                print(">>>", html)
-                html.get_data(as_text=True)
-                print(">>>", html)
-                return html
+                # html = make_response(render_template("test.html", task=task_new))
+                # print(">>>", html)
+                # html.get_data(as_text=True)
+                # print(">>>", html)
+                return task_new
                 # return render_template("test.html", task=task_new)
             # return redirect("/")
 
