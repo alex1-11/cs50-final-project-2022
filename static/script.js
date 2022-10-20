@@ -11,9 +11,9 @@ function addtask(event) {
     }).then((response) => response.text)
     .then((text) => {
         var parser = new DOMParser();
-        var doc = parser.parseFromString(html, "/");
+        var doc = parser.parseFromString(text, "/");
     })
-    .then((html) => tasklist_end_div.insertAdjacentHTML("beforebegin", text))
+    .then((html) => tasklist_end_div.insertAdjacentHTML("beforebegin", html))
     .catch((error) => {
         console.error('Error:', error);
     });
