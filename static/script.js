@@ -7,7 +7,7 @@ fetch('/', {
     "method": "POST",
     "body": task_new,
 }).then(response => response.text)
-    .then(text => tasklist_end_div.innerHTML = 
+    .then(text => tasklist_end_div.inserAdjacentHTML("beforebegin",)
 
     })
 
