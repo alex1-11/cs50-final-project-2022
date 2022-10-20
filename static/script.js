@@ -13,7 +13,7 @@ function addtask(event) {
     .catch((error) => {
         console.error('Error:', error)
     })
-    event.preventDefault()
+    // event.preventDefault()
 }
 
 document.querySelector("#add_new_task").addEventListener("submit", addtask)
