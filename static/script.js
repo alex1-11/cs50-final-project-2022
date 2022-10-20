@@ -1,7 +1,7 @@
 const tasks_data = {{ tasks|tojson}}
 
 // if ADD NEW TASK
-getElementById("add_new_task").addEventListener("click", addtask())
+getElementById("task_new_trigger").addEventListener("click", addtask())
 
 function addtask() {
     let task_new = new FormData(document.querySelector("#add_new_task"))
