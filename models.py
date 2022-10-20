@@ -94,5 +94,7 @@ class Alarm(Base):
     # TODO: How to set constraint on columns?
     # How to define default values for columns?
 
+# Converts object selected from table into dictionary
+# https://riptutorial.com/sqlalchemy/example/6614/converting-a-query-result-to-dict
 def as_dict(obj):
     return {c.key: getattr(obj, c.key) for c in inspect(obj).mapper.column_attrs}
