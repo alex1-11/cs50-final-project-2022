@@ -11,7 +11,7 @@ function add_new_task(event) {
         "body": task_form_data,
     }).then(response => response.text())
     .then(text => tasklist_end_div.insertAdjacentHTML('beforebegin', text))
-    .catch((error) => {
+    .catch(error => {
         console.error('Error:', error)
     })
     event.preventDefault()
@@ -23,13 +23,15 @@ form_add_new_task.addEventListener("submit", add_new_task)
 
 // DELETE TASK TO BIN
 function task_delete(this) {
-    const delete_trigger_div = document.querySelector(`#del_task_id_${this.value}`)
+    const target_div = document.querySelector(`#del_task_id_${this.value}`)
+    let data = new FormData()
+    data.append(this.name: this.value)
     fetch('/', {
         "method": "POST",
-        "body": "
+        "body": data,
+    }).then(response => response.text())
+    .then(text => target_div.outerHTML = text)
+    .catch(arror => {
+        console.error('Error:', error)
     })
-
-
-
-    // outerHTML
 }
