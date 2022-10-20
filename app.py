@@ -166,7 +166,7 @@ def index():
     if request.method == "POST":
         # print(">>>>",request.form["task_mark"])
 
-        # Add new task
+        # Add new task (request comes from js fetch())
         print(">>>", request.form.get("task_new"))
         if request.form.get("task_new"):
             with DbSession.begin() as db:
@@ -213,7 +213,7 @@ def index():
                     # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
                     .values(status=Task.status + "_bin")
                 )
-            return redirect("/")
+                return redirect("/")
 
         # TODO: Restore the deleted task (removes "_bin" from end of status)
         # https://www.w3schools.com/python/python_ref_string.asp
