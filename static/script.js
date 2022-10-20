@@ -8,8 +8,8 @@ function addtask(event) {
     fetch('/', {
         "method": "POST",
         "body": task_new,
-    }).then(response => response.text)
-    .then(text => tasklist_end_div.innerHtml = text)
+    }).then(response => response.json)
+    .then(json => tasklist_end_div.innerHtml = json)
     .catch((error) => {
         console.error('Error:', error)
     })

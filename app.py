@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session, make_response
+from flask import Flask, flash, redirect, render_template, request, session, jsonify
 import flask_session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -187,7 +187,7 @@ def index():
                 # print(">>>", html)
                 # html.get_data(as_text=True)
                 # print(">>>", html)
-                return task_new
+                return jsonify([i.to_json() for i in task_new.__dict__])
             # return redirect("/")
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
