@@ -4,7 +4,7 @@
 
 function addtask(event) {
     const task_new = new FormData(document.querySelector("#add_new_task"));
-    const tasklist_end_div = getElementById("tasklist_end");
+    const tasklist_end_div = document.getElementById("tasklist_end");
     fetch('/', {
         "method": "POST",
         "body": task_new,
