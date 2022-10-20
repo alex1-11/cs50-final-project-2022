@@ -1,15 +1,10 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Table, create_engine, func
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.ext.declarative import as_declarative
-
 # https://realpython.com/python-sqlite-sqlalchemy/#working-with-sqlalchemy-and-python-objects
 
-@as_declarative()
-class Base:
-    def _asdict(self):
-        return {c.key: getattr(self, c.key)
-                for c in inspect(self).mapper.column_attrs}
+Base = declarative_base()
+
 
 # Possible problems with `back_populates="settings"` (not "setting")
 # and with `id = Column(Integer, primary_key=True)` (not "user_id", etc. for all classes)
@@ -99,3 +94,5 @@ class Alarm(Base):
     # TODO: How to set constraint on columns?
     # How to define default values for columns?
 
+def as_dict(obj):
+    return {c.key: getattr(obj, c.key) for c in inspect(obj).mapper.column_attrs}

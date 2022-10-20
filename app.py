@@ -4,8 +4,8 @@ from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
 from sqlalchemy import create_engine, select, update, delete
 from sqlalchemy.orm import sessionmaker
-from models import Base, User, Setting, Task, Project, Tag, Context, Alarm
-from models import task_tags, user_settings
+from models import User, Setting, Task, Project, Tag, Context, Alarm
+from models import task_tags, user_settings, as_dict
 
 import datetime
 from sqlalchemy.dialects.sqlite import DATETIME
@@ -180,14 +180,16 @@ def index():
                     # priority from title
                     user_id=session["user_id"],
                 )
-                print(task_new.__dict__)
+
                 db.add(task_new)
                 db.flush()
                 # html = make_response(render_template("test.html", task=task_new))
                 # print(">>>", html)
                 # html.get_data(as_text=True)
                 # print(">>>", html)
-                task_new._asdict
+                print(">>>>: ", task_new)
+                task_new = as_dict(task_new)
+                print(">>>>: ", task_new)
                 return jsonify(task_new)
             # return redirect("/")
 
