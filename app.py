@@ -243,8 +243,8 @@ def index():
         # ? Maybe collect data in front-end and
         # ? update it with time pattern to back end
 
-        # return redirect("/")
-        
+        return None
+
     # GET request shows the UI
     else:
         # TODO: Get user's tasks, grouped by contexts
