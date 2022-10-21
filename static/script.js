@@ -35,8 +35,8 @@ function task_delete(event, element) {
     .catch(error => {
         console.error('Error:', error)
     })
-    event.preventDefault()
 }
+
 // Add event listener to every task element
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 task_del_buttons.forEach(element => {
