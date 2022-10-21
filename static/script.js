@@ -20,6 +20,7 @@ function add_new_task(event) {
 
 form_add_new_task.addEventListener("submit", add_new_task)
 
+
 // TODO: check where script.js goes for 'onclick' (must before)
 // DELETE TASK TO BIN
 let task_form = document.querySelectorAll('form.task_form')
@@ -38,8 +39,11 @@ function task_delete(event, this) {
     })
     event.preventDefault()
 }
+// Add event listener to every task element
+// https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+task_form.forEach.addEventListener('submit', (task_delete(event, this)))
 
-task_form.addEventListener('submit', forEach(task_delete(event, this)))
+
 
 // TODO: right click menu
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
