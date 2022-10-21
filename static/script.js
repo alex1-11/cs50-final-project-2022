@@ -24,16 +24,15 @@ form_add_new_task.addEventListener("submit", add_new_task)
 // DELETE TASK TO BIN
 let task_form = document.querySelectorAll('form.task_form')
 
-function task_delete(event, this_elem) {
-    const target_div = document.querySelector(`#del_task_id_${this_elem.value}`)
+function task_delete(event, element) {
     let data = new FormData()
-    data.append(this.name: this.value)
+    data.append(element.name: element.value)
     fetch('/', {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(text => target_div.outerHTML = text)
-    .catch(arror => {
+    .then(text => element.outerHTML = text)
+    .catch(error => {
         console.error('Error:', error)
     })
     event.preventDefault()
