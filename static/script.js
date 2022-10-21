@@ -46,6 +46,5 @@ task_form.forEach(element => {
 
 
 
-
 // TODO: right click menu
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
