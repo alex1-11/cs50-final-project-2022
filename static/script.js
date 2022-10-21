@@ -23,7 +23,7 @@ form_add_new_task.addEventListener("submit", add_new_task)
 
 // DELETE TASK TO BIN
 // TODO: Fix addEventListener, attach it to task_del buttons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let task_del_buttons = document.querySelectorAll('.option-task_del')
+let task_del_buttons = document.querySelectorAll('.option_task_del')
 
 function task_delete(event, element) {
     let data = new FormData()
