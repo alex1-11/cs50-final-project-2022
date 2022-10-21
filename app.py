@@ -208,6 +208,11 @@ def index():
         print('>>>>', request.form.get("task_delete"))
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
+                task = db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_delete"])
+                )
+                if task.title
                 db.execute(
                     update(Task)
                     .where(Task.id == request.form["task_delete"])

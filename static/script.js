@@ -26,13 +26,19 @@ form_add_new_task.addEventListener("submit", add_new_task)
 const task_del_buttons = document.querySelectorAll('.option-task_del')
 
 function task_delete(event) {
+    // Remember the parent div to change
+    const task_div = document.querySelector(`#task_id_${this.value}`)
+    // Create form and store task's data
+    // (name and value of html-element to send to Flask)
     let data = new FormData()
     data.append(this.name, this.value)
+    // Fetch the form data to Flask, convert response to html text
+    // and change whole task's div
     fetch('/', {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(text => this.outerHTML = text)
+    .then(text => task_div.outerHTML = text)
     .catch(error => {
         console.error('Error:', error)
     })
