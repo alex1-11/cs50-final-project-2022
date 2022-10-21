@@ -26,7 +26,7 @@ let task_del_buttons = document.querySelectorAll('.option-task_del')
 
 function task_delete(event, element) {
     let data = new FormData()
-    data.append(element.name: element.value)
+    data.append(element.name, element.value)
     fetch('/', {
         "method": "POST",
         "body": data,
