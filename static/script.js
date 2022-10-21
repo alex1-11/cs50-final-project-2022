@@ -25,7 +25,7 @@ form_add_new_task.addEventListener("submit", add_new_task)
 let task_form = document.querySelectorAll('form.task_form')
 
 function task_delete(event, this_elem) {
-    const target_div = document.querySelector(`#del_task_id_${this.value}`)
+    const target_div = document.querySelector(`#del_task_id_${this_elem.value}`)
     let data = new FormData()
     data.append(this.name: this.value)
     fetch('/', {
