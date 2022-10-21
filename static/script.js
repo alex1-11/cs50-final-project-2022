@@ -22,7 +22,7 @@ form_add_new_task.addEventListener("submit", add_new_task)
 
 
 // DELETE TASK TO BIN
-let task.del = document.querySelectorAll('.option-task_del')
+let task_del_buttons = document.querySelectorAll('.option-task_del')
 
 function task_delete(event, element) {
     let data = new FormData()
@@ -39,7 +39,7 @@ function task_delete(event, element) {
 }
 // Add event listener to every task element
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
-task_form.forEach(element => {
+task_del_buttons.forEach(element => {
     element.addEventListener('click', (task_delete(event, this)))
 })
 
