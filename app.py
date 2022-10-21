@@ -2,7 +2,7 @@ from flask import Flask, flash, redirect, render_template, request, session, jso
 import flask_session
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
-from sqlalchemy import create_engine, select, update, delete
+from sqlalchemy import create_engine, select, update, delete, not_
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm
 from models import task_tags, user_settings, as_dict
@@ -208,14 +208,12 @@ def index():
         print('>>>>', request.form.get("task_delete"))
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
-                task = db.execute(
-                    select(Task)
-                    .where(Task.id == request.form["task_delete"], )
-                ).scalars().first()
-                if task.status.endswith('_bin')
                 db.execute(
                     update(Task)
-                    .where(Task.id == request.form["task_delete"])
+                    .where(
+                        Task.id == request.form["task_delete"],
+                        not_(Task.status.endswith('_bin', autoescape=True))
+                    )
                     # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
                     .values(status=Task.status + "_bin")
                 )
