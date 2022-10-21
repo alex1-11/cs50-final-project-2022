@@ -41,7 +41,7 @@ function task_delete(event, element) {
 // Add event listener to every task element
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 task_del_buttons.forEach(element => {
-    element.addEventListener('click', (task_delete(event, this)))
+    element.addEventListener('click', task_delete(event))
 })
 
 
