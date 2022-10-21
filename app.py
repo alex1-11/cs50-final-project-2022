@@ -204,6 +204,7 @@ def index():
             return redirect("/")
 
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
+        # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
         print('>>>>', request.form.get("task_delete"))
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
@@ -213,7 +214,6 @@ def index():
                         Task.id == request.form["task_delete"],
                         not_(Task.status.endswith('_bin', autoescape=True))
                     )
-                    # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
                     .values(status=Task.status + "_bin")
                 )
                 db.flush()
