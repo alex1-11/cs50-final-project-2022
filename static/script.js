@@ -1,6 +1,6 @@
 // const tasks_data = {{ tasks|tojson}};
 
-// ADD NEW TASK
+"""ADD NEW TASK"""
 const form_add_new_task = document.querySelector("#form_add_new_task")
 const tasklist_end_div = document.querySelector("#tasklist_end")
 
@@ -21,8 +21,7 @@ function add_new_task(event) {
 form_add_new_task.addEventListener("submit", add_new_task)
 
 
-// TODO: check where script.js goes for 'onclick' (must before)
-// DELETE TASK TO BIN
+"""DELETE TASK TO BIN"""
 let task_form = document.querySelectorAll('form.task_form')
 
 function task_delete(event, this) {
