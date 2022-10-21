@@ -22,7 +22,7 @@ form_add_new_task.addEventListener("submit", add_new_task)
 
 
 // DELETE TASK TO BIN
-let task_form = document.querySelectorAll('form.task_form')
+let task.del = document.querySelectorAll('.option-task_del')
 
 function task_delete(event, element) {
     let data = new FormData()
