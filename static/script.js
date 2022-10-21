@@ -40,7 +40,10 @@ function task_delete(event, this) {
 }
 // Add event listener to every task element
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
-task_form.forEach.addEventListener('submit', (task_delete(event, this)))
+task_form.forEach(element => {
+    element.addEventListener('submit', (task_delete(event, this)))
+})
+
 
 
 
