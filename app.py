@@ -200,6 +200,7 @@ def index():
                         update(Task)
                         .where(Task.id == task.id)
                         .values(status="done")
+                        .execution_options(synchronize_session='fetch')
                     )
             return redirect("/")
 
