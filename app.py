@@ -200,7 +200,6 @@ def index():
                         update(Task)
                         .where(Task.id == task.id)
                         .values(status="done")
-                        .execution_options(synchronize_session='fetch')
                     )
             return redirect("/")
 
@@ -216,6 +215,7 @@ def index():
                         not_(Task.status.endswith('_bin', autoescape=True))
                     )
                     .values(status=Task.status + "_bin")
+                    .execution_options(synchronize_session='fetch')
                 )
                 db.flush()
                 task = db.execute(
