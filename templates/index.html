@@ -32,8 +32,8 @@
                             —
                         {% endif %}
                     </button>
-                    <span>[{{ task.status }}] {{ task.created }} || {{ task.title }} ||</span>
-                    <!-- <a href="/project{{ task.project_id }}">{{ task.project }}</a> -->
+                    <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
+                    <!-- <a href="/project{{ task.project_id }}">{{ task.project|e }}</a> -->
                     <button type="button" class="option-task_del" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
                 </form>
             </div>
