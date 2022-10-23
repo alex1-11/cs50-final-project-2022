@@ -40,12 +40,12 @@ function task_delete(event) {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(
-        text => task_div.outerHTML = text
-        document.querySelector(this.value)
-    ).catch(error => {
+    .then(text => task_div.outerHTML = text)
+    .catch(error => {
         console.error('Error:', error)
     })
+    document.querySelector(`#task_del_button_${this.value}`)
+    .addEventListener('click', task_delete, false)
 }
 
 // Add event listener to every task element

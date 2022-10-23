@@ -11,6 +11,6 @@
         </button>
         <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
         <!-- <a href="/project{{ task.project_id }}">{{ task.project|e }}</a> -->
-        <button type="button" class="option-task_del" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
+        <button type="button" class="option-task_del" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
     </form>
 </div>
