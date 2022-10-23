@@ -21,22 +21,7 @@
         <p>Task list:</p>
 
         {% for task in tasks %}
-            <div class="task-{{ task.status }}" id="task_id_{{ task.id }}" >
-                <form class="task_form">
-                    <button type="{% if task.status in ['active', 'done'] %}submit{% else %}button{% endif %}" name="task_mark" value="{{ task.id }}" style="display: contents;">
-                        {% if task.status == 'active' %}
-                            ◯
-                        {% elif task.status == 'done' %}
-                            ✓
-                        {% else %}
-                            —
-                        {% endif %}
-                    </button>
-                    <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
-                    <!-- <a href="/project{{ task.project_id }}">{{ task.project|e }}</a> -->
-                    <button type="button" class="option-task_del" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
-                </form>
-            </div>
+            {% include task_new.html %}
         {% endfor %}
 
         <div id="tasklist_end"></div>
