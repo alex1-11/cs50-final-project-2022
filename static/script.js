@@ -1,6 +1,10 @@
 // const tasks_data = {{ tasks|tojson}};
 
-// Add event listeners and refresh them
+// Add event listeners and refresh them?
+
+
+// TODO FIX: add event listeners to freshly created tasks!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!
 
 
 // ADD NEW TASK
