@@ -1,5 +1,8 @@
 // const tasks_data = {{ tasks|tojson}};
 
+// Add event listeners and refresh them
+
+
 // ADD NEW TASK
 const form_add_new_task = document.querySelector("#form_add_new_task")
 const tasklist_end_div = document.querySelector("#tasklist_end")
