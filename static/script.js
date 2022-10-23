@@ -13,7 +13,7 @@ function add_new_task(event) {
         "method": "POST",
         "body": task_form_data,
     }).then(response => response.text())
-    .then(text => tasklist_end_div.insertAdjacentHTML('beforebegin', text))
+    .then(text => tasklist_end_div.insertAdjacentHTML('beforebegin', text)).addEventListener('click', task_delete, false)
     .catch(error => {
         console.error('Error:', error)
     })
