@@ -9,6 +9,7 @@ const tasklist_end_div = document.querySelector("#tasklist_end")
 
 function add_new_task(event) {
     const task_form_data = new FormData(form_add_new_task)
+    event.preventDefault()
     fetch('/', {
         "method": "POST",
         "body": task_form_data,
@@ -17,7 +18,6 @@ function add_new_task(event) {
     .catch(error => {
         console.error('Error:', error)
     })
-    event.preventDefault()
     form_add_new_task.reset()
 }
 
