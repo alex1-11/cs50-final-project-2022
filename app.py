@@ -180,7 +180,7 @@ def index():
                 )
                 db.add(task_new)
                 db.flush()
-                return render_template("task_new.html", task=task_new)
+                return render_template("task.html", task=task_new)
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
         if request.form.get("task_mark"):
@@ -222,7 +222,7 @@ def index():
                     select(Task)
                     .where(Task.id == request.form["task_delete"])
                 ).scalars().first()
-                return render_template("task_new.html", task=task)
+                return render_template("task.html", task=task)
 
         # TODO: Restore the deleted task (removes "_bin" from end of status)
         # https://www.w3schools.com/python/python_ref_string.asp
