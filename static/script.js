@@ -40,8 +40,10 @@ function task_delete(event) {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(text => task_div.outerHTML = text)
-    .catch(error => {
+    .then(
+        text => task_div.outerHTML = text
+        document.querySelector(this.value)
+    ).catch(error => {
         console.error('Error:', error)
     })
 }
