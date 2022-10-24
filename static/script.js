@@ -5,10 +5,13 @@ function set_event_listener(element, action) {
     switch (action) {
         case 'task_delete':
             element.addEventListener('click', task_delete, false)
+            break
         case 'task_add_new':
             element.addEventListener('submit', task_add_new, false)
+            break
         case 'task_mark':
             element.addEventListener('click', task_mark, false)
+            break
     }
 }
 
@@ -72,7 +75,7 @@ task_del_buttons.forEach(element => {
 
 // TODO: Mark task complete/undone
 function task_mark(event) {
-    
+
 }
 
 
