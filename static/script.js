@@ -28,7 +28,7 @@ function task_add_new(event) {
     })
     form_task_add_new.reset()
     // Add event listener to the fresh task
-    del_button = tasklist_end_div.previousElementSibling.querySelector('.option-task_del')
+    let del_button = tasklist_end_div.previousElementSibling.querySelector('.option-task_del')
     set_event_listener(del_button, 'task_delete')
 }
 
