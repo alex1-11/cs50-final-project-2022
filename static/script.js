@@ -8,6 +8,7 @@ function set_event_listener(element, action) {
     else if (action == 'task_add_new') {
         element.addEventListener('submit', task_add_new, false)
     }
+    else if
 }
 
 
