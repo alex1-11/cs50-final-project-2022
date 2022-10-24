@@ -1,17 +1,14 @@
 // const tasks_data = {{ tasks|tojson}};
 
-// Add event listeners and refresh them?
-function addEvListeners(element, action) {
+// Add event listeners and refresh them
+function set_event_listner(element, action) {
     if (action == 'task_delete') {
         element.addEventListener('click', task_delete, false)
     }
     else if (action == 'task_add_new') {
         element.addEventListener('submit', task_add_new, false)
     }
-
-
-// TODO FIX: add event listeners to freshly created tasks!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!
+}
 
 
 // ADD NEW TASK
@@ -30,9 +27,11 @@ function task_add_new(event) {
         console.error('Error:', error)
     })
     form_task_add_new.reset()
+    // TODO: Add event listener to the fresh task
 }
 
-form_task_add_new.addEventListener("submit", task_add_new)
+set_event_listner(form_task_add_new, 'task_add_new')
+
 
 
 // DELETE TASK TO BIN
@@ -62,9 +61,8 @@ function task_delete(event) {
 // Add event listener to every task element
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 task_del_buttons.forEach(element => {
-    element.addEventListener('click', task_delete, false)
+    set_event_listener(element, 'task_delete')
 })
-
 
 
 // TODO: right click menu
