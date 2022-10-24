@@ -23,7 +23,7 @@ function task_add_new(event) {
         "body": task_form_data,
     }).then(response => response.text())
     .then(text => tasklist_end_div.insertAdjacentHTML('beforebegin', text))
-    .then(
+    .then( function ()
         // Add event listener to the fresh task
         let del_button = tasklist_end_div.previousElementSibling.querySelector('.option-task_del')
         set_event_listener(del_button, 'task_delete')
