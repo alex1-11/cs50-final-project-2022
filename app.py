@@ -201,7 +201,7 @@ def index():
                         .where(Task.id == task.id)
                         .values(status="done")
                     )
-            return redirect("/")
+            return render_template("task.html", task=task)
 
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
         # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
