@@ -21,11 +21,12 @@ function task_add_new(event) {
     fetch('/', {
         "method": "POST",
         "body": task_form_data,
-    }).then(response => response.JSON())
-    .then(text => tasklist_end_div.insertAdjacentHTML('beforebegin', text))
+    }).then(response => response.json())
+    .then(data => let data_json = data )
     .catch(error => {
         console.error('Error:', error)
     })
+    tasklist_end_div.insertAdjacentHTML('beforebegin', data_json.html))
     form_task_add_new.reset()
     // TODO: Add event listener to the fresh task
 
