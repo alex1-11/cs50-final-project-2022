@@ -27,6 +27,7 @@ function task_add_new(event) {
         console.error('Error:', error)
     })
     form_task_add_new.reset()
+    tasklist_end_div.previousElementSibling
     // TODO: Add event listener to the fresh task
 
 }
