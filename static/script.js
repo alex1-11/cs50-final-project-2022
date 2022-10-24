@@ -1,7 +1,7 @@
 // const tasks_data = {{ tasks|tojson}};
 
 // Add event listeners and refresh them
-function set_event_listner(element, action) {
+function set_event_listener(element, action) {
     if (action == 'task_delete') {
         element.addEventListener('click', task_delete, false)
     }
@@ -30,7 +30,7 @@ function task_add_new(event) {
     // TODO: Add event listener to the fresh task
 }
 
-set_event_listner(form_task_add_new, 'task_add_new')
+set_event_listener(form_task_add_new, 'task_add_new')
 
 
 
