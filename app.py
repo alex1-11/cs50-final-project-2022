@@ -204,14 +204,13 @@ def index():
                 return render_template("task.html", task=task)
 
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
-        # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
-        print('>>>>', request.form.get("task_delete"))
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
                     .where(
                         Task.id == request.form["task_delete"],
+                        # Add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
                         not_(Task.status.endswith('_bin', autoescape=True))
                     )
                     .values(status=Task.status + "_bin")
