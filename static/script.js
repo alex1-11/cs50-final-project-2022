@@ -2,20 +2,24 @@
 
 // Add event listeners and refresh them?
 function addEvListeners(element, action) {
-    if action == 'delete_task':
+    if (action == 'task_delete') {
+        element.addEventListener('click', task_delete, false)
+    }
+    else if (action == 'task_add_new') {
+        element.addEventListener('submit', task_add_new, false)
+    }
 
-        element.addEventListener()
 
 // TODO FIX: add event listeners to freshly created tasks!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!
 
 
 // ADD NEW TASK
-const form_add_new_task = document.querySelector("#form_add_new_task")
+const form_task_add_new = document.querySelector("#form_task_add_new")
 const tasklist_end_div = document.querySelector("#tasklist_end")
 
-function add_new_task(event) {
-    const task_form_data = new FormData(form_add_new_task)
+function task_add_new(event) {
+    const task_form_data = new FormData(form_task_add_new)
     event.preventDefault()
     fetch('/', {
         "method": "POST",
@@ -25,10 +29,10 @@ function add_new_task(event) {
     .catch(error => {
         console.error('Error:', error)
     })
-    form_add_new_task.reset()
+    form_task_add_new.reset()
 }
 
-form_add_new_task.addEventListener("submit", add_new_task)
+form_task_add_new.addEventListener("submit", task_add_new)
 
 
 // DELETE TASK TO BIN
