@@ -28,6 +28,10 @@ function task_add_new(event) {
     })
     form_task_add_new.reset()
     // TODO: Add event listener to the fresh task
+    task_del_buttons = document.querySelectorAll('.option-task_del')
+    task_del_buttons.forEach(element => {
+        set_event_listener(element, 'task_delete')
+    })
 }
 
 set_event_listener(form_task_add_new, 'task_add_new')
@@ -35,7 +39,7 @@ set_event_listener(form_task_add_new, 'task_add_new')
 
 
 // DELETE TASK TO BIN
-const task_del_buttons = document.querySelectorAll('.option-task_del')
+let task_del_buttons = document.querySelectorAll('.option-task_del')
 
 function task_delete(event) {
     // Remember the parent div to change
