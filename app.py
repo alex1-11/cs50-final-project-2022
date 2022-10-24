@@ -180,12 +180,7 @@ def index():
                 )
                 db.add(task_new)
                 db.flush()
-                html = render_template("task.html", task=task_new)
-                response = {
-                    'template': html,
-                    'task': task_new
-                }
-                return response
+                return render_template("task.html", task=task_new)
 
         # Complete the task (can't complete/re-add frozen, binned tasks)
         if request.form.get("task_mark"):
