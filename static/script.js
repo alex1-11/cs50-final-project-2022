@@ -2,13 +2,14 @@
 
 // Add event listeners and refresh them
 function set_event_listener(element, action) {
-    if (action == 'task_delete') {
-        element.addEventListener('click', task_delete, false)
+    switch (action) {
+        case 'task_delete':
+            element.addEventListener('click', task_delete, false)
+        case 'task_add_new':
+            element.addEventListener('submit', task_add_new, false)
+        case 'task_mark':
+            element.addEventListener('click', task_mark, false)
     }
-    else if (action == 'task_add_new') {
-        element.addEventListener('submit', task_add_new, false)
-    }
-    else if
 }
 
 
@@ -67,6 +68,13 @@ function task_delete(event) {
 task_del_buttons.forEach(element => {
     set_event_listener(element, 'task_delete')
 })
+
+
+// TODO: Mark task complete/undone
+function task_mark(event) {
+    
+}
+
 
 
 // TODO: right click menu
