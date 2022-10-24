@@ -182,7 +182,7 @@ def index():
                 db.flush()
                 return render_template("task.html", task=task_new)
 
-        # Complete the task (can't complete/re-add frozen, binned tasks)
+        # Complete/undone the task (only active/done tasks)
         if request.form.get("task_mark"):
             with DbSession.begin() as db:
                 task = db.execute(
@@ -201,7 +201,7 @@ def index():
                         .where(Task.id == task.id)
                         .values(status="done")
                     )
-            return render_template("task.html", task=task)
+                return render_template("task.html", task=task)
 
         # Delete the task (moves task to "trash bin" which makes it possible to undo)
         # TODO: add _bin if no _bin yet https://www.w3schools.com/python/python_ref_string.asp
