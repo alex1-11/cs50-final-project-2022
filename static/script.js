@@ -1,7 +1,10 @@
 // const tasks_data = {{ tasks|tojson}};
 
 // Add event listeners and refresh them?
+function addEvListeners(element, action) {
+    if action == 'delete_task':
 
+        element.addEventListener()
 
 // TODO FIX: add event listeners to freshly created tasks!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!
