@@ -38,7 +38,6 @@ function task_add_new(event) {
 form_task_add_new.addEventListener('submit', task_add_new, false)
 
 
-
 // DELETE TASK TO BIN
 function task_delete(event) {
     // Remember the parent div to change
@@ -53,14 +52,13 @@ function task_delete(event) {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(text => task_div.outerHTML = text)
-    .catch(error => {
+    .then(text => {
+        task_div.outerHTML = text
+        task_set_triggers(task_div)
+    }).catch(error => {
         console.error('Error: ', error)
     })
-    document.querySelector(`#task_del_button_${this.value}`)
-    .addEventListener('click', task_delete, false)
 }
-
 
 
 // TODO: Mark task complete/undone
@@ -73,11 +71,12 @@ function task_mark(event) {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(text => task_div.outerHTML = text)
-    .catch(error => {
+    .then(text => {
+        task_div.outerHTML = text
+        set_event_listener(this, 'task_mark')
+    }).catch(error => {
         console.error('Error: ', error)
     })
-    set_event_listener(this, 'task_mark')
 }
 
 
