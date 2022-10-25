@@ -227,6 +227,8 @@ def index():
                         .values(status=Task.status + "_bin")
                         .execution_options(synchronize_session='fetch')
                     )
+                else:
+                    return
                 # Update task obj from db and render task template
                 db.flush()
                 task = db.execute(
