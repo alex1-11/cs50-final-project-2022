@@ -11,7 +11,7 @@ function task_set_triggers(task_div) {
 }
 
 
-// ADD NEW TASK
+// Add new task
 const form_task_add_new = document.querySelector("#form_task_add_new")
 const tasklist_end_div = document.querySelector("#tasklist_end")
 
