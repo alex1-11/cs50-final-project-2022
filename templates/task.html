@@ -11,6 +11,7 @@
         </button>
         <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
         <!-- <a href="/project{{ task.project_id }}">{{ task.project|e }}</a> -->
-        <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
+        {% if task.status }
+            <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
     </form>
 </div>
