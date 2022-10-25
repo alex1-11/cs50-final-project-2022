@@ -11,7 +11,8 @@
         </button>
         <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
         <!-- <a href="/project{{ task.project_id }}">{{ task.project|e }}</a> -->
-        {% if task.status }
+        {% if task.status.endswith('_bin') %}
             <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
+        
     </form>
 </div>
