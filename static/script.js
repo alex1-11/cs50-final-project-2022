@@ -1,5 +1,3 @@
-// const tasks_data = {{ tasks|tojson}};
-
 // Declare possible actions and define tool to set event listeners to tasks
 const actions = [
     'task_delete',
@@ -9,7 +7,7 @@ const actions = [
 function task_set_triggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`)
-        .addEventListener('click', scope[act], false) // https://www.geeksforgeeks.org/how-to-call-function-from-it-name-stored-in-a-string-using-javascript/
+        .addEventListener('click', task_action, false)
     }
 }
 
@@ -38,12 +36,12 @@ function task_add_new(event) {
 form_task_add_new.addEventListener('submit', task_add_new, false)
 
 
-// DELETE TASK TO BIN
-function task_delete(event) {
-    // Remember the parent div to change
+// Action with task (delete to bin, mark complete/undone)
+function task_action(event) {
+    // Remember the task div (parent area)
     const task_div = document.querySelector(`#task_id_${this.value}`)
-    // Create form and store task's data
-    // (name and value of html-element to send to Flask)
+    // Create form and store task's data to send to Flask:
+    // name (which action to take) and value (task's id)
     let data = new FormData()
     data.append(this.name, this.value)
     // Fetch the form data to Flask, convert response to html text
@@ -88,3 +86,10 @@ task_divs.forEach(div => task_set_triggers(div))
 
 // TODO: right click menu
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
+
+
+// TODO: Tasklists / views
+// const tasks_data = {{ tasks|tojson}};
+
+
+// May get handy (call func/var from string name) https://www.geeksforgeeks.org/how-to-call-function-from-it-name-stored-in-a-string-using-javascript/
