@@ -6,8 +6,7 @@ const actions = [
 
 function task_set_triggers(task_div) {
     for (let act of actions) {
-        task_div.querySelector(`.${act}`)
-        .addEventListener('click', task_action, false)
+        task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
     }
 }
 
