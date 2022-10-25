@@ -73,7 +73,7 @@ function task_mark(event) {
     }).then(response => response.text())
     .then(text => {
         task_div.outerHTML = text
-        set_event_listener(this, 'task_mark')
+        task_set_triggers(task_div)
     }).catch(error => {
         console.error('Error: ', error)
     })
