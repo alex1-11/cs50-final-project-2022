@@ -214,10 +214,11 @@ def index():
                 # Restore if in bin
                 # https://www.w3schools.com/python/python_ref_string.asp
                 if task.status.endswith('_bin'):
+                    string_status = task.status.replace('_bin', '')
                     db.execute(
                         update(Task)
                         .where(Task.id == task.id)
-                        .values(status=Task.status.replace('_bin', ''))
+                        .values(status=string_status)
                         .execution_options(synchronize_session='fetch')
                     )
                 elif not(task.status.endswith('_bin')):
