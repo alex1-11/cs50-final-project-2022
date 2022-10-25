@@ -217,7 +217,8 @@ def index():
                     db.execute(
                         update(Task)
                         .where(Task.id == task.id)
-                        .values(status=Task.status)
+                        .values(status=Task.status.replace('_bin', ''))
+                        .execution_options(synchronize_session='fetch')
                     )
 
 
