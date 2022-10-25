@@ -212,27 +212,26 @@ def index():
                 ).scalars().first()
                 # Restore if in bin
                 if task.status.endswith('_bin'):
-                    status = task.status
-                    status.replace('_bin', '')
                     db.execute(
                         update(Task)
                         .where(Task.id == task.id)
                         .values(status=Task.status.replace('_bin', ''))
                         .execution_options(synchronize_session='fetch')
                     )
+                elif task.status.
 
 
-                db.execute(
-                    update(Task)
-                    .where(
-                        Task.id == request.form["task_delete"],
-                        # Add _bin if no _bin yet
-                        # https://www.w3schools.com/python/python_ref_string.asp
-                        not_(Task.status.endswith('_bin', autoescape=True))
+                    db.execute(
+                        update(Task)
+                        .where(
+                            Task.id == request.form["task_delete"],
+                            # Add _bin if no _bin yet
+                            # https://www.w3schools.com/python/python_ref_string.asp
+                            not_(Task.status.endswith('_bin', autoescape=True))
+                        )
+                        .values(status=Task.status + "_bin")
+                        .execution_options(synchronize_session='fetch')
                     )
-                    .values(status=Task.status + "_bin")
-                    .execution_options(synchronize_session='fetch')
-                )
                 # Update task obj from db and render task template
                 db.flush()
                 task = db.execute(
