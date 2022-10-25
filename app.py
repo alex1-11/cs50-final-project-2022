@@ -238,15 +238,6 @@ def index():
                 ).scalars().first()
                 return render_template("task.html", task=task)
 
-        # TODO: Restore the deleted task (removes "_bin" from end of status)
-        # https://www.w3schools.com/python/python_ref_string.asp
-        if request.form.get("task_restore"):
-            with DbSession.begin() as db:
-                db.execute(
-                    update(Task)
-                    .where(Task.status.endswith('_bin', autoescape=True))
-                )
-
         # Empty trash bin. Permanently deletes tasks with "_bin" in status
         if request.form.get("bin_empty"):
             with DbSession.begin() as db:
