@@ -45,7 +45,7 @@ function task_action(event) {
     let data = new FormData()
     data.append(this.name, this.value)
     // Fetch the form data to Flask
-    // Convert response to html text and change whole task's div
+    // Convert response to html text, change task's div, reset triggers
     fetch('/', {
         "method": "POST",
         "body": data,
@@ -59,26 +59,7 @@ function task_action(event) {
 }
 
 
-// TODO: Mark task complete/undone
-function task_mark(event) {
-    const task_div = document.querySelector(`#task_id_${this.value}`)
-    // Pack task's credentials to send to back end
-    let data = new FormData()
-    data.append(this.name, this.value)
-    fetch('/', {
-        "method": "POST",
-        "body": data,
-    }).then(response => response.text())
-    .then(text => {
-        task_div.outerHTML = text
-        task_set_triggers(task_div)
-    }).catch(error => {
-        console.error('Error: ', error)
-    })
-}
-
-
-// Set event listeners tasks' buttons
+// Set event listeners on buttons inside each tasks' div
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 let task_divs = document.querySelectorAll('.task_div')
 task_divs.forEach(div => task_set_triggers(div))
