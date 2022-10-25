@@ -44,8 +44,8 @@ function task_action(event) {
     // name (which action to take) and value (task's id)
     let data = new FormData()
     data.append(this.name, this.value)
-    // Fetch the form data to Flask, convert response to html text
-    // and change whole task's div
+    // Fetch the form data to Flask
+    // Convert response to html text and change whole task's div
     fetch('/', {
         "method": "POST",
         "body": data,
