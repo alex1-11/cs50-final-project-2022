@@ -211,6 +211,7 @@ def index():
                     .where(Task.id == request.form["task_delete"])
                 ).scalars().first()
                 # Restore if in bin
+                # https://www.w3schools.com/python/python_ref_string.asp
                 if task.status.endswith('_bin'):
                     db.execute(
                         update(Task)
@@ -224,7 +225,6 @@ def index():
                         .where(
                             Task.id == request.form["task_delete"],
                             # Add _bin if no _bin yet
-                            # https://www.w3schools.com/python/python_ref_string.asp
                             not_(Task.status.endswith('_bin', autoescape=True))
                         )
                         .values(status=Task.status + "_bin")
