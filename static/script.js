@@ -49,8 +49,10 @@ function task_action(event) {
         "method": "POST",
         "body": data,
     }).then(response => response.text())
-    .then(text => task_div.outerHTML = text)
-    .then(task_set_triggers(task_div))
+    .then(text => {
+        task_div.outerHTML = text
+        task_div = task.
+        task_set_triggers(task_div)
     }).catch(error => {
         console.error('Error: ', error)
     })
