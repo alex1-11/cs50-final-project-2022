@@ -51,7 +51,7 @@ function task_action(event) {
     }).then(response => response.text())
     .then(text => {
         task_div.outerHTML = text
-        task_div = task.
+        task_div = task_div.nextElementSibling
         task_set_triggers(task_div)
     }).catch(error => {
         console.error('Error: ', error)
