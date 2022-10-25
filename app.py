@@ -209,7 +209,15 @@ def index():
                 task = db.execute(
                     select(Task)
                     .where(Task.id == request.form["task_delete"])
-                )
+                ).scalars().first()
+                # Restore if in bin
+                if task.status.endswith('_bin'):
+                    db.execute(
+                        update(Task)
+                        .where(Task.id == task.id)
+                        .values(status=Task.status)
+                    )
+
 
                 db.execute(
                     update(Task)
