@@ -229,7 +229,7 @@ def index():
                         .execution_options(synchronize_session='fetch')
                     )
                 else:
-                    return
+                    return None
                 # Update task obj from db and render task template
                 db.flush()
                 task = db.execute(
@@ -250,8 +250,6 @@ def index():
 
 
         # TODO: Edit the task
-        # ? Maybe collect data in front-end and
-        # ? update it with time pattern to back end
 
         return None
 
