@@ -218,9 +218,7 @@ def index():
                         .values(status=Task.status.replace('_bin', ''))
                         .execution_options(synchronize_session='fetch')
                     )
-                elif task.status.
-
-
+                elif not(task.status.endswith('_bin')):
                     db.execute(
                         update(Task)
                         .where(
