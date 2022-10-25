@@ -223,11 +223,7 @@ def index():
                 elif not(task.status.endswith('_bin')):
                     db.execute(
                         update(Task)
-                        .where(
-                            Task.id == request.form["task_delete"],
-                            # Add _bin if no _bin yet
-                            not_(Task.status.endswith('_bin', autoescape=True))
-                        )
+                        .where(Task.id == request.form["task_delete"])
                         .values(status=Task.status + "_bin")
                         .execution_options(synchronize_session='fetch')
                     )
