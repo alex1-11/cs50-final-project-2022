@@ -9,7 +9,7 @@ const actions = [
 function task_set_triggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`)
-        .addEventListener('click', window[act], false) // https://www.geeksforgeeks.org/how-to-call-function-from-it-name-stored-in-a-string-using-javascript/
+        .addEventListener('click', scope[act], false) // https://www.geeksforgeeks.org/how-to-call-function-from-it-name-stored-in-a-string-using-javascript/
     }
 }
 
