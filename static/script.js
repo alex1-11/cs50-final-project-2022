@@ -73,7 +73,7 @@ task_divs.forEach(div => task_set_triggers(div))
 
 
 // TODO: Tasklists / views
-// const tasks_data = {{ tasks|tojson}};
+// const tasks_data = {{ tasks|tojson }}
 
 
 // May get handy (call func/var from string name) https://www.geeksforgeeks.org/how-to-call-function-from-it-name-stored-in-a-string-using-javascript/
