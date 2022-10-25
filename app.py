@@ -212,6 +212,8 @@ def index():
                 ).scalars().first()
                 # Restore if in bin
                 if task.status.endswith('_bin'):
+                    status = task.status
+                    s
                     db.execute(
                         update(Task)
                         .where(Task.id == task.id)
