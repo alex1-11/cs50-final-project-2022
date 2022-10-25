@@ -1,6 +1,6 @@
-<div class="task-{{ task.status }}" id="task_id_{{ task.id }}" >
+<div class="task_div {{ task.status }}" id="task_id_{{ task.id }}" >
     <form class="task_form">
-        <button type="button" class="task_mark" name="task_mark" value="{{ task.id }}" style="display: contents;">
+        <button type="button" class="task_mark {{ task.status }}" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
             {% if task.status == 'active' %}
                 ◯
             {% elif task.status == 'done' %}
@@ -11,6 +11,6 @@
         </button>
         <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
         <!-- <a href="/project{{ task.project_id }}">{{ task.project|e }}</a> -->
-        <button type="button" class="option-task_del" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
+        <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">🗑️</button>
     </form>
 </div>

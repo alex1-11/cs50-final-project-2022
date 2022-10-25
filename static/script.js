@@ -1,17 +1,15 @@
 // const tasks_data = {{ tasks|tojson}};
 
-// Add event listeners and refresh them
-function set_event_listener(element, action) {
-    switch (action) {
-        case 'task_delete':
-            element.addEventListener('click', task_delete, false)
-            break
-        case 'task_add_new':
-            element.addEventListener('submit', task_add_new, false)
-            break
-        case 'task_mark':
-            element.addEventListener('click', task_mark, false)
-            break
+// Declare possible actions and define tool to set event listeners to tasks
+const actions = [
+    'task_delete',
+    'task_mark'
+]
+
+function task_set_triggers(task_div) {
+    for (let act of actions) {
+        task_div.querySelector(`.${act}`)
+        .addEventListener('click', act, false)
     }
 }
 
@@ -29,22 +27,19 @@ function task_add_new(event) {
     }).then(response => response.text())
     .then(text => {
         tasklist_end_div.insertAdjacentHTML('beforebegin', text)
-        // Add event listener to the fresh task
-        let del_button = tasklist_end_div.previousElementSibling.querySelector('.option-task_del')
-        set_event_listener(del_button, 'task_delete')
+        // Add event listeners to the fresh task
+        const task_div = tasklist_end_div.previousElementSibling
+        task_set_triggers(task_div)
     }).catch(error => {
-        console.error('Error:', error)
+        console.error('Error: ', error)
     })
     form_task_add_new.reset()
 }
-
-set_event_listener(form_task_add_new, 'task_add_new')
+form_task_add_new.addEventListener('submit', task_add_new, false)
 
 
 
 // DELETE TASK TO BIN
-let task_del_buttons = document.querySelectorAll('.option-task_del')
-
 function task_delete(event) {
     // Remember the parent div to change
     const task_div = document.querySelector(`#task_id_${this.value}`)
@@ -60,24 +55,36 @@ function task_delete(event) {
     }).then(response => response.text())
     .then(text => task_div.outerHTML = text)
     .catch(error => {
-        console.error('Error:', error)
+        console.error('Error: ', error)
     })
     document.querySelector(`#task_del_button_${this.value}`)
     .addEventListener('click', task_delete, false)
 }
 
-// Add event listener to every task element
-// https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
-task_del_buttons.forEach(element => {
-    set_event_listener(element, 'task_delete')
-})
 
 
 // TODO: Mark task complete/undone
 function task_mark(event) {
-
+    const task_div = document.querySelector(`#task_id_${this.value}`)
+    // Pack task's credentials to send to back end
+    let data = new FormData()
+    data.append(this.name, this.value)
+    fetch('/', {
+        "method": "POST",
+        "body": data,
+    }).then(response => response.text())
+    .then(text => task_div.outerHTML = text)
+    .catch(error => {
+        console.error('Error: ', error)
+    })
+    set_event_listener(this, 'task_mark')
 }
 
+
+// Set event listeners tasks' buttons
+// https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+let task_divs = document.querySelectorAll('.task_div')
+task_divs.forEach(div => task_set_triggers(div))
 
 
 // TODO: right click menu
