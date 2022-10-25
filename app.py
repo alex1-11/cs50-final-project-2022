@@ -208,7 +208,7 @@ def index():
             with DbSession.begin() as db:
                 task = db.execute(
                     select(Task)
-                    .where(Task.id == request.form["task_])
+                    .where(Task.id == request.form["task_delete"])
                 )
 
                 db.execute(
