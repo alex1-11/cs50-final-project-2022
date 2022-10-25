@@ -50,8 +50,9 @@ function task_action(event) {
         "body": data,
     }).then(response => response.text())
     .then(text => {
+        var temp = task_div.nextElementSibling
         task_div.outerHTML = text
-        task_div = task_div.nextElementSibling
+        task_div = temp.previousElementSibling
         task_set_triggers(task_div)
     }).catch(error => {
         console.error('Error: ', error)
