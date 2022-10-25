@@ -256,7 +256,7 @@ def index():
     # GET request shows the UI
     else:
         # TODO: Get user's tasks, grouped by contexts
-        # TODO: ~AJAX~ for diff views. Use JS, fetch and JSON:
+        # TODO: Views. Use JS, fetch and JSON:
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
 
         # Connect to db, load up tasks and show them out
