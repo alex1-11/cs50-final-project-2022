@@ -203,7 +203,8 @@ def index():
                     )
                 return render_template("task.html", task=task)
 
-        # Delete the task (moves task to "trash bin" which makes it possible to undo)
+        # Delete/restore task
+        # Moves task to "trash bin" which makes it possible to undo
         if request.form.get("task_delete"):
             with DbSession.begin() as db:
                 task = db.execute(
