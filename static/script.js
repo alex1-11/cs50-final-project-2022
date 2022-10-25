@@ -39,7 +39,7 @@ form_task_add_new.addEventListener('submit', task_add_new, false)
 // Action with task (delete to bin, mark complete/undone)
 function task_action(event) {
     // Remember the task div (parent area)
-    const task_div = document.querySelector(`#task_id_${this.value}`)
+    var task_div = document.querySelector(`#task_id_${this.value}`)
     // Create form and store task's data to send to Flask:
     // name (which action to take) and value (task's id)
     let data = new FormData()
