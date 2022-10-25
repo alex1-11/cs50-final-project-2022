@@ -50,8 +50,11 @@ function task_action(event) {
         "body": data,
     }).then(response => response.text())
     .then(text => {
+        // Save the reference point
         var next_div = task_div.nextElementSibling
+        // This will make reference deprecated
         task_div.outerHTML = text
+        // Restore reference point and reset triggers on task's buttons
         task_set_triggers(next_div.previousElementSibling)
     }).catch(error => {
         console.error('Error: ', error)
