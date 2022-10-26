@@ -1,7 +1,4 @@
- .bg-my {
-    background-color: #10c78a;
- }
-
- button {
-    background-color: #10c78a;
- }
+.bg-my  {background-color: #10c78a;}
+button  {background-color: #10c78a;}
+a       {color: black;}
+a:hover {color: grey;}

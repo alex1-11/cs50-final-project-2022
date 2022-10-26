@@ -22,13 +22,23 @@
 
         <!-- navbar goes here -->
         <div class="navbar bg-my">
-            {% if session["user_id"] %}
-                TODO: navbar list
-                <a href="/logout">Logout</a>
-            {% else %}
-                <a href="/register">Register</a>
-                <a href="/login">Log in</a>
-            {% endif %}
+            <ul class="nav">
+                {% if session["user_id"] %}
+                    <li class="nav-item">
+                        TODO: navbar list
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Log in</a>
+                    </li>
+                    {% endif %}
+            </ul>
         </div>
 
         {% if get_flashed_messages() %}
