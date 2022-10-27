@@ -24,11 +24,11 @@
         <div class="navbar bg-my">
             <div class="container-fluid">
                 <div class="row row-cols-auto allign-items-center justify-content-between">
-                    <div class="col-4">
+                    <div class="col-4 float-start">
                         <a class="navbar-brand" href="#">tskFLOW</a>
                     </div>
                     <div class="col-8">
-                        <ul class="nav">
+                        <ul class="nav float-end">
                             {% if session["user_id"] %}
                                 <li class="nav-item">
                                 TODO: navbar list
@@ -61,7 +61,7 @@
         <div class="container">
             {% block main %}{% endblock %}
         </div>
-        
+
         <footer class="mb-5 small text-center text-muted">
             Made by Alex1-11 as a Final project for CS50 2022
         </footer>
