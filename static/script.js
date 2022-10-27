@@ -75,7 +75,7 @@ task_divs.forEach(div => task_set_triggers(div))
 // TODO: Tasklists / views
 // const tasks_data = {{ tasks|tojson }}
 let view = 'today'
-const tabs_div = document.querySelector('#v-pills-tab')
+const tabs_div = document.querySelector('#v-pills-tab').childs.ariaSelected
 
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
