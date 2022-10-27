@@ -83,10 +83,9 @@ tabs.forEach( tab => {
             if (div.classList.contains("task_active")) {
 
             }
-        })
+        )
     }
-})
-
+)
 
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
