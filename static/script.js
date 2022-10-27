@@ -76,9 +76,12 @@ task_divs.forEach(div => task_set_triggers(div))
 // const tasks_data = {{ tasks|tojson }}
 let view = 'today'
 const tabs = document.querySelector('#v-pills-tab').children
+const task_divs = document.querySelectorAll('.task_div')
 tabs.forEach( tab => {
     if (tab.ariaSelected) {
-        conntent_div.children.forEach()
+        task_divs.forEach(div {
+            if div.classList.
+        })
     }
 }
 
