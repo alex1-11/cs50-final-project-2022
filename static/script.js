@@ -77,11 +77,22 @@ task_divs.forEach(div => task_set_triggers(div))
 let view = 'today'
 const tabs = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
-tabs.forEach( tab => {
+tabs.forEach(tab => {
+    if (tab.ariaSelected) {
+        task_divs.forEach(div => {
+            switch (div.classList.contains()) {
+                case 'active'
+            }
+        })
+    }
+})
+
+
+    tab => {
     if (tab.ariaSelected) {
         task_divs.forEach(div {
-            if (div.classList.contains("task_active")) {
-                
+            switch (div.classList.contains("task_active")) {
+
             }
         )
     }
