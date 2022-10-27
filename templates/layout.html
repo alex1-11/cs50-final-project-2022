@@ -58,29 +58,10 @@
             </header>
         {% endif %}
 
-        <div class="">
-
-            <!-- nav sidemenu -->
-            <div class="d-flex align-items-start">
-                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                  <button class="nav-link active" id="v-pills-today-tab" data-bs-toggle="pill" data-bs-target="#v-pills-today" type="button" role="tab" aria-controls="v-pills-today" aria-selected="true">Today</button>
-                  <button class="nav-link" id="v-pills-upcoming-tab" data-bs-toggle="pill" data-bs-target="#v-pills-upcoming" type="button" role="tab" aria-controls="v-pills-upcoming" aria-selected="false">Upcoming</button>
-                  <button class="nav-link" id="v-pills-nodate-tab" data-bs-toggle="pill" data-bs-target="#v-pills-nodate" type="button" role="tab" aria-controls="v-pills-nodate" aria-selected="false">No date</button>
-                  <button class="nav-link" id="v-pills-alltasks-tab" data-bs-toggle="pill" data-bs-target="#v-pills-alltasks" type="button" role="tab" aria-controls="v-pills-alltasks" aria-selected="false">All</button>
-                  <button class="nav-link" id="v-pills-deleted-tab" data-bs-toggle="pill" data-bs-target="#v-pills-deleted" type="button" role="tab" aria-controls="v-pills-deleted" aria-selected="false">Deleted</button>
-                </div>
-                <div class="tab-content" id="v-pills-tabContent">
-                  <div class="tab-pane fade show active" id="v-pills-today" role="tabpanel" aria-labelledby="v-pills-today-tab" tabindex="0">
-                      {% block main %}{% endblock %}
-                  </div>
-                  <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab" tabindex="0">...</div>
-                  <div class="tab-pane fade" id="v-pills-nodate" role="tabpanel" aria-labelledby="v-pills-nodate-tab" tabindex="0">...</div>
-                  <div class="tab-pane fade" id="v-pills-alltasks" role="tabpanel" aria-labelledby="v-pills-alltasks-tab" tabindex="0">...</div>
-                  <div class="tab-pane fade" id="v-pills-deleted" role="tabpanel" aria-labelledby="v-pills-deleted-tab" tabindex="0">...</div>
-                </div>
-              </div>
-
+        <div class="container">
+            {% block main %}{% endblock %}
         </div>
+        
         <footer class="mb-5 small text-center text-muted">
             Made by Alex1-11 as a Final project for CS50 2022
         </footer>
