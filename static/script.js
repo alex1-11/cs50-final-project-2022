@@ -86,6 +86,10 @@ const tabs = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
 tabs.forEach(tab => {
     if (tab.ariaSelected) {
+        switch (tab.classList.contains() {
+            
+        }
+
         task_divs.forEach(div => {
             switch (div.classList.contains()) {
                 case 'task_active':
