@@ -80,10 +80,12 @@ const task_divs = document.querySelectorAll('.task_div')
 tabs.forEach( tab => {
     if (tab.ariaSelected) {
         task_divs.forEach(div {
-            if div.classList.contains("active")
+            if (div.classList.contains("task_active")) {
+
+            }
         })
     }
-}
+})
 
 
 
