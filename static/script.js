@@ -74,7 +74,7 @@ task_divs.forEach(div => task_set_triggers(div))
 
 // TODO: Tasklists / views
 // const tasks_data = {{ tasks|tojson }}
-let view = [
+let views = [
     'today',
     'upcoming',
     'nodate',
