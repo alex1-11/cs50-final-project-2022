@@ -1,6 +1,6 @@
 <div class="task_div {{ task.status }}" id="task_id_{{ task.id }}">
     <form class="task_form">
-        <button type="button" class="task_mark tsk_{{ task.status }}" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
+        <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
             {% if task.status == 'active' %}
                 ◯
             {% elif task.status == 'done' %}
