@@ -74,7 +74,14 @@ task_divs.forEach(div => task_set_triggers(div))
 
 // TODO: Tasklists / views
 // const tasks_data = {{ tasks|tojson }}
-let view = 'today'
+let view = [
+    'today',
+    'upcoming',
+    'nodate',
+    alltasks
+    completed
+    deleted
+]
 const tabs = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
 tabs.forEach(tab => {
