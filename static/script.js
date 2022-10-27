@@ -82,11 +82,11 @@ let views = [
     'completed',
     'deleted',
 ]
-const tabs = document.querySelector('#v-pills-tab').children
+const tab_btns = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
-tabs.forEach(tab => {
-    if (tab.ariaSelected) {
-        switch (tab.id.contains() {
+tab_btns.forEach(btn => {
+    if (btn.ariaSelected) {
+        switch (btn.id.contains() {
 
         }
 
