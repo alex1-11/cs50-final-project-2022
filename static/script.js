@@ -81,7 +81,8 @@ tabs.forEach(tab => {
     if (tab.ariaSelected) {
         task_divs.forEach(div => {
             switch (div.classList.contains()) {
-                case 'active'
+                case 'task_active':
+                    div.classList
             }
         })
     }
