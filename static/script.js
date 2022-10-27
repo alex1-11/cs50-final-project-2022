@@ -86,9 +86,9 @@ const tab_btns = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
 tab_btns.forEach(btn => {
     if (btn.ariaSelected) {
-        switch (btn.id.contains() {
-
-        }
+        switch (btn.id => {
+            case '[id*="today"]'
+        })
 
 
 
