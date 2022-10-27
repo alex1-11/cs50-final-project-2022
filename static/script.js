@@ -90,6 +90,8 @@ tab_btns.forEach(btn => {
 
         }
 
+        
+
         task_divs.forEach(div => {
             switch (div.classList.contains()) {
                 case 'task_active':
