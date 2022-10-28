@@ -99,7 +99,7 @@ var active_tab_btn = tab_btns.querySelector('.active')
 // Store today's date value
 let today = new Date().setHours(0, 0, 0, 0)
 
-// Inspect divs of every task for match with conditions for specifiv view
+// Inspect divs of every task for match with conditions for specific view-tab
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
         tasks.forEach(div => {
