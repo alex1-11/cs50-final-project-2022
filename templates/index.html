@@ -8,28 +8,39 @@
     <div class="container" id="tasklist">
         <!-- nav sidemenu -->
         <div class="d-flex align-items-start">
-            <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                today
-                upcoming
-                nodate
-                alltasks
-                completed
-                deleted
-            </div>
+            <ul class="nav flex-column" id="viewlist">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Today</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Upcoming</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">No date</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">All tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Completed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Deleted</a>
+                </li>
+            </ul>
             <div class="tab-content">
                 {% for task in tasks %}
                     {% include "task.html" %}
                 {% endfor %}
                 <div id="tasklist_end"></div>
+                <!-- Add new task block -->
+                <div id="task_add_new">
+                    <form id="form_task_add_new">
+                        <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </form>
+                </div>
             </div>
-            <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade" id="v-pills-today" role="tabpanel" aria-labelledby="v-pills-today-tab" tabindex="0">
-                </div>
-                <div class="tab-pane fade" id="v-pills-upcoming" role="tabpanel" aria-labelledby="v-pills-upcoming-tab" tabindex="0">...</div>
-                <div class="tab-pane fade" id="v-pills-nodate" role="tabpanel" aria-labelledby="v-pills-nodate-tab" tabindex="0">...</div>
-                <div class="tab-pane fade show active" id="v-pills-alltasks" role="tabpanel" aria-labelledby="v-pills-alltasks-tab" tabindex="0">
-                </div>
-                <div class="tab-pane fade" id="v-pills-deleted" role="tabpanel" aria-labelledby="v-pills-deleted-tab" tabindex="0">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn bg-my" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Empty bin
@@ -55,13 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add new task block -->
-                <div id="task_add_new">
-                    <form id="form_task_add_new">
-                        <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
-                        <button type="submit" class="btn btn-success">Add</button>
-                    </form>
-                </div>
+
 
             </div>
         </div>
