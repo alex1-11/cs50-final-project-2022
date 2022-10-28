@@ -84,6 +84,10 @@ let views = [
 ]
 const tab_btns = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
+function show_tasks(task_div) {
+    task_div.classList.remove
+}
+
 tab_btns.forEach(btn => {
     if (btn.ariaSelected) {
         switch (btn.id => {
@@ -94,8 +98,18 @@ tab_btns.forEach(btn => {
 
         task_divs.forEach(div => {
             switch (div.classList.contains()) {
-                case 'task_active':
-                    div.classList
+                case 'v-pills-today-tab':
+
+                case 'v-pills-upcoming-tab':
+
+                case 'v-pills-nodate-tab':
+
+                case 'v-pills-alltasks-tab':
+
+                case 'v-pills-completed-tab':
+
+                case 'v-pills-deleted-tab':
+
             }
         })
     }
