@@ -92,7 +92,8 @@ function hide_(div) {
     task_div.classList.replace("visible", "invisible")
 }
 
-tab_btns.forEach(btn => {
+var active_tab_btn = tab_btns.querySelector('.active')
+(btn => {
     if (btn.ariaSelected) {
         switch (btn.id) {
             case 'v-pills-today-tab':
