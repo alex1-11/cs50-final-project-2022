@@ -104,7 +104,7 @@ switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
         tasks.forEach(div => {
             var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
-            if (div.classList.contains('task_active') && task_date == ) {
+            if (div.classList.contains('task_active') && task_date == today) {
                 show_(div)
             }
             else {
