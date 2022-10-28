@@ -98,8 +98,11 @@ var active_tab_btn = tab_btns.querySelector('.active')
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
         tasks.forEach(div => {
-            if (div.classList.contains('task_active')) {
+            if (div.classList.contains('task_active') /* AND date == now() */) {
                 show_(div)
+            }
+            else {
+                hide_(div)
             }
         })
         break
