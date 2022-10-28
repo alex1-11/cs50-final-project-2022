@@ -85,7 +85,9 @@ let views = [
 const tab_btns = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
 function show_tasks(task_div) {
-    task_div.classList.remove
+    task_div.classList.toggle("visible")
+    task_div.classList.toggle("invisible")
+    task_div.classList.add
 }
 
 tab_btns.forEach(btn => {
