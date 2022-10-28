@@ -95,11 +95,11 @@ function hide_(div) {
 // function update_active_tab() {}
 var active_tab_btn = tab_btns.querySelector('.active')
 // addEventListener tabs click / change
+var today = new Date().toLocaleDateString()
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
-        var today = new Date().toLocaleDateString()
         tasks.forEach(div => {
-            if (div.classList.contains('task_active') && date == ) {
+            if (div.classList.contains('task_active') &&  == ) {
                 show_(div)
             }
             else {
