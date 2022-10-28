@@ -126,7 +126,7 @@ function update_active_tab() {
     }
 }
 
-
+tab_btns.children.forEach(btn => btn.addEventListener('click', update_active_tab(), false))
 
 
 // TODO: set due date / datetime
