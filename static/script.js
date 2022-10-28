@@ -97,11 +97,12 @@ var active_tab_btn = tab_btns.querySelector('.active')
 // addEventListener tabs click / change
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
-        tasks.forEach(div =>
+        tasks.forEach(div => {
             if (div.classList.contains('task_active')) {
                 show_(div)
             }
-        )
+        })
+        break
 
     case 'v-pills-upcoming-tab':
 
