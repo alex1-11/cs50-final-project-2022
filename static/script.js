@@ -83,7 +83,7 @@ let views = [
     'deleted',
 ]
 
-const tab_btns = document.querySelector('#v-pills-tab').children
+const tab_btns = document.querySelector('#v-pills-tab')
 const tasks = document.querySelectorAll('.task_div')
 function show_(div) {
     task_div.classList.replace("invisible", "visible")
