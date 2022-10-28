@@ -6,28 +6,7 @@
 
 {% block main %}
     <div class="container" id="tasklist">
-        <!-- nav sidemenu -->
-        <div class="d-flex align-items-start">
-            <ul class="nav flex-column" id="viewlist">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Today</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Upcoming</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">No date</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">All tasks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Completed</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Deleted</a>
-                </li>
-            </ul>
+        
             <div class="tab-content">
                 {% for task in tasks %}
                     {% include "task.html" %}
