@@ -86,10 +86,10 @@ let views = [
 const tab_btns = document.querySelector('#v-pills-tab')
 const tasks = document.querySelectorAll('.task_div')
 function show_(div) {
-    task_div.classList.replace("invisible", "visible")
+    div.classList.replace("invisible", "visible")
 }
 function hide_(div) {
-    task_div.classList.replace("visible", "invisible")
+    div.classList.replace("visible", "invisible")
 }
 
 // function update_active_tab() {}
