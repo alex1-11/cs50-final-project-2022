@@ -92,38 +92,38 @@ function hide_(div) {
     div.classList.replace("visible", "invisible")
 }
 
-// function update_active_tab() {}
-var active_tab_btn = tab_btns.querySelector('.active')
-// addEventListener tabs click / change
+function update_active_tab() {
+    var active_tab_btn = tab_btns.querySelector('.active')
+    // addEventListener tabs click / change
 
-// Store today's date value
-let today = new Date().setHours(0, 0, 0, 0)
+    // Store today's date value
+    let today = new Date().setHours(0, 0, 0, 0)
 
-// Inspect divs of every task for match with conditions for specific view-tab
-switch (active_tab_btn.id) {
-    case 'v-pills-today-tab':
-        tasks.forEach(div => {
-            var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
-            if (div.classList.contains('task_active') && task_date == today) {
-                show_(div)
-            }
-            else {
-                hide_(div)
-            }
-        })
-        break
+    // Inspect divs of every task for match with conditions for specific view-tab
+    switch (active_tab_btn.id) {
+        case 'v-pills-today-tab':
+            tasks.forEach(div => {
+                var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
+                if (div.classList.contains('task_active') && task_date == today) {
+                    show_(div)
+                }
+                else {
+                    hide_(div)
+                }
+            })
+            break
 
-    case 'v-pills-upcoming-tab':
+        case 'v-pills-upcoming-tab':
 
-    case 'v-pills-nodate-tab':
+        case 'v-pills-nodate-tab':
 
-    case 'v-pills-alltasks-tab':
+        case 'v-pills-alltasks-tab':
 
-    case 'v-pills-completed-tab':
+        case 'v-pills-completed-tab':
 
-    case 'v-pills-deleted-tab':
+        case 'v-pills-deleted-tab':
 
-}
+    }
 
 
 
