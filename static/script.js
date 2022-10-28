@@ -126,20 +126,7 @@ switch (active_tab_btn.id) {
 }
 
 
-        task_divs.forEach(div => {
-        })
 
-
-
-
-    tab => {
-    if (tab.ariaSelected) {
-        task_divs.forEach(div {
-            switch (div.classList.contains("task_active")) {
-
-            }
-        )
-    }
 
 
 // TODO: set due date / datetime
