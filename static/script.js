@@ -96,13 +96,14 @@ function hide_(div) {
 var active_tab_btn = tab_btns.querySelector('.active')
 // addEventListener tabs click / change
 
-// Store the date values
-var today = new Date().setHours(0, 0, 0, 0)
-var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
+// Store today's date value
+let today = new Date().setHours(0, 0, 0, 0)
 
+// Inspect divs of every task for match with conditions for specifiv view
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
         tasks.forEach(div => {
+            var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
             if (div.classList.contains('task_active') && task_date == ) {
                 show_(div)
             }
