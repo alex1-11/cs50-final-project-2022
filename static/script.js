@@ -114,17 +114,17 @@ function update_active_tab() {
             break
 
         case 'v-pills-upcoming-tab':
-
+            return
         case 'v-pills-nodate-tab':
-
+            return
         case 'v-pills-alltasks-tab':
-
+            return
         case 'v-pills-completed-tab':
-
+            return
         case 'v-pills-deleted-tab':
-
+            return
     }
-
+}
 
 
 
