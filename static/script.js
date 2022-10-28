@@ -97,8 +97,9 @@ var active_tab_btn = tab_btns.querySelector('.active')
 // addEventListener tabs click / change
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
+        var today = new Date().toLocaleDateString()
         tasks.forEach(div => {
-            if (div.classList.contains('task_active') && date == now()) {
+            if (div.classList.contains('task_active') && date == ) {
                 show_(div)
             }
             else {
