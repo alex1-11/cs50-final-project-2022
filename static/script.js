@@ -94,7 +94,7 @@ function hide_(div) {
 
 function update_active_tab() {
     var active_tab_btn = tab_btns.querySelector('.active')
-    // addEventListener tabs click / change
+    // TODO: addEventListener tabs click / change
 
     // Store today's date value
     let today = new Date().setHours(0, 0, 0, 0)
