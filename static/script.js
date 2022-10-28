@@ -82,37 +82,35 @@ let views = [
     'completed',
     'deleted',
 ]
+
 const tab_btns = document.querySelector('#v-pills-tab').children
 const task_divs = document.querySelectorAll('.task_div')
-function show_tasks(task_div) {
-    task_div.classList.toggle("visible")
-    task_div.classList.toggle("invisible")
-    task_div.classList.add
+function show_(div) {
+    task_div.classList.replace("invisible", "visible")
+}
+function hide_(div) {
+    task_div.classList.replace("visible", "invisible")
 }
 
 tab_btns.forEach(btn => {
     if (btn.ariaSelected) {
-        switch (btn.id => {
-            case '[id*="today"]'
-        })
+        switch (btn.id) {
+            case 'v-pills-today-tab':
 
+            case 'v-pills-upcoming-tab':
+
+            case 'v-pills-nodate-tab':
+
+            case 'v-pills-alltasks-tab':
+
+            case 'v-pills-completed-tab':
+
+            case 'v-pills-deleted-tab':
+
+        }
 
 
         task_divs.forEach(div => {
-            switch (div.classList.contains()) {
-                case 'v-pills-today-tab':
-
-                case 'v-pills-upcoming-tab':
-
-                case 'v-pills-nodate-tab':
-
-                case 'v-pills-alltasks-tab':
-
-                case 'v-pills-completed-tab':
-
-                case 'v-pills-deleted-tab':
-
-            }
         })
     }
 })
