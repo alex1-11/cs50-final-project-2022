@@ -99,8 +99,8 @@ var today = new Date().toLocaleDateString()
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
         tasks.forEach(div => {
-            var date = new Date(div.querySelector('.task_date').value)
-            if (div.classList.contains('task_active') &&  == ) {
+            var task_date = new Date(div.querySelector('.task_date').value).toUTCString()
+            if (div.classList.contains('task_active') && task_date == ) {
                 show_(div)
             }
             else {
