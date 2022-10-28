@@ -128,7 +128,7 @@ switch (active_tab_btn.id) {
 
         task_divs.forEach(div => {
         })
-    }
+
 
 
 
@@ -140,7 +140,7 @@ switch (active_tab_btn.id) {
             }
         )
     }
-)
+
 
 // TODO: set due date / datetime
 // This will convert js datetime to sql datetime new Date().toISOString().slice(0, 19).replace('T', ' ');
