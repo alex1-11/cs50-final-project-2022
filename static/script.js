@@ -95,11 +95,14 @@ function hide_(div) {
 // function update_active_tab() {}
 var active_tab_btn = tab_btns.querySelector('.active')
 // addEventListener tabs click / change
-var today = new Date().toLocaleDateString()
+
+// Store the date values
+var today = new Date().setHours(0, 0, 0, 0)
+var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
+
 switch (active_tab_btn.id) {
     case 'v-pills-today-tab':
         tasks.forEach(div => {
-            var task_date = new Date(div.querySelector('.task_date').value).toUTCString()
             if (div.classList.contains('task_active') && task_date == ) {
                 show_(div)
             }
