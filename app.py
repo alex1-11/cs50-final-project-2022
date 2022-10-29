@@ -274,8 +274,11 @@ def index():
 @app.route("/today")
 @login_required
 def index():
+    today = now()
     with DbSession.begin() as db:
         tasks = db.execute(
             select(Task)
-            .where(date == today)
+            .where(Task.date == today)
         ).scalars().all()
+        if tasks:
+            return render_template("index.html", tasks=tasks)
