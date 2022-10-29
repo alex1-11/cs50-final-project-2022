@@ -74,65 +74,9 @@ task_divs.forEach(div => task_set_triggers(div))
 
 // TODO: Tasklists / views
 // const tasks_data = {{ tasks|tojson }}
-let views = [
-    'today',
-    'upcoming',
-    'nodate',
-    'alltasks',
-    'completed',
-    'deleted',
-]
-
-const tab_btns = document.querySelector('#v-pills-tab')
-const tasks = document.querySelectorAll('.task_div')
-function show_(div) {
-    div.classList.replace("invisible", "visible")
-}
-function hide_(div) {
-    div.classList.replace("visible", "invisible")
-}
-
-function update_active_tab() {
-    var active_tab_btn = tab_btns.querySelector('.active')
-    // TODO: addEventListener tabs click / change
-
-    // Store today's date value
-    let today = new Date().setHours(0, 0, 0, 0)
-
-    // Inspect divs of every task for match with conditions for specific view-tab
-    switch (active_tab_btn.id) {
-        case 'v-pills-today-tab':
-            tasks.forEach(div => {
-                var task_date = new Date(div.querySelector('.task_date').value).setHours(0, 0, 0, 0)
-                if (div.classList.contains('task_active') && task_date == today) {
-                    show_(div)
-                }
-                else {
-                    hide_(div)
-                }
-            })
-            break
-
-        case 'v-pills-upcoming-tab':
-            return
-        case 'v-pills-nodate-tab':
-            return
-        case 'v-pills-alltasks-tab':
-            return
-        case 'v-pills-completed-tab':
-            return
-        case 'v-pills-deleted-tab':
-            return
-    }
-}
-
-for (const btn of tab_btns.children) {
-    btn.addEventListener('click', update_active_tab(), false)
-}
-tab_btns.addEventListener('click', update_active_tab(), false)
 
 
-// TODO: set due date / datetime
+// Inspect divs of every task for match with conditions for specific view-tab
 // This will convert js datetime to sql datetime new Date().toISOString().slice(0, 19).replace('T', ' ');
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
