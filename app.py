@@ -274,3 +274,7 @@ def index():
 @app.route("/today")
 @login_required
 def index():
+    with DbSession.begin() as db:
+        tasks = db.execute(
+            select(Task)
+        ).scalars().all()
