@@ -162,7 +162,7 @@ def register():
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    """Show dashboard of today's tasks, grouped by contexts"""
+    """Show dashboard of  TODO: today's tasks, grouped by contexts"""
     if request.method == "POST":
         # print(">>>>",request.form["task_mark"])
 
@@ -271,4 +271,6 @@ def index():
                 return render_template("index.html")
 
 
-@app.route("today")
+@app.route("/today")
+@login_required
+def index():
