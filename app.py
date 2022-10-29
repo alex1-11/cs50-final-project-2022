@@ -270,3 +270,5 @@ def index():
                 flash("No tasks left")
                 return render_template("index.html")
 
+
+@app.route("today")
