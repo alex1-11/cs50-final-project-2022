@@ -277,5 +277,5 @@ def index():
     with DbSession.begin() as db:
         tasks = db.execute(
             select(Task)
-            .where(date == )
+            .where(date == today)
         ).scalars().all()
