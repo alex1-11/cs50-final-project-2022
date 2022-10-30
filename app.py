@@ -285,4 +285,6 @@ def index():
 
 
     view = request.args.get("view")
-    
+    match view:
+        case 'today':
+            
