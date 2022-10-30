@@ -269,7 +269,7 @@ def index():
                     # about the project, context, tags etc.
                     tasks = db.execute(select(Task)).scalars().all()
                 case 'today':
-                    today = datetime.today()
+                    today = datetime.date.today()
                     tasks = db.execute(
                         select(Task)
                         .where(Task.date == today)
@@ -285,7 +285,7 @@ def index():
                 # Default case - show all tasks
                 # TODO: make a setting dependance on default view
                 case _:
-                    tasks = db.exeecute(select(Task)).scalars().all()
+                    tasks = db.execute(select(Task)).scalars().all()
             if tasks:
                 return render_template("index.html", tasks=tasks)
             else:
