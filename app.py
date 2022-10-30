@@ -258,6 +258,9 @@ def index():
         # TODO: Get user's tasks, grouped by contexts
         # TODO: Views. Use JS, fetch and JSON:
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
+        view = request.args.get("view")
+        match view:
+            case 'today':
 
         # Connect to db, load up tasks and show them out
         with DbSession.begin() as db:
@@ -280,6 +283,3 @@ def index():
             return render_template("index.html", tasks=tasks)
 
 
-    view = request.args.get("view")
-    match view:
-        case 'today':
