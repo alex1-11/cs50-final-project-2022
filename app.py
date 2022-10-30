@@ -282,3 +282,7 @@ def index():
         ).scalars().all()
         if tasks:
             return render_template("index.html", tasks=tasks)
+
+
+    view = request.args.get("view")
+    
