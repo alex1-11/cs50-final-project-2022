@@ -272,7 +272,7 @@ def index():
                     today = datetime.date.today()
                     tasks = db.execute(
                         select(Task)
-                        .where(Task.date == today)
+                        .where(Task.date <= today)
                     ).scalars().all()
                 case 'upcoming':
                     pass
