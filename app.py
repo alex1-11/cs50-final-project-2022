@@ -282,6 +282,10 @@ def index():
                     pass
                 case 'deleted':
                     pass
+                # Default case - show all tasks
+                # TODO: make a setting dependance on default view
+                case _:
+                    tasks = db.exeecute(select(Task)).scalars().all()
             if tasks:
                 return render_template("index.html", tasks=tasks)
             else:
