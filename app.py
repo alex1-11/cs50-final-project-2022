@@ -256,7 +256,7 @@ def index():
     # GET request shows the UI
     else:
         # TODO: Get user's tasks, grouped by contexts
-        # TODO: Views. Use JS, fetch and JSON:
+        # TODO: Views. Remake to use JS, fetch and JSON:
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
 
         tasks = None
