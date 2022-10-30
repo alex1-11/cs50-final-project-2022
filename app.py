@@ -269,7 +269,7 @@ def index():
                     # about the project, context, tags etc.
                     tasks = db.execute(select(Task)).scalars().all()
                 case 'today':
-                    today = now()
+                    today = datetime.today()
                     tasks = db.execute(
                         select(Task)
                         .where(Task.date == today)
