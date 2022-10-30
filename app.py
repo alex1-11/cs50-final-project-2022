@@ -266,8 +266,6 @@ def index():
                     # TODO: join other tables into selection to pass info
                     # about the project, context, tags etc.
                     tasks = db.execute(select(Task)).scalars().all()
-                    if tasks:
-                        return render_template("index.html", tasks=tasks)
                 case 'today':
                     today = now()
                     tasks = db.execute(
@@ -275,11 +273,11 @@ def index():
                         .where(Task.date == today)
                     ).scalars().all()
 
-                if tasks:
-                    return render_template("index.html", tasks=tasks)
-                else:
-                    flash("No tasks")
-                    return render_template("index.html")
+            if tasks:
+                return render_template("index.html", tasks=tasks)
+            else:
+                flash("No tasks")
+                return render_template("index.html")
 
 
 
