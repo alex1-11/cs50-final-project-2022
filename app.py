@@ -272,7 +272,14 @@ def index():
                         select(Task)
                         .where(Task.date == today)
                     ).scalars().all()
-
+                case 'upcoming':
+                    pass
+                case 'nodate':
+                    pass
+                case 'completed':
+                    pass
+                case 'deleted':
+                    pass
             if tasks:
                 return render_template("index.html", tasks=tasks)
             else:
