@@ -311,9 +311,9 @@ def view():
                 pass
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
-            case _:
-                print('>>> case: _')
-                tasks = None
+            # case _:
+            #     print('>>> case: _')
+            #     tasks = None
         if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
