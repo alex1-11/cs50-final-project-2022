@@ -72,9 +72,12 @@ task_divs.forEach(div => task_set_triggers(div))
 
 // TODO: Tasklists / views
 // var view = {{ view|tojson }}
+const tasklist = document.querySelector("#tasklist")
+
 function view_change(event) {
-    // Get type of view triggered
-    var view
+    // Get type of view triggered and pack it for fetch
+    let data = new FormData()
+    data.append(this.name, this.value)
 }
 
 
