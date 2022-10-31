@@ -115,6 +115,7 @@ function view_change(event) {
             if (btn.value == active_view) {
                 btn.classList.add('active')
             }
+            
         })
     }).catch(error => console.error('Error: ', error))
 }
