@@ -259,45 +259,48 @@ def index():
         # TODO: Views. Remake to use JS, fetch and JSON:
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
 
-        tasks = None
-        view = {
-            "type": None,
-            "task_add": "visible"
-        }
-        # Connect to db, load up tasks and show them out
-        with DbSession.begin() as db:
-            view["type"] = request.args.get("view")
-            match view:
-                case 'all':
-                    # TODO: join other tables into selection to pass info
-                    # about the project, context, tags etc.
-                    tasks = db.execute(select(Task)).scalars().all()
-                case 'today':
-                    today = datetime.date.today()
-                    tasks = db.execute(
-                        select(Task)
-                        .where(Task.date <= today)
-                    ).scalars().all()
-                case 'upcoming':
-                    pass
-                case 'nodate':
-                    pass
-                case 'completed':
-                    pass
-                case 'deleted':
-                    view["task_add"] = "invisible"
-                    pass
-                # Default case - show all tasks
-                # TODO: make a setting dependance on default view
-                case _:
-                    tasks = db.execute(select(Task)).scalars().all()
-            if tasks and view["type"]:
-                return render_template("index.html", tasks=tasks, view=view)
-            else:
-                flash("No tasks")
-                return render_template("index.html")
 
 
-@app.route("/view")
+@app.route("/view", methods=["POST"])
+@login_required
+def view():
+    """Form html response with tasks list for fetch request"""
+    # Connect to db, load up tasks and show them out
+    tasks = None
+    view = {
+        "type": None,
+        "task_add": "visible"
+    }
+    with DbSession.begin() as db:
+        view["type"] = request.args.get("view")
+        match view:
+            case 'all':
+                # TODO: join other tables into selection to pass info
+                # about the project, context, tags etc.
+                tasks = db.execute(select(Task)).scalars().all()
+            case 'today':
+                today = datetime.date.today()
+                tasks = db.execute(
+                    select(Task)
+                    .where(Task.date <= today)
+                ).scalars().all()
+            case 'upcoming':
+                pass
+            case 'nodate':
+                pass
+            case 'completed':
+                pass
+            case 'deleted':
+                view["task_add"] = "invisible"
+                pass
+            # Default case - show all tasks
+            # TODO: make a setting dependance on default view
+            case _:
+                tasks = db.execute(select(Task)).scalars().all()
+        if tasks and view["type"]:
+            return render_template("index.html", tasks=tasks, view=view)
+        else:
+            flash("No tasks")
+            return render_template("index.html")
 
 
