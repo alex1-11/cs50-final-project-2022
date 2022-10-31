@@ -329,7 +329,6 @@ def view():
                     .where(Task.status.endswith('_bin', autoescape=True))
                 ).scalars().all()
                 view["task_add"] = "invisible"
-                pass
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
             case _:
