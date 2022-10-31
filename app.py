@@ -320,7 +320,7 @@ def view():
                 tasks = db.execute(
                     select(Task)
                     .where(Task.status.endswith('_bin', autoescape=True))
-                )
+                ).scalars().all()
                 view["task_add"] = "invisible"
                 pass
             # Default case - show all tasks
