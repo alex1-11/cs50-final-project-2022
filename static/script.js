@@ -106,6 +106,7 @@ function view_change(event) {
         // Change title of page
         active_view = document.querySelector("#active_view").value
         document.title = active_view
+        // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
     })
 }
