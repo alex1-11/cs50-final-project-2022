@@ -283,7 +283,7 @@ def view():
     with DbSession.begin() as db:
         view["type"] = request.form.get("view")
         print('>>>', view["type"], type(view["type"]))
-        match view:
+        match view["type"]:
             case 'all':
                 print('>>> case:', view["type"])
                 # TODO: join other tables into selection to pass info
@@ -311,9 +311,9 @@ def view():
                 pass
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
-            # case _:
-            #     print('>>> case: _')
-            #     tasks = None
+            case _:
+                print('>>> case: _')
+                tasks = None
         if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
