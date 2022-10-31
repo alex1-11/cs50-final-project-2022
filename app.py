@@ -94,7 +94,7 @@ def login():
             session["user_name"] = user.name
 
         # Redirect user to home page
-        flash(f"Welcome, {username}!")
+        flash(f"Welcome, {session["user_name"]}!")
         return redirect("/")
 
     # GET clause
