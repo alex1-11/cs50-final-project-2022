@@ -110,7 +110,7 @@ function view_change(event) {
         taskSetTriggersAll()
     }).catch(error => console.error('Error: ', error))
 }
-
+viewlist_btns.forEach(btn => btn.addEventListener('click', view_change(), false)
 
 
 
