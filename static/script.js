@@ -89,7 +89,7 @@ function view_change(event) {
     .then(text => {
         tasklist.innerHTML = text
         taskSetTriggersAll()
-        tasklist.querySelector(".active")
+        view_active = tasklist.querySelector("#form_task_add_new").classList
 
     })
 }
