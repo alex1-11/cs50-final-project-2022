@@ -15,7 +15,7 @@ const tasklist_end_div = document.querySelector("#tasklist_end")
 
 function taskSetTriggers(task_div) {
     for (let act of actions) {
-        task_div.querySelector(`.${act}`).addEventListener('click', task_action(), false)
+        task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
     }
 }
 
@@ -52,7 +52,7 @@ function task_add_new(event) {
     })
     form_task_add_new.reset()
 }
-form_task_add_new.addEventListener('submit', task_add_new(), false)
+form_task_add_new.addEventListener('submit', task_add_new, false)
 
 
 // Action with task (delete to bin, mark complete/undone)
@@ -112,7 +112,7 @@ function view_change(event) {
         taskSetTriggersAll()
     }).catch(error => console.error('Error: ', error))
 }
-viewlist_btns.forEach(btn => btn.addEventListener('click', view_change(), false))
+viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
 
 
 
