@@ -168,12 +168,12 @@ def index():
 
         # Add new task (request comes from js fetch())
         if request.form.get("task_new"):
-            today = date.today()
+            newdate = None
             match request.form.get('view'):
                 case 'today':
-                    pass
+                    newdate = date.today()
                 case 'upcoming':
-                    pass
+                    newdate = date.today()
                 case 'nodate':
                     pass
                 case 'all':
@@ -192,7 +192,7 @@ def index():
                     title=request.form.get("task_new").strip(),
                     user_id=session["user_id"],
                     date=today if (request.form.get('view') in ['today', 'upcoming']) else None,
-                    
+
                 )
                 db.add(task_new)
                 db.flush()
