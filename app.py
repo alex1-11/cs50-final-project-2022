@@ -171,7 +171,17 @@ def index():
             today = date.today()
             match request.form.get('view'):
                 case 'today':
-                    
+                    pass
+                case 'upcoming':
+                    pass
+                case 'nodate':
+                    pass
+                case 'all':
+                    pass
+                case 'completed':
+                    pass
+                case 'deleted':
+                    pass
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
                 # priority from title
@@ -182,7 +192,7 @@ def index():
                     title=request.form.get("task_new").strip(),
                     user_id=session["user_id"],
                     date=today if (request.form.get('view') in ['today', 'upcoming']) else None,
-                    status=
+                    
                 )
                 db.add(task_new)
                 db.flush()
