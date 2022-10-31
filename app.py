@@ -282,7 +282,7 @@ def view():
     }
     with DbSession.begin() as db:
         view["type"] = request.form.get("view")
-        print('>>>', type(view["type"])
+        print('>>>', view["type"], type(view["type"]))
         match view:
             case 'all':
                 # TODO: join other tables into selection to pass info
