@@ -176,14 +176,12 @@ def index():
                     newdate = newdate if (newdate is not None) else date.today()
                 case 'upcoming':
                     newdate = newdate if (newdate is not None) else date.today()
-                case 'nodate':
-                    pass
-                case 'all':
-                    pass
                 case 'completed':
                     newstatus = 'done'
                 case 'deleted':
                     newstatus = 'active_bin'
+            # TODO: Prepare add-data depending on project reference
+            
 
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
