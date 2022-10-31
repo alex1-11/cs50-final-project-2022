@@ -173,11 +173,11 @@ def index():
                 # priority from title
 
                 # TODO: Differrent new task add parameters depending on type of view
-                if request.form.get('view') in ['today', 'upcoming']
                 task_new = Task(
                     # Uses .strip() method to remove whitespaces from input
                     title=request.form.get("task_new").strip(),
                     user_id=session["user_id"],
+                    date=(today() if request.form.get('view') in ['today', 'upcoming'] else)
                 )
                 db.add(task_new)
                 db.flush()
