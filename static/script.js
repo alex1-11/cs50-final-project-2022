@@ -92,6 +92,7 @@ function view_change(event) {
         // TODO: Differrent new task add parameters depending on type of view
         view_active = tasklist.querySelector("#form_task_add_new").classList
         // TODO: Change title of page
+        document.title()
 
     })
 }
