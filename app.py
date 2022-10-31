@@ -284,11 +284,6 @@ def view():
         view["type"] = request.form.get("view")
         print('>>>', view["type"], type(view["type"]))
         match view["type"]:
-            case 'all':
-                print('>>> case:', view["type"])
-                # TODO: join other tables into selection to pass info
-                # about the project, context, tags etc.
-                tasks = db.execute(select(Task)).scalars().all()
             case 'today':
                 print('>>> case:', view["type"])
                 today = datetime.date.today()
@@ -298,10 +293,18 @@ def view():
                 ).scalars().all()
             case 'upcoming':
                 print('>>> case:', view["type"])
-                pass
             case 'nodate':
                 print('>>> case:', view["type"])
+                tasks = db.execute(
+                    select(Task)
+                    .where(Task.date == None)
+                ).scalars().all()
                 pass
+            case 'all':
+                print('>>> case:', view["type"])
+                # TODO: join other tables into selection to pass info
+                # about the project, context, tags etc.
+                tasks = db.execute(select(Task)).scalars().all()
             case 'completed':
                 print('>>> case:', view["type"])
                 pass
