@@ -263,10 +263,12 @@ def index():
             }
             tasks = db.execute(
                 select(Task)
-                .where(Task.date <= today)
+                .where(Task.date <= today, Task.status == 'active')
             ).scalars().all()
             if tasks:
                 return render_template("index.html", tasks=tasks, view=view)
+            else:
+                return render_template("index.html", view=view)
 
 
 @app.route("/view", methods=["POST"])
