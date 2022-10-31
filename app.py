@@ -260,15 +260,19 @@ def index():
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
 
         tasks = None
-        view = None
+        view = {
+            "type": None,
+            "task_add": None
+        }
         # Connect to db, load up tasks and show them out
         with DbSession.begin() as db:
-            view = request.args.get("view")
+            view["type"] = request.args.get("view")
             match view:
                 case 'all':
                     # TODO: join other tables into selection to pass info
                     # about the project, context, tags etc.
                     tasks = db.execute(select(Task)).scalars().all()
+                    
                 case 'today':
                     today = datetime.date.today()
                     tasks = db.execute(
@@ -287,7 +291,7 @@ def index():
                 # TODO: make a setting dependance on default view
                 case _:
                     tasks = db.execute(select(Task)).scalars().all()
-            if tasks and view:
+            if tasks and view["type"]:
                 return render_template("index.html", tasks=tasks, view=view)
             else:
                 flash("No tasks")

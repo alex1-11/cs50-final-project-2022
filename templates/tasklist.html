@@ -7,10 +7,11 @@
         </div>
         <!-- Add new task block -->
         <div id="task_add_new">
-            <form class="{{ view }}" id="form_task_add_new">
+            <form class="{{ view.type view.task_add }}" id="form_task_add_new">
                 <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
                 <button type="submit" class="btn btn-success">Add</button>
             </form>
+            <button class="invisible" type="button" id="active_view" value="{{ view.type }}"
         </div>
     </div>
 {% endblock %}
