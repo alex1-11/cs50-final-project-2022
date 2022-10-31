@@ -18,17 +18,19 @@ let active_view = tasklist.querySelector("#active_view").value
 
 function task_add_new(event) {
     let task_form_data = new FormData(form_task_add_new)
-    // TODO
+    // TODO: Differrent new task add parameters depending on type of view
+    // TODO or implement it to backend
     // switch active_view {
     //     case 'all'
+                // pass
     //     case 'today'
+    //         var key = "date"
+    //         var value = "today"
     //     case 'upcoming'
     //     case 'nodate'
     //     case 'completed'
     //     case 'deleted'
     // }
-    // var key =
-    // var value =
     // task_form_data.append(key, value)
     event.preventDefault()
     fetch('/', {
@@ -101,15 +103,13 @@ function view_change(event) {
     }).then(response => response.text())
     .then(text => {
         tasklist.innerHTML = text
-        taskSetTriggersAll()
         // Change title of page
-        active_view = tasklist.querySelector("#active_view").value
+        active_view = document.querySelector("#active_view").value
         document.title = active_view
-
+        taskSetTriggersAll()
     })
 }
 
-// TODO: Differrent new task add parameters depending on type of view
 
 
 
