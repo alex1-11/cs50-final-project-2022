@@ -285,28 +285,34 @@ def view():
         print('>>>', view["type"], type(view["type"]))
         match view:
             case 'all':
+                print('>>> case:', view["type"])
                 # TODO: join other tables into selection to pass info
                 # about the project, context, tags etc.
-                print('>>> case all')
                 tasks = db.execute(select(Task)).scalars().all()
             case 'today':
+                print('>>> case:', view["type"])
                 today = datetime.date.today()
                 tasks = db.execute(
                     select(Task)
                     .where(Task.date <= today)
                 ).scalars().all()
             case 'upcoming':
+                print('>>> case:', view["type"])
                 pass
             case 'nodate':
+                print('>>> case:', view["type"])
                 pass
             case 'completed':
+                print('>>> case:', view["type"])
                 pass
             case 'deleted':
+                print('>>> case:', view["type"])
                 view["task_add"] = "invisible"
                 pass
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
             case _:
+                print('>>> case: _')
                 tasks = None
         if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
