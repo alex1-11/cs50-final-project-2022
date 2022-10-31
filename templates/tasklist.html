@@ -7,18 +7,16 @@
         <div id="tasklist_end">
         </div>
     </div>
-
-    {% if view.type != 'deleted' %}
     <!-- Add new task block -->
     <div id="task_add_new">
-        <form class="{{ view.type }} {{ view.task_add }}" id="form_task_add_new">
+        <form class="view_{{ view.type }}" id="form_task_add_new">
             <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
             <button type="submit" class="btn btn-success">Add</button>
         </form>
     </div>
 
     <!-- Empty bin modal block -->
-    {% else view.type == 'deleted' %}
+    {% if view.type == 'deleted' %}
         <!-- Button trigger modal -->
         <button type="button" class="btn bg-my" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Empty bin
