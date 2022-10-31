@@ -169,6 +169,7 @@ def index():
         # Add new task (request comes from js fetch())
         if request.form.get("task_new"):
             newdate = None
+            newstatus = None
             match request.form.get('view'):
                 case 'today':
                     newdate = date.today()
@@ -179,9 +180,9 @@ def index():
                 case 'all':
                     pass
                 case 'completed':
-                    pass
+                    newstatus = 'done'
                 case 'deleted':
-                    pass
+                    newstatus = 'active_bin'
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
                 # priority from title
@@ -191,8 +192,8 @@ def index():
                     # Uses .strip() method to remove whitespaces from input
                     title=request.form.get("task_new").strip(),
                     user_id=session["user_id"],
-                    date=today if (request.form.get('view') in ['today', 'upcoming']) else None,
-
+                    date=newdate,
+                    status=newstatus,
                 )
                 db.add(task_new)
                 db.flush()
