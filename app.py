@@ -278,9 +278,9 @@ def index():
                 .where(Task.date <= today, Task.status == 'active')
             ).scalars().all()
             if tasks:
-                return render_template("index.html", tasks=tasks, view=view, user=session.get("user_id"))
+                return render_template("index.html", tasks=tasks, view=view, username=session["user_name"])
             else:
-                return render_template("index.html", view=view, user=session.get("user_id"))
+                return render_template("index.html", view=view, username=session["user_name"])
 
 
 @app.route("/view", methods=["POST"])
