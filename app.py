@@ -304,7 +304,7 @@ def view():
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
             case _:
-                tasks = db.execute(select(Task)).scalars().all()
+                tasks = None
         if tasks and view["type"]:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
