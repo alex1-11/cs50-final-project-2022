@@ -23,7 +23,8 @@ function taskSetTriggers(task_div) {
 function task_add_new(event) {
     let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
-    
+    task_form_data.append(view, active_view)
+
     // TODO: Differrent new task add parameters depending on type of view
     // TODO or implement it to backend
     // switch active_view {
@@ -37,7 +38,6 @@ function task_add_new(event) {
     //     case 'completed'
     //     case 'deleted'
     // }
-    // task_form_data.append(key, value)
     event.preventDefault()
     fetch('/', {
         "method": "POST",
@@ -105,7 +105,7 @@ function view_change(event) {
     }).then(response => response.text())
     .then(text => {
         tasklist.innerHTML = text
-        // Change title of page
+        // Update current view and change title of page
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + active_view
         // Readd event listeners for tasks' functionality
