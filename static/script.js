@@ -4,6 +4,15 @@ const actions = [
     'task_mark'
 ]
 
+const tasklist = document.querySelector("#tasklist")
+const viewlist = document.querySelector("#viewlist")
+const viewlist_btns = viewlist.querySelectorAll("button")
+let active_view = tasklist.querySelector("#active_view").value
+
+const form_task_add_new = document.querySelector("#form_task_add_new")
+const tasklist_end_div = document.querySelector("#tasklist_end")
+
+
 function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', task_action(), false)
@@ -12,10 +21,6 @@ function taskSetTriggers(task_div) {
 
 
 // Add new task
-const form_task_add_new = document.querySelector("#form_task_add_new")
-const tasklist_end_div = document.querySelector("#tasklist_end")
-let active_view = tasklist.querySelector("#active_view").value
-
 function task_add_new(event) {
     let task_form_data = new FormData(form_task_add_new)
     // TODO: Differrent new task add parameters depending on type of view
@@ -89,9 +94,6 @@ taskSetTriggersAll()
 
 // TODO: Tasklists / views
 // var view = {{ view|tojson }}
-const tasklist = document.querySelector("#tasklist")
-const viewlist = document.querySelector("#viewlist")
-const viewlist_btns = viewlist.querySelectorAll("button")
 
 function view_change(event) {
     // Get type of view triggered and pack it for fetch to Flask
@@ -110,7 +112,7 @@ function view_change(event) {
         taskSetTriggersAll()
     }).catch(error => console.error('Error: ', error))
 }
-viewlist_btns.forEach(btn => btn.addEventListener('click', view_change(), false)
+viewlist_btns.forEach(btn => btn.addEventListener('click', view_change(), false))
 
 
 
