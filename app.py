@@ -168,13 +168,14 @@ def index():
 
         # Add new task (request comes from js fetch())
         if request.form.get("task_new"):
-            newdate = None
+            # Prepare add-data depending on active view
+            newdate = request.form.get('task_new_date')
             newstatus = None
             match request.form.get('view'):
                 case 'today':
-                    newdate = date.today()
+                    newdate = newdate if (newdate is not None) else date.today()
                 case 'upcoming':
-                    newdate = date.today()
+                    newdate = newdate if (newdate is not None) else date.today()
                 case 'nodate':
                     pass
                 case 'all':
@@ -183,11 +184,11 @@ def index():
                     newstatus = 'done'
                 case 'deleted':
                     newstatus = 'active_bin'
+
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
                 # priority from title
 
-                # TODO: Differrent new task add parameters depending on type of view
                 task_new = Task(
                     # Uses .strip() method to remove whitespaces from input
                     title=request.form.get("task_new").strip(),
