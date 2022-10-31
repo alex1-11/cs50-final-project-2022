@@ -258,6 +258,20 @@ def index():
         # TODO: Get user's tasks, grouped by contexts
         # TODO: Views. Remake to use JS, fetch and JSON:
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
+        with DbSession.begin() as db:
+            today = datetime.date.today()
+            view = {
+                "type": "today",
+                "task_add": "visible"
+            }
+            tasks = db.execute(
+                select(Task)
+                .where(Task.date <= today)
+            ).scalars().all()
+            if tasks:
+            return render_template("index.html", tasks=tasks, view=view)
+
+
 
 
 
@@ -298,7 +312,7 @@ def view():
             case _:
                 tasks = db.execute(select(Task)).scalars().all()
         if tasks and view["type"]:
-            return render_template("index.html", tasks=tasks, view=view)
+            return render_template("tasklist.html", tasks=tasks, view=view)
         else:
             flash("No tasks")
             return render_template("index.html")
