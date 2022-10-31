@@ -4,7 +4,7 @@ const actions = [
     'task_mark'
 ]
 
-function task_set_triggers(task_div) {
+function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
     }
@@ -26,7 +26,7 @@ function task_add_new(event) {
         tasklist_end_div.insertAdjacentHTML('beforebegin', text)
         // Add event listeners to the fresh task
         const task_div = tasklist_end_div.previousElementSibling
-        task_set_triggers(task_div)
+        taskSetTriggers(task_div)
     }).catch(error => {
         console.error('Error: ', error)
     })
@@ -55,7 +55,7 @@ function task_action(event) {
         // This will make reference deprecated
         task_div.outerHTML = text
         // Restore reference point and reset triggers on task's buttons
-        task_set_triggers(next_div.previousElementSibling)
+        taskSetTriggers(next_div.previousElementSibling)
     }).catch(error => {
         console.error('Error: ', error)
     })
@@ -64,9 +64,11 @@ function task_action(event) {
 
 // Set event listeners on buttons inside each tasks' div
 // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
-let task_divs = document.querySelectorAll('.task_div')
-task_divs.forEach(div => task_set_triggers(div))
-
+function taskSetTriggersAll() {
+    let task_divs = document.querySelectorAll('.task_div')
+    task_divs.forEach(div => taskSetTriggers(div))
+}
+taskSetTriggersAll()
 
 
 
@@ -84,7 +86,7 @@ function view_change(event) {
     }).then(response => response.text())
     .then(text => {
         tasklist.innerHTML = text
-        task_
+        taskSetTriggersAll()
     })
 }
 
