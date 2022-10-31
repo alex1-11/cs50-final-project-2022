@@ -108,7 +108,7 @@ function view_change(event) {
         document.title = active_view
         // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
-    })
+    }).catch(error => console.error('Error: ', error))
 }
 
 
