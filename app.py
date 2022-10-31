@@ -318,7 +318,6 @@ def view():
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
             view["type"] = ""
-            flash("No tasks")
             return render_template("tasklist.html", view=view)
 
 
