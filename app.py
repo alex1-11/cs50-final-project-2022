@@ -317,6 +317,10 @@ def view():
                 pass
             case 'deleted':
                 print('>>> case:', view["type"])
+                tasks = db.execute(
+                    select(Task)
+                    .where(Task.status.endswith('_bin', autoescape=True))
+                )
                 view["task_add"] = "invisible"
                 pass
             # Default case - show all tasks
