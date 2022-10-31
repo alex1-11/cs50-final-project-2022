@@ -23,6 +23,7 @@ function taskSetTriggers(task_div) {
 function task_add_new(event) {
     let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
+    
     // TODO: Differrent new task add parameters depending on type of view
     // TODO or implement it to backend
     // switch active_view {
@@ -115,7 +116,7 @@ function view_change(event) {
             if (btn.value == active_view) {
                 btn.classList.add('active')
             }
-            
+
         })
     }).catch(error => console.error('Error: ', error))
 }
