@@ -273,6 +273,9 @@ def index():
 @login_required
 def view():
     """Form html response with tasks list for fetch request"""
+    # TODO: join other tables into selection to pass info
+    # about the project, context, tags etc.
+
     # Connect to db, load up tasks and show them out
     tasks = None
     # Default view setting
@@ -289,7 +292,7 @@ def view():
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.date <= today)
+                    .where(Task.date <= today, Task.status == 'active')
                     .order_by(Task.date)
                 ).scalars().all()
             case 'upcoming':
@@ -297,24 +300,28 @@ def view():
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.date >= today)
+                    .where(Task.date >= today, Task.status == 'active')
                     .order_by(Task.date)
                 ).scalars().all()
             case 'nodate':
                 print('>>> case:', view["type"])
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.date == None)
+                    .where(Task.date == None, Task.status == 'active')
                 ).scalars().all()
                 pass
             case 'all':
                 print('>>> case:', view["type"])
-                # TODO: join other tables into selection to pass info
-                # about the project, context, tags etc.
-                tasks = db.execute(select(Task)).scalars().all()
+                tasks = db.execute(
+                    select(Task)
+                    .where(Task.status == 'active')
+                ).scalars().all()
             case 'completed':
                 print('>>> case:', view["type"])
-                pass
+                tasks = db.execute(
+                    select(Task)
+                    .where(Task.status == 'done')
+                ).scalars().all()
             case 'deleted':
                 print('>>> case:', view["type"])
                 tasks = db.execute(
