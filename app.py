@@ -169,14 +169,14 @@ def index():
         # Add new task (request comes from js fetch())
         if request.form.get("task_new"):
             with DbSession.begin() as db:
+                # TODO?: deconstruct project, context, tags,
+                # priority from title
+
+                # TODO: Differrent new task add parameters depending on type of view
+                if request.form.get('view') == 'today'
                 task_new = Task(
                     # Uses .strip() method to remove whitespaces from input
                     title=request.form.get("task_new").strip(),
-                    # TODO: Differrent new task add parameters depending on type of view
-                    # TODO: set default values for classes,
-                    # add constraints
-                    # TODO?: deconstruct project, context, tags,
-                    # priority from title
                     user_id=session["user_id"],
                 )
                 db.add(task_new)
