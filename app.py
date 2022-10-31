@@ -181,7 +181,7 @@ def index():
                 case 'deleted':
                     newstatus = 'active_bin'
             # TODO: Prepare add-data depending on project reference
-            
+
 
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
@@ -273,10 +273,7 @@ def index():
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
         with DbSession.begin() as db:
             today = date.today()
-            view = {
-                "type": "today",
-                "task_add": "visible"
-            }
+            view = "today"
             tasks = db.execute(
                 select(Task)
                 .where(Task.date <= today, Task.status == 'active')
@@ -297,16 +294,13 @@ def view():
     # Connect to db, load up tasks and show them out
     tasks = None
     # Default view setting
-    view = {
-        "type": "today",
-        "task_add": "visible"
-    }
+    view = "today"
     with DbSession.begin() as db:
-        view["type"] = request.form.get("view")
-        print('>>>', view["type"], type(view["type"]))
-        match view["type"]:
+        view = request.form.get("view")
+        print('>>>', view, type(view))
+        match view:
             case 'today':
-                print('>>> case:', view["type"])
+                print('>>> case:', view)
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
@@ -314,7 +308,7 @@ def view():
                     .order_by(Task.date)
                 ).scalars().all()
             case 'upcoming':
-                print('>>> case:', view["type"])
+                print('>>> case:', view)
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
@@ -322,31 +316,30 @@ def view():
                     .order_by(Task.date)
                 ).scalars().all()
             case 'nodate':
-                print('>>> case:', view["type"])
+                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(Task.date == None, Task.status == 'active')
                 ).scalars().all()
                 pass
             case 'all':
-                print('>>> case:', view["type"])
+                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(Task.status == 'active')
                 ).scalars().all()
             case 'completed':
-                print('>>> case:', view["type"])
+                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(Task.status == 'done')
                 ).scalars().all()
             case 'deleted':
-                print('>>> case:', view["type"])
+                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(Task.status.endswith('_bin', autoescape=True))
                 ).scalars().all()
-                view["task_add"] = "invisible"
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
             case _:
@@ -355,7 +348,7 @@ def view():
         if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
-            view["type"] = ""
+            view = ""
             return render_template("tasklist.html", view=view)
 
 
