@@ -5,5 +5,12 @@
         <div id="tasklist">
             {% include "tasklist.html" %}
         </div>
+        <!-- Add new task block -->
+        <div id="task_add_new">
+            <form class="{{ view.type }} {{ view.task_add }}" id="form_task_add_new">
+                <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+                <button type="submit" class="btn btn-success">Add</button>
+            </form>
+        </div>
     </div>
 {% endblock %}
