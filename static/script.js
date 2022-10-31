@@ -27,7 +27,7 @@ function task_add_new(event) {
     // TODO or implement it to backend
     // switch active_view {
     //     case 'all'
-                // pass
+    //             pass
     //     case 'today'
     //         var key = "date"
     //         var value = "today"
