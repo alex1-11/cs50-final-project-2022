@@ -182,7 +182,6 @@ def index():
                     newstatus = 'active_bin'
             # TODO: Prepare add-data depending on project reference
 
-
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
                 # priority from title
