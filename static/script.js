@@ -14,9 +14,16 @@ function taskSetTriggers(task_div) {
 // Add new task
 const form_task_add_new = document.querySelector("#form_task_add_new")
 const tasklist_end_div = document.querySelector("#tasklist_end")
+let active_view = tasklist.querySelector("#active_view").value
 
 function task_add_new(event) {
-    const task_form_data = new FormData(form_task_add_new)
+    let task_form_data = new FormData(form_task_add_new)
+    switch active_view {
+        
+    }
+    // var key =
+    // var value =
+    // task_form_data.append(key, value)
     event.preventDefault()
     fetch('/', {
         "method": "POST",
@@ -89,15 +96,14 @@ function view_change(event) {
     .then(text => {
         tasklist.innerHTML = text
         taskSetTriggersAll()
-        // TODO: Differrent new task add parameters depending on type of view
+        // Change title of page
         active_view = tasklist.querySelector("#active_view").value
-        
-        // TODO: Change title of page
         document.title = active_view
 
     })
 }
 
+// TODO: Differrent new task add parameters depending on type of view
 
 
 
