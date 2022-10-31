@@ -91,7 +91,6 @@ function taskSetTriggersAll() {
 taskSetTriggersAll()
 
 
-
 // TODO: Tasklists / views
 // var view = {{ view|tojson }}
 
