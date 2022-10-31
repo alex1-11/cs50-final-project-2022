@@ -275,12 +275,14 @@ def view():
     """Form html response with tasks list for fetch request"""
     # Connect to db, load up tasks and show them out
     tasks = None
+    # Default view setting
     view = {
-        "type": None,
+        "type": "today",
         "task_add": "visible"
     }
     with DbSession.begin() as db:
         view["type"] = request.form.get("view")
+        p
         match view:
             case 'all':
                 # TODO: join other tables into selection to pass info
@@ -305,10 +307,11 @@ def view():
             # TODO: make a setting dependance on default view
             case _:
                 tasks = None
-        if tasks and view["type"]:
+        if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
+            view["type"] = ""
             flash("No tasks")
-            return render_template("index.html")
+            return render_template("tasklist.html", view=view)
 
 
