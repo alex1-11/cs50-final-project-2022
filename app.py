@@ -247,10 +247,7 @@ def index():
                     .execution_options(synchronize_session=False)
                 )
             return redirect("/")
-
-
         # TODO: Edit the task
-
         return None
 
     # GET request shows the UI
@@ -272,9 +269,6 @@ def index():
                 return render_template("index.html", tasks=tasks, view=view)
 
 
-
-
-
 @app.route("/view", methods=["POST"])
 @login_required
 def view():
@@ -286,7 +280,7 @@ def view():
         "task_add": "visible"
     }
     with DbSession.begin() as db:
-        view["type"] = request.args.get("view")
+        view["type"] = request.form.get("view")
         match view:
             case 'all':
                 # TODO: join other tables into selection to pass info
