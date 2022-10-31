@@ -68,12 +68,18 @@ let task_divs = document.querySelectorAll('.task_div')
 task_divs.forEach(div => task_set_triggers(div))
 
 
-// TODO: right click menu
-// https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
 
 
 // TODO: Tasklists / views
-// const tasks_data = {{ tasks|tojson }}
+// var view = {{ view|tojson }}
+
+
+// TODO: Differrent new task add parameters depending on type of view
+
+
+
+// TODO: right click menu
+// https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
 
 
 // Inspect divs of every task for match with conditions for specific view-tab

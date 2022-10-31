@@ -260,6 +260,7 @@ def index():
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
 
         tasks = None
+        view = None
         # Connect to db, load up tasks and show them out
         with DbSession.begin() as db:
             view = request.args.get("view")
@@ -286,8 +287,8 @@ def index():
                 # TODO: make a setting dependance on default view
                 case _:
                     tasks = db.execute(select(Task)).scalars().all()
-            if tasks:
-                return render_template("index.html", tasks=tasks)
+            if tasks and view:
+                return render_template("index.html", tasks=tasks, view=view)
             else:
                 flash("No tasks")
                 return render_template("index.html")
