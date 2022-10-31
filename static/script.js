@@ -107,7 +107,7 @@ function view_change(event) {
         tasklist.innerHTML = text
         // Change title of page
         active_view = document.querySelector("#active_view").value
-        document.title = active_view
+        document.title = "tskFLOW: " + active_view
         // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
     }).catch(error => console.error('Error: ', error))
