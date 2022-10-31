@@ -1,4 +1,5 @@
 {% block main %}
+    <button id="active_view" value="{{ view.type }}" class="invisible" type="button"></button>
     <div class="tab-content">
         {% for task in tasks %}
             {% include "task.html" %}
@@ -11,7 +12,6 @@
                 <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
                 <button type="submit" class="btn btn-success">Add</button>
             </form>
-            <button class="invisible" type="button" id="active_view" value="{{ view.type }}"></button>
         </div>
     </div>
 {% endblock %}
