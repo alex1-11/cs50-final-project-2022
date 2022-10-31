@@ -24,20 +24,6 @@ function task_add_new(event) {
     let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
     task_form_data.append('view', active_view)
-
-    // TODO: Differrent new task add parameters depending on type of view
-    // TODO or implement it to backend
-    // switch active_view {
-    //     case 'all'
-    //             pass
-    //     case 'today'
-    //         var key = "date"
-    //         var value = "today"
-    //     case 'upcoming'
-    //     case 'nodate'
-    //     case 'completed'
-    //     case 'deleted'
-    // }
     event.preventDefault()
     fetch('/', {
         "method": "POST",

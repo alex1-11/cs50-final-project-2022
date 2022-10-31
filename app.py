@@ -172,6 +172,7 @@ def index():
                 task_new = Task(
                     # Uses .strip() method to remove whitespaces from input
                     title=request.form.get("task_new").strip(),
+                    # TODO: Differrent new task add parameters depending on type of view
                     # TODO: set default values for classes,
                     # add constraints
                     # TODO?: deconstruct project, context, tags,
