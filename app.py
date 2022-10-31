@@ -282,11 +282,12 @@ def view():
     }
     with DbSession.begin() as db:
         view["type"] = request.form.get("view")
-        p
+        print('>>>', type(view["type"])
         match view:
             case 'all':
                 # TODO: join other tables into selection to pass info
                 # about the project, context, tags etc.
+                print('>>> case all')
                 tasks = db.execute(select(Task)).scalars().all()
             case 'today':
                 today = datetime.date.today()
