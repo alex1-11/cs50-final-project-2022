@@ -89,13 +89,13 @@ function view_change(event) {
     .then(text => {
         tasklist.innerHTML = text
         taskSetTriggersAll()
+        // TODO: Differrent new task add parameters depending on type of view
         view_active = tasklist.querySelector("#form_task_add_new").classList
+        // TODO: Change title of page
 
     })
 }
 
-
-// TODO: Differrent new task add parameters depending on type of view
 
 
 
