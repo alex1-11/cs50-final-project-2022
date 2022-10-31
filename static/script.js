@@ -10,7 +10,6 @@ const viewlist_btns = viewlist.querySelectorAll("button")
 let active_view = tasklist.querySelector("#active_view").value
 
 const form_task_add_new = document.querySelector("#form_task_add_new")
-const tasklist_end_div = document.querySelector("#tasklist_end")
 
 
 function taskSetTriggers(task_div) {
@@ -22,6 +21,7 @@ function taskSetTriggers(task_div) {
 
 // Add new task
 function task_add_new(event) {
+    let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
     // TODO: Differrent new task add parameters depending on type of view
     // TODO or implement it to backend
