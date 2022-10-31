@@ -75,6 +75,8 @@ taskSetTriggersAll()
 // TODO: Tasklists / views
 // var view = {{ view|tojson }}
 const tasklist = document.querySelector("#tasklist")
+const viewlist = document.querySelector("#viewlist")
+const viewlist_btns = viewlist.querySelectorAll("button")
 
 function view_change(event) {
     // Get type of view triggered and pack it for fetch to Flask
@@ -87,6 +89,8 @@ function view_change(event) {
     .then(text => {
         tasklist.innerHTML = text
         taskSetTriggersAll()
+        tasklist.querySelector(".active")
+
     })
 }
 
