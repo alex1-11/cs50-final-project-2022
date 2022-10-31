@@ -6,7 +6,9 @@
 
 {% block main %}
     <div class="container">
-        {% include "tasklist.html" %}
+        <div id="tasklist">
+            {% include "tasklist.html" %}
+        </div>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn bg-my" data-bs-toggle="modal" data-bs-target="#exampleModal">
