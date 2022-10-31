@@ -72,6 +72,10 @@ task_divs.forEach(div => task_set_triggers(div))
 
 // TODO: Tasklists / views
 // var view = {{ view|tojson }}
+function view_change(event) {
+    // Get type of view triggered
+    var view
+}
 
 
 // TODO: Differrent new task add parameters depending on type of view
