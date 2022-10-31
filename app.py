@@ -293,6 +293,11 @@ def view():
                 ).scalars().all()
             case 'upcoming':
                 print('>>> case:', view["type"])
+                today = date.today()
+                tasks = db.execute(
+                    select(Task)
+                    .where(Task.date >= today)
+                ).scalars().all()
             case 'nodate':
                 print('>>> case:', view["type"])
                 tasks = db.execute(
