@@ -1,18 +1,16 @@
 {% block main %}
-    <div class="container">
-        <div class="tab-content">
-            {% for task in tasks %}
-                {% include "task.html" %}
-            {% endfor %}
-            <div id="tasklist_end">
-            </div>
-            <!-- Add new task block -->
-            <div id="task_add_new">
-                <form class="{{ view }}" id="form_task_add_new">
-                    <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
-                    <button type="submit" class="btn btn-success">Add</button>
-                </form>
-            </div>
+    <div class="tab-content">
+        {% for task in tasks %}
+            {% include "task.html" %}
+        {% endfor %}
+        <div id="tasklist_end">
+        </div>
+        <!-- Add new task block -->
+        <div id="task_add_new">
+            <form class="{{ view }}" id="form_task_add_new">
+                <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+                <button type="submit" class="btn btn-success">Add</button>
+            </form>
         </div>
     </div>
 {% endblock %}
