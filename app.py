@@ -269,7 +269,7 @@ def index():
                 .where(Task.date <= today)
             ).scalars().all()
             if tasks:
-            return render_template("index.html", tasks=tasks, view=view)
+                return render_template("index.html", tasks=tasks, view=view)
 
 
 
