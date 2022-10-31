@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm
 from models import task_tags, user_settings, as_dict
 
-import datetime
+from datetime import date
 from sqlalchemy.dialects.sqlite import DATETIME
 
 # Configure application (thanks to CS50 Finance problemset)
@@ -256,7 +256,7 @@ def index():
         # TODO: Views. Remake to use JS, fetch and JSON:
         # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
         with DbSession.begin() as db:
-            today = datetime.date.today()
+            today = date.today()
             view = {
                 "type": "today",
                 "task_add": "visible"
@@ -286,7 +286,7 @@ def view():
         match view["type"]:
             case 'today':
                 print('>>> case:', view["type"])
-                today = datetime.date.today()
+                today = date.today()
                 tasks = db.execute(
                     select(Task)
                     .where(Task.date <= today)
