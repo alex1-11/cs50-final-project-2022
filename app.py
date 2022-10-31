@@ -94,7 +94,7 @@ def login():
             session["user_name"] = user.name
 
         # Redirect user to home page
-        flash(f"Welcome, {session["user_name"]}!")
+        flash(f"Welcome, {session['user_name']}!")
         return redirect("/")
 
     # GET clause
@@ -278,9 +278,9 @@ def index():
                 .where(Task.date <= today, Task.status == 'active')
             ).scalars().all()
             if tasks:
-                return render_template("index.html", tasks=tasks, view=view, username=session["user_name"])
+                return render_template("index.html", tasks=tasks, view=view)
             else:
-                return render_template("index.html", view=view, username=session["user_name"])
+                return render_template("index.html", view=view)
 
 
 @app.route("/view", methods=["POST"])
