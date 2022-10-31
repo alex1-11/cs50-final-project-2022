@@ -91,6 +91,7 @@ function view_change(event) {
         taskSetTriggersAll()
         // TODO: Differrent new task add parameters depending on type of view
         active_view = tasklist.querySelector("#active_view").value
+        
         // TODO: Change title of page
         document.title = active_view
 
