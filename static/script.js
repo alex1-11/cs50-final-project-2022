@@ -111,7 +111,8 @@ function view_change(event) {
         // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
         // Change active tab style
-        viewlist_btns.forEach(btn => btn.classList)
+        viewlist_btns.forEach(btn => btn.classList.remove('active'))
+        
     }).catch(error => console.error('Error: ', error))
 }
 viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
