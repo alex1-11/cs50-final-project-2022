@@ -75,9 +75,17 @@ task_divs.forEach(div => task_set_triggers(div))
 const tasklist = document.querySelector("#tasklist")
 
 function view_change(event) {
-    // Get type of view triggered and pack it for fetch
+    // Get type of view triggered and pack it for fetch to Flask
     let data = new FormData()
     data.append(this.name, this.value)
+    fetch('/view', {
+        "method": "POST",
+        "body": data,
+    }).then(response => response.text())
+    .then(text => {
+        tasklist.innerHTML = text
+        task_
+    })
 }
 
 
