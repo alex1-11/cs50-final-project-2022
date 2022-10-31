@@ -18,6 +18,7 @@ let active_view = tasklist.querySelector("#active_view").value
 
 function task_add_new(event) {
     let task_form_data = new FormData(form_task_add_new)
+    // TODO
     // switch active_view {
     //     case 'all'
     //     case 'today'
