@@ -170,6 +170,7 @@ def index():
         if request.form.get("task_new"):
             # Prepare add-data depending on active view
             newdate = request.form.get('taskadd_date')
+            print('>>>', newdate)
             newstatus = None
             match request.form.get('view'):
                 case 'today':
