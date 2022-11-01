@@ -169,7 +169,7 @@ def index():
         # Add new task (request comes from js fetch())
         if request.form.get("task_new"):
             # Prepare add-data depending on active view
-            newdate = request.form.get('task_new_date')
+            newdate = request.form.get('taskadd_date')
             newstatus = None
             match request.form.get('view'):
                 case 'today':
