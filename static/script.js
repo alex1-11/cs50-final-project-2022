@@ -20,6 +20,10 @@ function taskSetTriggers(task_div) {
 
 
 // Add new task
+// Update date field depending on view
+let today = new Date()
+const taskadd_date = document.querySelector('#task_newdate')
+taskadd_date.value =
 function task_add_new(event) {
     let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
