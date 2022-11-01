@@ -20,8 +20,6 @@ function taskSetTriggers(task_div) {
 
 
 // Add new task
-// Update date field depending on view
-let today = new Date().setHours(0, 0, 0, 0)
 const taskadd_date = document.querySelector('#taskadd_date')
 
 function task_add_new(event) {
