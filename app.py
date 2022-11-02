@@ -277,6 +277,7 @@ def index():
             tasks = db.execute(
                 select(Task)
                 .where(Task.date <= today, Task.status == 'active')
+                .order_by(Task.date)
             ).scalars().all()
             if tasks:
                 return render_template("index.html", tasks=tasks, view=view)
