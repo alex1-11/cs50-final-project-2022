@@ -111,9 +111,11 @@ function view_change(event) {
 viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
 
 
-
 // TODO: right click menu
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
+
+
+
 
 
 // This will convert js datetime to sql datetime new Date().toISOString().slice(0, 19).replace('T', ' ');
