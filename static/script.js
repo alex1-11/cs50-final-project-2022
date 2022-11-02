@@ -1,3 +1,5 @@
+// TODO: dropdown for edit menu https://getbootstrap.com/docs/5.2/components/dropdowns/#usage
+
 // Declare possible actions and define tool to set event listeners to tasks
 const actions = [
     'task_delete',
