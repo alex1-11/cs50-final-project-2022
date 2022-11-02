@@ -15,12 +15,12 @@ const form_task_add_new = document.querySelector("#form_task_add_new")
 function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
+    }
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
         console.log('RMB pressed')
     })
     task_div.querySelector('.edit_menu_show').addEventListener('click', (event) => console.log('edit_menu_show'))
-    }
 }
 
 
