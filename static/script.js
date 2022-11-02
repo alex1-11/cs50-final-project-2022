@@ -17,7 +17,7 @@ function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
         task_div.addEventListener('contextmenu', (event) => {
-            preventDefault()
+            event.preventDefault()
             console.log('RMB pressed')
         })
     }
