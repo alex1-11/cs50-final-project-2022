@@ -116,7 +116,6 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
 // https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
 
 
-// Inspect divs of every task for match with conditions for specific view-tab
 // This will convert js datetime to sql datetime new Date().toISOString().slice(0, 19).replace('T', ' ');
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
