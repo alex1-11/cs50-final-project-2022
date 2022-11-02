@@ -16,6 +16,7 @@ function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
     }
+    // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
         console.log('RMB pressed')
@@ -118,8 +119,7 @@ function view_change(event) {
 viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
 
 
-// TODO: right click menu
-// https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
+
 
 
 
