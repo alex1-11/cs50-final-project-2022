@@ -1,5 +1,5 @@
-<div class="task_div task_{{ task.status }}" id="task_id_{{ task.id }}">
-    <form class="task_form">
+<div class="row task_div task_{{ task.status }}" id="task_id_{{ task.id }}">
+    <form class="col task_form">
         <div class="col-6">
             <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
                 {% if task.status == 'active' %}
