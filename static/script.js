@@ -2,7 +2,6 @@
 const actions = [
     'task_delete',
     'task_mark',
-    'edit_menu_show'
 ]
 
 const tasklist = document.querySelector("#tasklist")
