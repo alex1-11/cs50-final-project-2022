@@ -1,7 +1,8 @@
 // Declare possible actions and define tool to set event listeners to tasks
 const actions = [
     'task_delete',
-    'task_mark'
+    'task_mark',
+    'edit_menu_show'
 ]
 
 const tasklist = document.querySelector("#tasklist")
@@ -11,12 +12,22 @@ let active_view = tasklist.querySelector("#active_view").value
 
 const form_task_add_new = document.querySelector("#form_task_add_new")
 
-
+// Set event linsteners on buttons of task_div
 function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', task_action, false)
+        task_div.querySelector(`.${act}`)
     }
 }
+
+
+// Set event listeners on buttons of each tasks' divs
+// https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+function taskSetTriggersAll() {
+    let task_divs = document.querySelectorAll('.task_div')
+    task_divs.forEach(div => taskSetTriggers(div))
+}
+taskSetTriggersAll()
 
 
 // Add new task
@@ -71,13 +82,6 @@ function task_action(event) {
 }
 
 
-// Set event listeners on buttons inside each tasks' div
-// https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
-function taskSetTriggersAll() {
-    let task_divs = document.querySelectorAll('.task_div')
-    task_divs.forEach(div => taskSetTriggers(div))
-}
-taskSetTriggersAll()
 
 
 // TODO: Tasklists / views
