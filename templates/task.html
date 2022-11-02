@@ -21,7 +21,14 @@
             <button type="button" class="task_date" value="{{ task.date }}" style="display: contents;">{{ task.date }}</button>
         </div>
         <div class="col-4 dropdown">
-            <button type="button" class="btn edit_menu_show" title="Edit task">∙∙∙</button>
+            <button type="button" class="btn edit_menu_show dropdown-toggle" title="Edit task" data-bs-toggle="dropdown" aria-expanded="false">
+                ∙∙∙
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Option1</a></li>
+                <li><a class="dropdown-item" href="#">Option2</a></li>
+                <li><a class="dropdown-item" href="#">Option3</a></li>
+            </ul>
         </div>
     </form>
 </div>
