@@ -1,23 +1,27 @@
 <div class="task_div task_{{ task.status }}" id="task_id_{{ task.id }}">
     <form class="task_form">
-        <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
-            {% if task.status == 'active' %}
-                ◯
-            {% elif task.status == 'done' %}
-                ✓
-            {% else %}
-                —
-            {% endif %}
-        </button>
-        <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
-        <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">
-            {% if task.status.endswith('_bin') %}
-                🔙
-            {% else %}
-                🗑️
-            {% endif %}
-        </button>
-        <button type="button" class="task_date" value="{{ task.date }}" style="display: contents;">{{ task.date }}</button>
-        <button type="button" class="btn edit_menu_show" title="Edit task">∙∙∙</button>
+        <div class="col-6">
+            <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
+                {% if task.status == 'active' %}
+                    ◯
+                {% elif task.status == 'done' %}
+                    ✓
+                {% else %}
+                    —
+                {% endif %}
+            </button>
+            <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
+            <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">
+                {% if task.status.endswith('_bin') %}
+                    🔙
+                {% else %}
+                    🗑️
+                {% endif %}
+            </button>
+            <button type="button" class="task_date" value="{{ task.date }}" style="display: contents;">{{ task.date }}</button>
+        </div>
+        <div class="col-3 dropdown">
+            <button type="button" class="btn edit_menu_show" title="Edit task">∙∙∙</button>
+        </div>
     </form>
 </div>
