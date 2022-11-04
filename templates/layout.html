@@ -22,20 +22,20 @@
 
         <!-- navbar top -->
         <div class="navbar bg-my">
-            <div class="container-fluid">
-                <div class="row row-cols-auto">
-                    <div class="col-4">
+            <div class="container">
+                <div class="row row-cols-auto justify-content-between">
+                    <div class="col">
                         <a class="navbar-brand" href="/">tskFLOW</a>
                     </div>
-                    <div class="col-8">
+                    <div class="col">
                         <ul class="nav">
                             {% if session["user_id"] %}
                                 <li class="nav-item">
-                                TODO: navbar list
                                 </li>
                                 <li class="nav-item">
                                     <span> Logged in as {{session["user_name"]}}. </span>
-                                    <a href="/logout">Logout</a>
+                                    <br>
+                                    <a href="/logout">(Logout)</a>
                                 </li>
                             {% else %}
                                 <li class="nav-item">
