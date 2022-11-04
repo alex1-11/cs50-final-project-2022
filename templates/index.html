@@ -6,10 +6,10 @@
 
 {% block main %}
     <div class="container-fluid">
-        <div class="row">
-            <div class="col">Task</div>
+        <div class="row row-cols-2 text-center">
+            <div class="col-sm- hide-xs">Task</div>
+            <div class="col-sm invisible-xs">Due date</div>
         </div>
-        <div class="col">Due date</div>
         <div id="tasklist">
             {% include "tasklist.html" %}
         </div>
