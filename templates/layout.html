@@ -21,19 +21,18 @@
     <body>
 
         <!-- navbar top -->
-        <div class="navbar bg-my">
+        <div class="navbar bg-my container-fluid">
             <div class="container-fluid">
-                <div class="row row-cols justify-content-between">
-                    <div class="col-4">
+                <!-- <div class="row justify-content-between"> -->
+                    <div class="col-2">
                         <a class="navbar-brand" href="/">tskFLOW</a>
                     </div>
-                    <div class="col-4">
-                        <ul class="nav">
+                    <div class="col-auto"></div>
+                    <div class="col-3">
+                        <ul class="nav text-end">
                             {% if session["user_id"] %}
                                 <li class="nav-item">
-                                </li>
-                                <li class="nav-item text-end">
-                                    <span> Logged in as {{session["user_name"]}}. </span>
+                                    <span> Welcome, {{session["user_name"]}}!</span>
                                     <br>
                                     <a href="/logout">(Logout)</a>
                                 </li>
