@@ -22,33 +22,32 @@
 
         <!-- navbar top -->
         <header class="navbar navbar-expand-lg bd-navbar bg-my">
-            <nav class="container-xxl flex-wrap flex-lg-nowrap bg-my">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-auto">
-                            <a class="navbar-brand" href="/">tskFLOW</a>
-                        </div>
-                        <div class="col-auto">
-                            <ul class="nav text-end">
-                                {% if session["user_id"] %}
-                                    <li class="nav-item">
-                                        <span> Welcome, {{session["user_name"]}}!</span>
-                                        <br>
-                                        <a href="/logout">(Logout)</a>
-                                    </li>
-                                {% else %}
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/register">Register</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/login">Log in</a>
-                                    </li>
-                                {% endif %}
-                            </ul>
-                        </div>
+            <nav class="container-fluid bg-my">
+                <div class="row justify-content-between">
+                    <div class="col-auto">
+                        <a class="navbar-brand" href="/">tskFLOW</a>
+                    </div>
+                    <div class="col-auto">
+                        <ul class="nav text-end">
+                            {% if session["user_id"] %}
+                                <li class="nav-item">
+                                    <span> Welcome, {{session["user_name"]}}!</span>
+                                    <br>
+                                    <a href="/logout">(Logout)</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/register">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">Log in</a>
+                                </li>
+                            {% endif %}
+                        </ul>
                     </div>
                 </div>
-            </nav>
+
+        </nav>
         </header>
 
         {% if get_flashed_messages() %}
