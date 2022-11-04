@@ -102,7 +102,9 @@ function view_change(event) {
         // Update current view and change title of page
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + active_view
-        if (active_view == 'deleted')
+        if (active_view == 'deleted') {
+            
+        }
         // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
         // Change active tab style
