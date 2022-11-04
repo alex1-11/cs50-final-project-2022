@@ -1,33 +1,42 @@
-<div class="task_div task_{{ task.status }}" id="task_id_{{ task.id }}">
-    <form class="row row-cols-2 task_form">
-        <div class="col-8">
+<div class="task_div task_{{ task.status }} container text-center" id="task_id_{{ task.id }}">
+    <form class="row row-cols-4 justify-content-center task_form">
+        <div class="col-auto">
             <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
-                {% if task.status == 'active' %}
+                {% if task.status.startswith('active') %}
                     ◯
-                {% elif task.status == 'done' %}
+                {% elif task.status.startswith('done') %}
                     ✓
                 {% else %}
                     —
                 {% endif %}
             </button>
-            <span>[{{ task.status }}] {{ task.created }} || {{ task.title|e }} ||</span>
-            <button type="button" class="task_delete" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}" style="display: contents;">
-                {% if task.status.endswith('_bin') %}
-                    🔙
+        </div>
+        <div class="col-5 text-start task_title_text g-sm-0">{{ task.title|e }} </div>
+        <div class="col-2 text-end">
+            <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
+                {% if task.date != None %}
+                    {{ task.date }}
                 {% else %}
-                    🗑️
+                    —
                 {% endif %}
             </button>
-            <button type="button" class="task_date" value="{{ task.date }}" style="display: contents;">{{ task.date }}</button>
         </div>
-        <div class="col-4 dropdown">
+        <div class="col-1 dropdown">
             <button type="button" class="btn edit_menu_show" title="Edit task" data-bs-toggle="dropdown" aria-expanded="false">
                 ∙∙∙
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Option1</a></li>
-                <li><a class="dropdown-item" href="#">Option2</a></li>
-                <li><a class="dropdown-item" href="#">Option3</a></li>
+                <li><a class="dropdown-item" href="#">Change title</a></li>
+                <li><a class="dropdown-item" href="#">Change date</a></li>
+                <li>
+                    <button type="button" class="task_delete dropdown-item" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}">
+                        {% if task.status.endswith('_bin') %}
+                            🔙 Restore task
+                        {% else %}
+                            🗑️ Delete task
+                        {% endif %}
+                    </button>
+                </li>
             </ul>
         </div>
     </form>

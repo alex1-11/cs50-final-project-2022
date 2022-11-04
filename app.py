@@ -170,6 +170,7 @@ def index():
         if request.form.get("task_new"):
             # Prepare add-data depending on active view
             newdate = request.form.get('taskadd_date')
+            newdate = None if (newdate == '') else newdate
             print('>>>', newdate)
             newstatus = None
             match request.form.get('view'):
@@ -181,7 +182,7 @@ def index():
                     newstatus = 'done'
                 case 'deleted':
                     newstatus = 'active_bin'
-            # TODO: Prepare add-data depending on project reference
+            # TODO?: Prepare add-data depending on project reference
 
             with DbSession.begin() as db:
                 # TODO?: deconstruct project, context, tags,
