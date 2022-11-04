@@ -1,5 +1,5 @@
 <div class="task_div task_{{ task.status }} container text-start" id="task_id_{{ task.id }}">
-    <form class="row row-cols-4 justify-content-center task_form">
+    <form class="row row-cols-4 justify-content-sm-center task_form">
         <div class="col-auto">
             <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
                 {% if task.status.startswith('active') %}
