@@ -12,7 +12,7 @@
             </button>
         </div>
         <div class="col-12 col-md-6 col-sm-10 text-start task_title_text g-sm-0">{{ task.title|e }} </div>
-        <div class="col-2 text-end">
+        <div class="col-2 allign-self-start text-end">
             <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
                 {% if task.date != None %}
                     {{ task.date }}
