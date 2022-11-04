@@ -21,33 +21,35 @@
     <body>
 
         <!-- navbar top -->
-        <div class="navbar bg-my">
-            <div class="container">
-                <div class="row">
-                    <div class="col-auto">
-                        <a class="navbar-brand" href="/">tskFLOW</a>
-                    </div>
-                    <div class="col-auto">
-                        <ul class="nav text-end">
-                            {% if session["user_id"] %}
-                                <li class="nav-item">
-                                    <span> Welcome, {{session["user_name"]}}!</span>
-                                    <br>
-                                    <a href="/logout">(Logout)</a>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/register">Register</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/login">Log in</a>
-                                </li>
-                            {% endif %}
-                        </ul>
+        <header class="navbar navbar-expand">
+            <div class="navbar bg-my">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto">
+                            <a class="navbar-brand" href="/">tskFLOW</a>
+                        </div>
+                        <div class="col-auto">
+                            <ul class="nav text-end">
+                                {% if session["user_id"] %}
+                                    <li class="nav-item">
+                                        <span> Welcome, {{session["user_name"]}}!</span>
+                                        <br>
+                                        <a href="/logout">(Logout)</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/register">Register</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login">Log in</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
 
         {% if get_flashed_messages() %}
             <header>
