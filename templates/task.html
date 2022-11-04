@@ -12,7 +12,7 @@
             </button>
         </div>
         <div class="col-12 col-md-8 text-start task_title_text g-sm-0">{{ task.title|e }} </div>
-        <div class="col-6 text-start col-sm-3 text-sm-end">
+        <div class="col-6 text-start col-md-2 col-sm-3 text-sm-end">
             <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
                 {% if task.date != None %}
                     {{ task.date }}
@@ -21,7 +21,7 @@
                 {% endif %}
             </button>
         </div>
-        <div class="col-auto text-start dropdown">
+        <div class="col-auto text-start align-self-start dropdown">
             <button type="button" class="btn edit_menu_show" title="Edit task" data-bs-toggle="dropdown" aria-expanded="false">
                 ∙∙∙
             </button>
