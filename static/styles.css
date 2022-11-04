@@ -1,5 +1,5 @@
 .bg-my  {background-color: #10c78a;}
-button  {background-color: #10c78a;}
+button.active.btn  {background-color: #10c78a;}
 a       {color: black;}
 a:hover {color: grey;}
 .task_active_bin, .task_done_bin    {font-style: italic;}
