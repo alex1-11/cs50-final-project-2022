@@ -103,7 +103,10 @@ function view_change(event) {
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + active_view
         if (active_view == 'deleted') {
-            
+            document.querySelector('#task_add_new').classList.add('invisible')
+        }
+        else {
+            document.querySelector('#task_add_new').classList.remove('invisible')
         }
         // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
