@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">Task</div>
+        </div>
+        <div class="col">Due date</div>
         <div id="tasklist">
             {% include "tasklist.html" %}
         </div>
