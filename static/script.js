@@ -88,11 +88,7 @@ function task_action(event) {
 }
 
 
-
-
-// TODO: Tasklists / views
-// var view = {{ view|tojson }}
-
+// Tasklists / views
 function view_change(event) {
     // Get type of view triggered and pack it for fetch to Flask
     let data = new FormData()
@@ -106,6 +102,7 @@ function view_change(event) {
         // Update current view and change title of page
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + active_view
+        if (active_view == 'deleted')
         // Readd event listeners for tasks' functionality
         taskSetTriggersAll()
         // Change active tab style
