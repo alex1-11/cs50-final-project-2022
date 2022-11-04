@@ -1,5 +1,5 @@
-<div class="task_div task_{{ task.status }} container text-start" id="task_id_{{ task.id }}">
-    <form class="row row-cols-4 justify-content-between justify-content-md-center task_form">
+<div class="task_div task_{{ task.status }} container-fluid container-sm text-start" id="task_id_{{ task.id }}">
+    <form class="row row-cols-4 justify-content-between justify-content-sm-center task_form">
         <div class="col-sm-auto">
             <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
                 {% if task.status.startswith('active') %}
@@ -12,7 +12,7 @@
             </button>
         </div>
         <div class="col-12 col-sm-10 col-md-6 g-sm-0 text-start task_title_text">{{ task.title|e }} </div>
-        <div class="col-6 text-start col-sm-3 g-sm-0 col-md-2 text-md-end ">
+        <div class="col-6 text-start col-sm-3 g-sm-0 col-md-2 text-sm-end ">
             <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
                 {% if task.date != None %}
                     {{ task.date }}
