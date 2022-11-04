@@ -12,12 +12,12 @@
         <!-- Add new task block -->
         <div id="task_add_new container-fluid container-sm">
             <form class="{{ view }}" id="form_task_add_new">
-                <div class="row">
-                    <div class="col-4  align-end">
-                        <input autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+                <div class="row row-cols-2 justify-content-between justify-content-sm-center">
+                    <div class="col-sm-4">
+                        <input class="form-control-plaintext" autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
                     </div>
-                    <div class="col-4 align-start">
-                        <input autocomplete="off" id="taskadd_date" name="taskadd_date" placeholder="date" type="date" value="">
+                    <div class="col-sm-4">
+                        <input class="form-control" autocomplete="off" id="taskadd_date" name="taskadd_date" placeholder="date" type="date" value="">
                         <button type="submit" class="btn btn-success">Add</button>
                     </div>
                 </div>
