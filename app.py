@@ -260,7 +260,10 @@ def index():
             with DbSession.begin() as db:
                 db.execute(
                     delete(Task)
-                    .where(Task.status.endswith('_bin', autoescape=True))
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.status.endswith('_bin', autoescape=True)
+                    )
                     .execution_options(synchronize_session=False)
                 )
             return redirect("/")
@@ -325,33 +328,47 @@ def view():
                     .where(
                         Task.user_id == session["user_id"],
                         Task.date >= today,
-                        Task.status == 'active')
+                        Task.status == 'active'
+                        )
                     .order_by(Task.date)
                 ).scalars().all()
             case 'nodate':
                 print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.date == None, Task.status == 'active')
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.date == None,
+                        Task.status == 'active'
+                    )
                 ).scalars().all()
                 pass
             case 'all':
                 print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.status == 'active')
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.status == 'active'
+                    )
                 ).scalars().all()
             case 'completed':
                 print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.status == 'done')
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.status == 'done'
+                    )
                 ).scalars().all()
             case 'deleted':
                 print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.status.endswith('_bin', autoescape=True))
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.status.endswith('_bin', autoescape=True)
+                    )
                 ).scalars().all()
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
