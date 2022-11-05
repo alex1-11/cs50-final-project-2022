@@ -1,5 +1,9 @@
 <button id="active_view" value="{{ view }}" class="invisible" type="button"></button>
 <div class="tab-content">
+    <div class="row row-cols-2 text-start text-sm-center justify-content-between justify-content-sm-center">
+        <div class="col-12 col-sm-8">Task</div>
+        <div class="col-12 col-sm-2">Due date</div>
+    </div>
     {% for task in tasks %}
         {% include "task.html" %}
     {% endfor %}
