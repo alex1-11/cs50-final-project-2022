@@ -378,8 +378,13 @@ def view():
         if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
-            tasks = {'title': 'No tasks'}
+            tasks = [{
+                'status': '',
+                'title': 'No tasks',
+                'id': '',
+                'date': '',
+            }]
             print(tasks)
-            return render_template("tasklist.html", view=view)
+            return render_template("tasklist.html", tasks=tasks, view=view)
 
 
