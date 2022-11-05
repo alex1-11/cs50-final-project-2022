@@ -378,7 +378,7 @@ def view():
         if tasks:
             return render_template("tasklist.html", tasks=tasks, view=view)
         else:
-            view = ""
+            print(tasks)
             return render_template("tasklist.html", view=view)
 
 
