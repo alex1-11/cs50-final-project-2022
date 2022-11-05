@@ -310,7 +310,11 @@ def view():
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.date <= today, Task.status == 'active')
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.date <= today,
+                        Task.status == 'active'
+                    )
                     .order_by(Task.date)
                 ).scalars().all()
             case 'upcoming':
@@ -318,7 +322,10 @@ def view():
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
-                    .where(Task.date >= today, Task.status == 'active')
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.date >= today,
+                        Task.status == 'active')
                     .order_by(Task.date)
                 ).scalars().all()
             case 'nodate':
