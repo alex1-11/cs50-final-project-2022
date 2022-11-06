@@ -1,5 +1,6 @@
 .bg-my  {background-color: #10c78a;}
 .text-my{color: #10c78a;}
+.btn-my {border-color: white}
 .btn-my:hover {border-color: black}
 a       {color: black;}
 a:hover {color: grey;}
