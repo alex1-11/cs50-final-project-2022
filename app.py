@@ -375,9 +375,4 @@ def view():
             case _:
                 print('>>> case: _')
                 tasks = None
-        if tasks:
-            return render_template("tasklist.html", tasks=tasks, view=view)
-        else:
-            return render_template("notasks.html", view=view)
-
-
+        return render_template("tasklist.html", tasks=tasks, view=view)

@@ -48,17 +48,10 @@ function task_add_new(event) {
         "body": task_form_data,
     }).then(response => response.text())
     .then(text => {
-        // Handle the notasks screen case to update template to tasklist
-        if (document.querySelector('#notasks')) {
-            viewlist.querySelector('button.active').click()
-        }
-        // Or just add task to showed active list
-        else {
             tasklist_end_div.insertAdjacentHTML('beforebegin', text)
             // Add event listeners to the fresh task
             const task_div = tasklist_end_div.previousElementSibling
             taskSetTriggers(task_div)
-        }
     }).catch(error => {
         console.error('Error: ', error)
     })
