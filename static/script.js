@@ -51,7 +51,7 @@ function task_add_new(event) {
     .then(text => {
         if (document.querySelector('#notasks')) {
             document.querySelector('#notasks').outerHTML = text
-            const task_div
+            
         }
         else {
             tasklist_end_div.insertAdjacentHTML('beforebegin', text)
