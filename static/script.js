@@ -51,7 +51,7 @@ function task_add_new(event) {
     .then(text => {
         if (document.querySelector('#notasks')) {
             document.querySelector('#notasks').outerHTML = text
-            
+
         }
         else {
             tasklist_end_div.insertAdjacentHTML('beforebegin', text)
@@ -114,7 +114,7 @@ function view_change(event) {
         else {
             document.querySelector('#task_add_new').classList.remove('invisible')
         }
-        // Readd event listeners for tasks' functionality
+        // Re-add event listeners for tasks' functionality
         taskSetTriggersAll()
         // Change active tab style
         viewlist_btns.forEach(btn => {
