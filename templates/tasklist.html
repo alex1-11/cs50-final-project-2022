@@ -16,9 +16,18 @@
                 <th scope="col"></th>
             </thead>
             <tbody>
-                {% for task in tasks %}
-                    {% include "task.html" %}
-                {% endfor %}
+                {% if tasks %}
+                    {% for task in tasks %}
+                        {% include "task.html" %}
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endif %}
                 <tr id="tasklist_end"></tr>
             </tbody>
             <!-- Add new task block -->
