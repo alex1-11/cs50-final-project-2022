@@ -10,8 +10,16 @@
             {% endif %}
         </button>
     </td>
-    <td></td>
-    <td></td>
+    <td class="task_title_text">{{ task.title|e }}</td>
+    <td>
+        <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
+            {% if task.date != None %}
+                {{ task.date }}
+            {% else %}
+                —
+            {% endif %}
+        </button>
+    </td>
     <td></td>
 </tr>
 
