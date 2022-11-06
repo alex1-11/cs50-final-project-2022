@@ -61,7 +61,7 @@
 
         <!-- nav sidemenu -->
         <div class="d-flex align-items-start p-3">
-            <div class="offcanvas-sm offcanvas-start w-50" tabindex="-1" data-bs-scroll="true" id="viewlist_offcanvas" aria-labelledby="offcanvasResponsiveLabel">
+            <div class='container'><div class="offcanvas-sm offcanvas-start w-50" tabindex="-1" data-bs-scroll="true" id="viewlist_offcanvas" aria-labelledby="offcanvasResponsiveLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Choose which task group to view</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#viewlist_offcanvas" aria-label="Close"></button>
@@ -88,13 +88,13 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div></div>
             <div class="container" id="tasks">
                 {% block main %}{% endblock %}
             </div>
         </div>
 
-        <footer class="footer d-flex mh-100 allign-items-end">
+        <footer class="footer d-flex mt-5 pt-5 allign-items-end">
             <div class="container">
                 <div class="row">
                     <hr class="muted m-0">
