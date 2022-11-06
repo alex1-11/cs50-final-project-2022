@@ -37,8 +37,6 @@ taskSetTriggersAll()
 
 
 // Add new task
-const taskadd_date = document.querySelector('#taskadd_date')
-
 function task_add_new(event) {
     let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
