@@ -63,7 +63,6 @@ function task_add_new(event) {
     })
     form_task_add_new.reset()
 }
-form_task_add_new.addEventListener('submit', task_add_new, false)
 
 
 // Action with task (delete to bin, mark complete/undone)
