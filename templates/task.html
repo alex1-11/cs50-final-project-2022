@@ -31,7 +31,7 @@
                 <li>
                     <button form="task_action" type="button" class="task_delete dropdown-item" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}">
                         {% if task.status.endswith('_bin') %}
-                            🔙 Restore taskform="task_action"
+                            🔙 Restore task
                         {% else %}
                             🗑️ Delete task
                         {% endif %}

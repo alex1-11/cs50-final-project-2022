@@ -3,5 +3,6 @@
 .btn-my:hover {border-color: black}
 a       {color: black;}
 a:hover {color: grey;}
-.task_title_text.task_active_bin, .task_title_text.task_done_bin    {font-style: italic;}
+.task_date.task_active_bin, .task_title_text.task_active_bin  {font-style: italic; color: grey;}
+.task_date.task_done_bin, .task_title_text.task_done_bin    {font-style: italic; color: grey;}
 .task_title_text, .task_date    {overflow-wrap: break-word;}
