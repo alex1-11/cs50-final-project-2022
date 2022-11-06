@@ -50,7 +50,7 @@ function task_add_new(event) {
     .then(text => {
         // Handle the notasks screen case to update tasklist with new task
         if (document.querySelector('#notasks')) {
-            
+            document.querySelector('#notasks').outerHTML= txt
         }
         // Or just add task to showed active list
         else {
