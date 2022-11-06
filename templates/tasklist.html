@@ -31,13 +31,10 @@
                         </td>
                     </tr>
                 {% endif %}
-                <tr id="tasklist_end">
-                    <td class="py-5" colspan="4"></td>
-                </tr>
-            </tbody>
-            <!-- Add new task block -->
-            <tfoot id="task_add_new">
-                <tr class="py-5">
+
+                <!-- Add new task block -->
+                <tr id="tasklist_end"></tr>
+                <tr id="task_add_new">
                     <td></td>
                     <td>
                         <input form="form_task_add_new" class="form-control-plaintext" autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
@@ -49,7 +46,8 @@
                         <button form="form_task_add_new" type="submit" class="btn btn-my py-1">+</button>
                     </td>
                 </tr>
-            </tfoot>
+
+            </tbody>
         </table>
     </div>
 </div>
