@@ -3,5 +3,5 @@
 button.active.btn  {background-color: #10c78a;}
 a       {color: black;}
 a:hover {color: grey;}
-.task_title_text .task_active_bin, .task_title_text .task_done_bin    {font-style: italic;}
+.task_title_text.task_active_bin, .task_title_text.task_done_bin    {font-style: italic;}
 .task_title_text, .task_date    {overflow-wrap: break-word;}
