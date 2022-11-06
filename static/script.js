@@ -1,6 +1,4 @@
-// TODO: dropdown for edit menu https://getbootstrap.com/docs/5.2/components/dropdowns/#usage
-
-// Declare possible actions and define tool to set event listeners to tasks
+// Declare possible actions with task
 const actions = [
     'task_delete',
     'task_mark',
@@ -10,8 +8,8 @@ const tasklist = document.querySelector("#tasklist")
 const viewlist = document.querySelector("#viewlist")
 const viewlist_btns = viewlist.querySelectorAll("button")
 let active_view = tasklist.querySelector("#active_view").value
-
 const form_task_add_new = document.querySelector("#form_task_add_new")
+
 
 // Set event linsteners on buttons of task_div
 function taskSetTriggers(task_div) {
