@@ -57,26 +57,26 @@
         <!-- nav sidemenu -->
         <div class="d-flex align-items-start p-3">
             <button class="btn d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#viewlist" aria-controls="offcanvasResponsive">Change view</button>
-            <ul class="nav flex-column d-none d-sm-flex offcanvas" id="viewlist">
-                <li class="nav-item">
-                    <button class="btn active" type="button" name="view" value="today">Today</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn" type="button" name="view" value="upcoming">Upcoming</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn" type="button" name="view" value="nodate">No date</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn" type="button" name="view" value="all">All tasks</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn" type="button" name="view" value="completed">Completed</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn" type="button" name="view" value="deleted">Deleted</a>
-                </li>
-            </ul>
+                <ul class="nav flex-column d-none d-sm-flex offcanvas" id="viewlist">
+                    <li class="nav-item">
+                        <button class="btn active" type="button" name="view" value="today">Today</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn" type="button" name="view" value="upcoming">Upcoming</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn" type="button" name="view" value="nodate">No date</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn" type="button" name="view" value="all">All tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn" type="button" name="view" value="completed">Completed</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn" type="button" name="view" value="deleted">Deleted</a>
+                    </li>
+                </ul>
             <div class="container" id="tasks">
                 {% block main %}{% endblock %}
             </div>
