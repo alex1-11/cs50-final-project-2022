@@ -36,16 +36,16 @@
                     <ul class="nav text-end">
                         {% if session["user_id"] %}
                             <li class="nav-item">
-                                <span>Welcome, {{session["user_name"]}}!</span>
+                                <span class="d-md-inline">Welcome, {{session["user_name"]}}!</span>
                                 <br>
-                                <a href="/logout">(Logout)</a>
+                                <a class="text-decoration-none" href="/logout">(Logout)</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="/register">Register</a>
+                                <a class="text-decoration-none" href="/register">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/login">Log in</a>
+                                <a class="text-decoration-none" href="/login">Log in</a>
                             </li>
                         {% endif %}
                     </ul>
