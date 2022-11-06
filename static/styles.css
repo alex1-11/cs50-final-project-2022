@@ -1,6 +1,6 @@
 .bg-my  {background-color: #10c78a;}
 .text-my{color: #10c78a;}
-.btn.btn-my:hover {border=1px}
+.btn-my:hover {border-color: black}
 a       {color: black;}
 a:hover {color: grey;}
 .task_title_text.task_active_bin, .task_title_text.task_done_bin    {font-style: italic;}
