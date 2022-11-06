@@ -7,7 +7,11 @@
 {% block main %}
     <div class="container-fluid">
         <div id="tasklist">
-            {% include "tasklist.html" %}
+            {% if tasks %}
+                {% include "tasklist.html" %}
+            {% else %}
+                {% include "notasks.html" %}
+            {% endif %}
         </div>
         <!-- Add new task block -->
         <div id="task_add_new" class="container-fluid container-sm">
