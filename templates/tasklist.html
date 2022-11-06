@@ -21,8 +21,14 @@
                         {% include "task.html" %}
                     {% endfor %}
                 {% else %}
-                    <tr>
-                        <td colspan="4"></td>
+                    <tr class="my-5 py-5">
+                        <td colspan="4">
+                            {% if view == 'today' %}
+                                <span>No tasks left. Enjoy your day! ;)</span>
+                            {% else %}
+                                <span>No tasks here</span>
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endif %}
                 <tr id="tasklist_end"></tr>
