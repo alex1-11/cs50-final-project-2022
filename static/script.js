@@ -8,7 +8,7 @@ const tasklist = document.querySelector("#tasklist")
 const viewlist = document.querySelector("#viewlist")
 const viewlist_btns = viewlist.querySelectorAll("button")
 let active_view = tasklist.querySelector("#active_view").value
-const form_task_add_new = document.querySelector("#form_task_add_new")
+let form_task_add_new = document.querySelector("#form_task_add_new")
 
 
 // Set event linsteners on buttons of task_div
@@ -30,6 +30,7 @@ function taskSetTriggers(task_div) {
 function taskSetTriggersAll() {
     let task_divs = document.querySelectorAll('.task_div')
     task_divs.forEach(div => taskSetTriggers(div))
+    form_task_add_new = document.querySelector("#form_task_add_new")
     form_task_add_new.addEventListener('submit', task_add_new, false)
 }
 taskSetTriggersAll()
