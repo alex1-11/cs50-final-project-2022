@@ -9,7 +9,7 @@
         <form id="task_action"></form>
         <form id="form_task_add_new" class="{{ view }}"></form>
         <table class="table table-hover">
-            <thead class="{% if !tasks %}invisible{% endif %}" id="tasklist_header">
+            <thead class="{% if not tasks %} invisible {% endif %}" id="tasklist_header">
                 <th scope="col"></th>
                 <th scope="col">Task</th>
                 <th scope="col">Due date</th>
