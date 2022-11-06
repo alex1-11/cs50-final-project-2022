@@ -49,9 +49,10 @@ function task_add_new(event) {
         "body": task_form_data,
     }).then(response => response.text())
     .then(text => {
+        // Handle the notasks screen cases
         if (document.querySelector('#notasks')) {
             document.querySelector('#notasks').outerHTML = text
-
+            viewlist_btns.querySelector('.active').dispatchEvent('click')
         }
         else {
             tasklist_end_div.insertAdjacentHTML('beforebegin', text)
