@@ -30,6 +30,7 @@ function taskSetTriggers(task_div) {
 function taskSetTriggersAll() {
     let task_divs = document.querySelectorAll('.task_div')
     task_divs.forEach(div => taskSetTriggers(div))
+    form_task_add_new.addEventListener('submit', task_add_new, false)
 }
 taskSetTriggersAll()
 
