@@ -36,9 +36,9 @@
                     <ul class="nav text-end">
                         {% if session["user_id"] %}
                             <li class="nav-item">
-                                <span class="d-md-inline">Welcome, {{session["user_name"]}}!</span>
+                                <span>Welcome, {{session["user_name"]}}!</span>
                                 <br>
-                                <a class="text-decoration-none" href="/logout">(Logout)</a>
+                                <a class="text-decoration-none text-sm" href="/logout">Logout</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
