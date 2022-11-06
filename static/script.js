@@ -49,7 +49,7 @@ function task_add_new(event) {
     .then(text => {
         // Handle the notasks screen case to update template to tasklist
         if (document.querySelector('#notasks')) {
-            viewlist_btns.querySelector('.active').dispatchEvent('click')
+            viewlist.querySelector('button.active').dispatchEvent('click')
         }
         // Or just add task to showed active list
         else {
