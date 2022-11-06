@@ -1,6 +1,6 @@
 <tr class="task_div task_{{ task.status }}" id="task_id_{{ task.id }}">
     <td>
-        <button form="task_action" type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
+        <button form="task_action" type="button" class="task_mark task_{{ task.status }}" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
             {% if task.status.startswith('active') %}
                 ◯
             {% elif task.status.startswith('done') %}
