@@ -53,13 +53,11 @@ function task_add_new(event) {
             document.querySelector('#notasks').remove()
             document.querySelector('#tasklist_header').classList.remove('invisible')
         }
-        // Or just add task to showed active list
-        else {
-            tasklist_end_div.insertAdjacentHTML('beforebegin', text)
-            // Add event listeners to the fresh task
-            const task_div = tasklist_end_div.previousElementSibling
-            taskSetTriggers(task_div)
-        }
+        // Finally add new task to active list
+        tasklist_end_div.insertAdjacentHTML('beforebegin', text)
+        // Add event listeners to the fresh task
+        const task_div = tasklist_end_div.previousElementSibling
+        taskSetTriggers(task_div)
     }).catch(error => {
         console.error('Error: ', error)
     })
