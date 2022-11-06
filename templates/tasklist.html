@@ -1,6 +1,11 @@
 <button id="active_view" value="{{ view }}" class="invisible" type="button"></button>
 <div class="tab-content">
     <div class="container-fluid container-sm">
+        <div class="row d-sm-none mb-4">
+            <div class="col text-center text-muted">
+                <span class="text-my">{{ view | capitalize }}</span>
+            </div>
+        </div>
         <table class="table table-hover">
             <thead>
                 <th scope="col"></th>
@@ -9,31 +14,14 @@
                 <th scope="col"></th>
             </thead>
             <tbody>
-                <tr>
-                    <td>o</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {% for task in tasks %}
+                    {% include "task.html" %}
+                {% endfor %}
+                <div id="tasklist_end">
+
             </tbody>
-
-
-            <div class="col text-center text-muted">
-                <span class="text-my">{{ view | capitalize }}</span>
-            </div>
-        </div>
-        <div class="row row-cols-4 justify-content-between justify-content-sm-center text-start text-muted d-none d-sm-inline">
-            <div class="col-sm-1"></div>
-            <div class="col-12 col-sm-10 col-md-6">Task</div>
-            <div class="col-8 col-sm-2">Due date</div>
-            <div class="col-1">Actions</div>
-        </div>
     </div>
     <hr>
-    {% for task in tasks %}
-        {% include "task.html" %}
-    {% endfor %}
-    <div id="tasklist_end">
     </div>
 </div>
 
