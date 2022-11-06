@@ -1,6 +1,6 @@
 <tr class="task_div task_{{ task.status }}" id="task_id_{{ task.id }}">
     <td>
-        <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
+        <button form="task_action" type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
             {% if task.status.startswith('active') %}
                 ◯
             {% elif task.status.startswith('done') %}
@@ -29,9 +29,9 @@
                 <li><a class="dropdown-item" href="#">Change title</a></li>
                 <li><a class="dropdown-item" href="#">Change date</a></li>
                 <li>
-                    <button type="button" class="task_delete dropdown-item" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}">
+                    <button form="task_action" type="button" class="task_delete dropdown-item" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}">
                         {% if task.status.endswith('_bin') %}
-                            🔙 Restore task
+                            🔙 Restore taskform="task_action"
                         {% else %}
                             🗑️ Delete task
                         {% endif %}
