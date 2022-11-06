@@ -6,25 +6,50 @@
                 <span class="text-my">{{ view | capitalize }}</span>
             </div>
         </div>
-        <form>
-            <table class="table table-hover">
-                <thead>
-                    <th scope="col"></th>
-                    <th scope="col">Task</th>
-                    <th scope="col">Due date</th>
-                    <th scope="col"></th>
-                </thead>
-                <tbody>
-                    {% for task in tasks %}
-                        {% include "task.html" %}
-                    {% endfor %}
-                    <tr id="tasklist_end"></tr>
-                </tbody>
-                <tfoot>
+        <form id=""></form>
+        <form id="form_task_add_new" class="{{ view }}"></form>
+        <table class="table table-hover">
+            <thead>
+                <th scope="col"></th>
+                <th scope="col">Task</th>
+                <th scope="col">Due date</th>
+                <th scope="col"></th>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    {% include "task.html" %}
+                {% endfor %}
+                <tr id="tasklist_end"></tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+        <!-- Add new task block -->
+        <div id="task_add_new" class="container-fluid container-sm">
+            <form class="{{ view }}" id="form_task_add_new">
+                <hr>
+                <div class="row row-cols-2 justify-content-sm-center" style="border:1px;">
+                    <div class="col-12 col-sm-4">
+                        <input class="form-control-plaintext" autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+                    </div>
+                    <div class="col-6 col-sm-auto">
+                        <input class="form-control" style="border:0px;" autocomplete="off" id="taskadd_date" name="taskadd_date" placeholder="date" type="date" value="">
+                    </div>
+                    <div class="col-1 col-sm-2">
+                        <button type="submit" class="btn active">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-                </tfoot>
-            </table>
-        </form>
+
+
+                </tr>
+            </tfoot>
+        </table>
     </div>
 </div>
 
