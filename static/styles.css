@@ -5,6 +5,6 @@ button.active.btn  {background-color: #10c78a;}
 .btn-my:hover {border-color: black}
 a       {color: black;}
 a:hover {color: grey;}
-button.task_active_bin, button.task_active_bin  {font-style: italic; color: grey;}
-td.task_done_bin, td.task_done_bin    {font-style: italic; color: grey;}
+button.task_active_bin, button.task_done_bin  {font-style: italic; color: grey;}
+td.task_active_bin, td.task_done_bin    {font-style: italic; color: grey;}
 .task_title_text, .task_date    {overflow-wrap: break-word;}
