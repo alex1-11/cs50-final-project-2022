@@ -20,35 +20,8 @@
             {% endif %}
         </button>
     </td>
-    <td></td>
-</tr>
-
-
-<div class="task_div task_{{ task.status }} container-fluid container-sm text-start" id="task_id_{{ task.id }}">
-    <form class="row row-cols-4 justify-content-between justify-content-sm-center task_form">
-        <div class="col-sm-1 text-end">
-            <button type="button" class="task_mark" id="task_mark_button_{{ task.id }}" name="task_mark" value="{{ task.id }}" style="display: contents;">
-                {% if task.status.startswith('active') %}
-                    ◯
-                {% elif task.status.startswith('done') %}
-                    ✓
-                {% else %}
-                    —
-                {% endif %}
-            </button>
-        </div>
-        <div class="col-12 col-sm-10 col-md-6 g-sm-0 text-start task_title_text">
-            <span class="align-bottom">{{ task.title|e }} </span></div>
-        <div class="col-8 col-sm-2 text-start">
-            <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
-                {% if task.date != None %}
-                    {{ task.date }}
-                {% else %}
-                    —
-                {% endif %}
-            </button>
-        </div>
-        <div class="col-1 text-start dropdown">
+    <td>
+        <div class="dropdown">
             <button type="button" class="btn edit_menu_show py-1" title="Edit task" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="align-top">∙∙∙</span>
             </button>
@@ -66,5 +39,5 @@
                 </li>
             </ul>
         </div>
-    </form>
-</div>
+    </td>
+</tr>
