@@ -106,6 +106,10 @@ function view_change(event) {
         // Update current view and change title of page
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + active_view
+        //function capitalizeFirstLetter(string) {
+//     return string[0].toUpperCase() + string.slice(1);
+// }
+
         if (active_view == 'deleted') {
             document.querySelector('#task_add_new').classList.add('invisible')
         }
