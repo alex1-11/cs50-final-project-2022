@@ -58,6 +58,8 @@ function task_add_new(event) {
         // Add event listeners to the fresh task
         const task_div = tasklist_end_div.previousElementSibling
         taskSetTriggers(task_div)
+        // Refresh view
+        viewlist.querySelector('button.active').click()
     }).catch(error => {
         console.error('Error: ', error)
     })
