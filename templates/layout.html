@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
 
-        <title class="fw-bold">tskFLOW: {% block title %}{% endblock %}</title>
+        <title>tskFLOW: {% block title %}{% endblock %}</title>
     </head>
 
     <body>
@@ -27,13 +27,13 @@
                                 <img src="/static/icons/menu icon alex1-11.png" alt="Menu" title="Menu" width="28" height="23">
                             </button>
                         {% endif %}
-                        <a class="navbar-brand ps-1" href="/">tskFLOW</a>
+                        <a class="navbar-brand ps-1 h5" href="/">tskFLOW</a>
                     </div>
                     <div class="col-auto m-2 p-2">
                         <ul class="nav text-end">
                             {% if session["user_id"] %}
                                 <li class="nav-item">
-                                    <span class="small d-none d-sm-inline px-2">Welcome, {{session["user_name"]}}!</span>
+                                    <span class="small d-none d-sm-inline px-2">Welcome, <span class="fw-semibold">{{session["user_name"]}}</span>!</span>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/logout">
