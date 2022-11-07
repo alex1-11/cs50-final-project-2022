@@ -107,7 +107,7 @@ function view_change(event) {
         // And capitalize first letter https://stackoverflow.com/a/33704783/20260711
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: ".concat(
-            active_view.charAt(1).toUpperCase(),
+            active_view.charAt(0).toUpperCase(),
             active_view.substring(1)
         )
         // Toggle visibility of #task_add_new block for view of deleted tasks
@@ -117,7 +117,7 @@ function view_change(event) {
         else {
             document.querySelector('#task_add_new').classList.remove('invisible')
         }
-        // Re-add event listeners for tasks' functionality
+        // Re-add event listeners for in-tasks functionality
         taskSetTriggersAll()
         // Change active tab style
         viewlist_btns.forEach(btn => {
