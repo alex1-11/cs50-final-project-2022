@@ -52,7 +52,7 @@
 
             {% if get_flashed_messages() %}
                 <header>
-                    <div class="alert alert-primary mb-0 text-center" role="alert">
+                    <div class="alert alert-primary mb-0 text-center" role="alert" id="flashed_messages_div">
                         {{ get_flashed_messages() | join(" ") }}
                         <button type="button" class="btn-close" id="flashed_messages_close"></button>
                     </div>
