@@ -103,7 +103,8 @@ function view_change(event) {
     }).then(response => response.text())
     .then(text => {
         tasklist.innerHTML = text
-        // Update current view and change title of page +capitalize first letter
+        // Update current view and change title of page
+        // And capitalize first letter https://stackoverflow.com/a/33704783/20260711
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + function(active_view) {
             return active_view[0].toUpperCase() + active_view.slice(1);
