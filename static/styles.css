@@ -1,6 +1,6 @@
 .bg-my  {background-color: #10c78a;}
 .text-my{color: #10c78a;}
-button.active.btn  {background-color: #10c78a; }
+button.active.btn  {background-color: #10c78a; font-weight: 600;}
 .btn-my-teal {background-color: #10c78a;}
 .btn-my-teal:hover {background-color: #0d9e6e;}
 .btn-outline-my-teal {border-color: #10c78a; color: #10c78a;}
