@@ -52,9 +52,17 @@
 
             {% if get_flashed_messages() %}
                 <header>
-                    <div class="alert alert-primary mb-0 text-center" role="alert" id="flashed_messages_div">
-                        {{ get_flashed_messages() | join(" ") }}
-                        <button type="button" class="btn-close" id="flashed_messages_close"></button>
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="alert alert-primary mb-0 text-start" role="alert" id="flashed_messages_div">
+                                <div class="col">
+                                    <span>{{ get_flashed_messages() | join(" ") }}</span>
+                                </div>
+                                <div class="col">
+                                    <button class="btn-close align-self-end" type="button" id="flashed_messages_close"></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </header>
             {% endif %}
