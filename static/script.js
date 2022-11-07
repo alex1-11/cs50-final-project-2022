@@ -103,11 +103,12 @@ function view_change(event) {
     }).then(response => response.text())
     .then(text => {
         tasklist.innerHTML = text
-        // Update current view and change title of page
+        // Update current view and change title of page +capitalize first letter
         active_view = document.querySelector("#active_view").value
-        document.title = "tskFLOW: " + active_view
-        //function capitalizeFirstLetter(string) {
-//     return string[0].toUpperCase() + string.slice(1);
+        document.title = "tskFLOW: " + function(active_view) {
+            return active_view[0].toUpperCase() + active_view.slice(1);
+
+        }
 // }
 
         if (active_view == 'deleted') {
