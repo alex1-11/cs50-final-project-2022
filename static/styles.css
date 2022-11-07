@@ -2,7 +2,7 @@
 .text-my{color: #10c78a;}
 button.active.btn  {background-color: #10c78a;}
 .btn-my {background-color: white}
-.btn-my:hover {border-color: black}
+.btn-my:hover {border-color: black; background-color: #0d9e6e;}
 .btn-my:selection {border-color: black; background-color: #10c78a;}
 a       {color: black;}
 a:hover {color: grey;}
