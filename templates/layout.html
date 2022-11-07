@@ -32,11 +32,11 @@
                     {% endif %}
                     <a class="navbar-brand ps-1" href="/">tskFLOW</a>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto m-2 p-2">
                     <ul class="nav text-end">
                         {% if session["user_id"] %}
                             <li class="nav-item">
-                                <span>Welcome, {{session["user_name"]}}!</span>
+                                <span class="d-none d-sm-inline">Welcome, {{session["user_name"]}}!</span>
                                 <br>
                                 <a class="text-decoration-none fs-6" href="/logout">Logout</a>
                             </li>
