@@ -106,7 +106,7 @@ function view_change(event) {
         // Update current view and change title of page
         // And capitalize first letter https://stackoverflow.com/a/33704783/20260711
         active_view = document.querySelector("#active_view").value
-        active_view = active_view => active_view.charAt(1).toUpperCase() + 
+        active_view = concat()active_view.charAt(1).toUpperCase() +
         document.title = "tskFLOW: " + function(active_view) {
             return active_view[0].toUpperCase() + active_view.substring(1);
 
