@@ -52,9 +52,8 @@
 
             {% if get_flashed_messages() %}
                 <header>
-                    <div class="container">
-                        <div class="row justify-content-between">
-                            <div class="alert alert-primary mb-0 text-start" role="alert" id="flashed_messages_div">
+                    <div class="container alert alert-primary mb-0 text-start" role="alert" id="flashed_messages_div">
+                            <div class="row justify-content-between">
                                 <div class="col">
                                     <span>{{ get_flashed_messages() | join(" ") }}</span>
                                 </div>
