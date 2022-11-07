@@ -107,7 +107,7 @@ function view_change(event) {
         // And capitalize first letter https://stackoverflow.com/a/33704783/20260711
         active_view = document.querySelector("#active_view").value
         document.title = "tskFLOW: " + function(active_view) {
-            return active_view[0].toUpperCase() + active_view.slice(1);
+            return active_view[0].toUpperCase() + active_view.substring(1);
 
         }
 // }
