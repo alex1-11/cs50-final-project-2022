@@ -12,7 +12,12 @@
     </td>
     <td>
         <span class="task_title_text task_{{ task.status }}">{{ task.title | e }}</span>
-        <input form="form_task_edit_title" class="form-control invisible" autocomplete="off" id="task_title_edited" name="task_title_edited" type="text" value="{{ task.title | e }}" required>
+        <div class="input-group">
+            <input form="form_task_edit_title" class="form-control invisible" autocomplete="off" id="task_title_edited" name="task_title_edited" type="text" value="{{ task.title | e }}" required>
+            <button class="btn btn-outline-secondary" type="button">✓</button>
+            <button class="btn btn-outline-secondary" type="button"></button>
+        </div>
+
     </td>
     <td>
         <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
