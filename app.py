@@ -277,7 +277,7 @@ def index():
                         Task.user_id == session["user_id"],
                         Task.id == request.form["task_id"]
                     ).values(title = request.form["task_title_edited"])
-                    .execution
+                    .execution_options(synchronize_session='fetch')
                 )
 
 
