@@ -79,7 +79,7 @@ function taskAction(event) {
     // Create form and store task's data to send to Flask:
     // name (which action to take) and value (task's id)
     if (this.name == 'task_title_edited') {
-        let data = new FormData()
+        let data = new FormData(form_task_edit_title)
     }
     let data = new FormData()
     data.append(this.name, this.value)
