@@ -267,7 +267,19 @@ def index():
                     .execution_options(synchronize_session=False)
                 )
             return redirect("/")
-        # TODO: Edit the task
+
+        # Edit titile of task
+        if request.form.get("task_change_title"):
+            with DbSession.begin() as db:
+                db.execute(
+                    update(Task)
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.id == request.form["task_id"]
+                    )
+                )
+
+
         return None
 
     # GET request shows the UI
