@@ -70,7 +70,7 @@ def login():
 
         # Ensure password was submitted
         if not request.form.get("password"):
-            flash("Must provide password")
+            flash("Must provide password", "warning")
             return render_template("login.html")
 
         # Query database for username and check credentials
@@ -86,7 +86,7 @@ def login():
                     )
                 ):
                 # Then: Wrong credentials
-                flash("Incorrect username/password")
+                flash("Incorrect username/password", "warning")
                 return render_template("login.html")
 
             # Remember which user has logged in
