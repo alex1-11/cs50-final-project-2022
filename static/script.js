@@ -148,16 +148,18 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 // Show form to change task's title
 taskEditTitleToggle() {
     var task_div = document.querySelector(`#task_id_${this.value}`)
-    task_div.querySelector(
-        this.name == 'task_title_edit_show' ?
-        '.task_div_edit_title' : '.task_title_text'
-        ).classList.remove('d-none')
+    var task_title = task_div.querySelector('.task_title_text')
+    var edit_form = task_div.querySelector('.task_div_edit_title')
+    switch (this.name) {
+        case 'task_title_edit_show':
+            task_title.classList.add('d-none')
+            edit_form.classList.remove('d-none')
+        case 'task_title_edit_hide':
+            task_title.classList.remove('d-none')
+            edit_form.classList.add('d-none')
+    }
 
-    task_div.querySelector(
-            this.name == 'task_title_edit_show' ?
-            '.task_div_edit_title' : '.task_title_text'
-            '.task_title_text'
-    ).classList.add('d-none')
+
 
 }
 
