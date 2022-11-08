@@ -15,7 +15,7 @@
         <div class="task_div_edit_title input-group d-none">
             <input form="form_task_edit_title" class="form-control invisible" autocomplete="off" id="task_title_edited" name="task_title_edited" type="text" value="{{ task.title | e }}" required>
             <button form="form_task_edit_title" class="btn btn-outline-secondary task_title_edit_confirm" type="submit" title="Apply changes" name="task_title_edited" value="{{ task.id">✓</button>
-            <button form="form_task_edit_title" class="btn btn-outline-secondary task_title_edit_cancel" type="button" title="Discard changes">✗</button>
+            <button form="form_task_edit_title" class="btn btn-outline-secondary task_title_edit_cancel" type="button" title="Discard changes" name="task_title_edit_hide">✗</button>
         </div>
 
     </td>
@@ -35,7 +35,7 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <button type="button" class="dropdown-item task_edit_title_toggle" name="task_title_edit_" value="{{ task.id }}">Change title</a>
+                    <button type="button" class="dropdown-item task_edit_title_toggle" name="task_title_edit_show" value="{{ task.id }}">Change title</a>
                 </li>
                 <li><a class="dropdown-item" href="#">Change date</a></li>
                 <li>
