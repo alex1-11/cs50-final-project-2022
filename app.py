@@ -94,7 +94,7 @@ def login():
             session["user_name"] = user.name
 
         # Redirect user to home page
-        flash(f"Welcome, {session['user_name']}!")
+        flash(f"Welcome, {session['user_name']}!", "success")
         return redirect("/")
 
     # GET clause
@@ -122,17 +122,17 @@ def register():
         # Ensure username was submitted
         username = request.form.get("username")
         if not username:
-            flash("Must provide usename")
+            flash("Must provide usename", "warning")
             return redirect("/register")
 
         # Ensure password was submitted
         if not request.form.get("password"):
-            flash("Must provide password")
+            flash("Must provide password", "warning")
             return redirect("/register")
 
         # Ensure password confirmation is matching
         if not request.form.get("password") == request.form.get("confirm"):
-            flash("Passwords do not match")
+            flash("Passwords do not match", "warning")
             return redirect("/register")
 
         # Ensure username is not already taken
@@ -140,7 +140,7 @@ def register():
             selection = select(User).where(User.name == username)
             user_exists = db.execute(selection).scalars().first()
             if user_exists:
-                flash("Sorry! The username is already taken")
+                flash("Sorry! The username is already taken", "warning")
                 return redirect("/register")
 
         # Add new user to database
@@ -152,7 +152,7 @@ def register():
             db.add(newuser)
 
         # Registration succed. Redirect to login
-        flash("Registered. Now you can login into your account")
+        flash("Registered. Now you can login into your account", "success")
         return render_template("login.html")
 
     else:
