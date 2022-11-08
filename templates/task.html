@@ -10,8 +10,9 @@
             {% endif %}
         </button>
     </td>
-    <td class="task_title_text task_{{ task.status }}">
-        <span></span>
+    <td class="task_{{ task.status }}">
+        <span class="task_title_text">{{ task.title|e }}</span>
+        
     </td>
     <td>
         <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
