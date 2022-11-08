@@ -135,7 +135,7 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
 
 
 // Show form to change task's title
-
+taskEditTitleToggle()
 
 
 
