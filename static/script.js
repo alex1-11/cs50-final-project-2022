@@ -81,10 +81,10 @@ function taskAction(event) {
     var task_div = document.querySelector(`#task_id_${this.value}`)
     // Create form and store task's data to send to Flask:
     // name (which action to take) and value (task's id)
-    if (this.name == 'task_title_edited') {
+    if (this.name == 'task_title_edit_apply') {
         let data = new FormData(form_task_edit_title)
     }
-    else let data = new FormData()
+    else {let data = new FormData()}
     data.append(this.name, this.value)
     // Fetch the form data to Flask
     // Convert response to html text, change task's div, reset triggers
