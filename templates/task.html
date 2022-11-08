@@ -11,9 +11,9 @@
         </button>
     </td>
     <td>
-        <span class="task_title_text task_{{ task.status }} invisible">{{ task.title | e }}</span>
+        <span class="task_title_text task_{{ task.status }}">{{ task.title | e }}</span>
         <div class="input-group">
-            <input form="form_task_edit_title" class="form-control" autocomplete="off" id="task_title_edited" name="task_title_edited" type="text" value="{{ task.title | e }}" required>
+            <input form="form_task_edit_title" class="form-control invisible" autocomplete="off" id="task_title_edited" name="task_title_edited" type="text" value="{{ task.title | e }}" required>
             <button class="btn btn-outline-secondary" type="button" title="Apply changes">✓</button>
             <button class="btn btn-outline-secondary" type="button" title="Discard changes">✗</button>
         </div>
