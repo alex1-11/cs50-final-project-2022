@@ -37,6 +37,7 @@ function taskSetTriggersAll() {
     // Add event listeners
     task_divs.forEach(div => taskSetTriggers(div))
     form_task_add_new.addEventListener('submit', taskAddNew, false)
+    form_task_edit_title.addEventListener('submit', taskAction, false)
 }
 taskSetTriggersAll()
 
