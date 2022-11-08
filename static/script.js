@@ -22,11 +22,10 @@ function taskSetTriggers(task_div) {
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
-        console.log('RMB pressed')
         task_div.querySelector('button.edit_menu_show').click()
     })
     task_div.querySelector('.edit_menu_show').addEventListener('click', (event) => console.log('edit_menu_show'))
-    
+
 }
 
 
