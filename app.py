@@ -276,7 +276,7 @@ def index():
                     .where(
                         Task.user_id == session["user_id"],
                         Task.id == request.form["task_id"]
-                    )
+                    ).values(Task.title = request.form["task_change_title"])
                 )
 
 
