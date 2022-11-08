@@ -16,15 +16,16 @@ const actions = [
 
 // Set event linsteners on buttons of task_div
 function taskSetTriggers(task_div) {
+    // Goes through all the different buttons
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
     }
+    task_div.querySelector()
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
         task_div.querySelector('button.edit_menu_show').click()
     })
-    task_div.querySelector('.edit_menu_show').addEventListener('click', (event) => console.log('edit_menu_show'))
 
 }
 
