@@ -11,7 +11,6 @@ const actions = [
     'task_delete',
     'task_mark',
     'task_title_edit_apply',
-    'task_title_edit_cancel',
     'task_edit_title_toggle'
 ]
 
@@ -150,7 +149,7 @@ taskEditTitleToggle() {
     var task_div = document.querySelector(`#task_id_${this.value}`)
     task_div.querySelector('.task_title_text').classList.toggle('d-none')
     task_div.querySelector('.task_div_edit_title').classList.toggle('d-none')
-
+}
 
     // var task_title = task_div.querySelector('.task_title_text')
     // var edit_form = task_div.querySelector('.task_div_edit_title')
