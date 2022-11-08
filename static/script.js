@@ -83,7 +83,7 @@ function taskAction(event) {
     if (this.name == 'task_title_edited') {
         let data = new FormData(form_task_edit_title)
     }
-    let data = new FormData()
+    elselet data = new FormData()
     data.append(this.name, this.value)
     // Fetch the form data to Flask
     // Convert response to html text, change task's div, reset triggers
