@@ -6,12 +6,12 @@ let task_divs = document.querySelectorAll('.task_div')
 let form_task_add_new = document.querySelector("#form_task_add_new")
 let form_task_edit_title = document.querySelector("#form_task_edit_title")
 
-// Declare possible actions with task
+// Declare possible actions with task (all of them match buttons' classes)
 const actions = [
     'task_delete',
     'task_mark',
     'task_title_edit_confirm',
-    't
+    'task_title_edit_cancel'
 ]
 
 // Set event linsteners on buttons of task_div
