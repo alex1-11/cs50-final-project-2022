@@ -269,14 +269,15 @@ def index():
             return redirect("/")
 
         # Edit titile of task
-        if request.form.get("task_change_title"):
+        if request.form.get("task_title_edited"):
             with DbSession.begin() as db:
                 db.execute(
                     update(Task)
                     .where(
                         Task.user_id == session["user_id"],
                         Task.id == request.form["task_id"]
-                    ).values(Task.title = request.form["task_change_title"])
+                    ).values(title = request.form["task_title_edited"])
+                    .execution
                 )
 
 
