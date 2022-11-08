@@ -394,5 +394,7 @@ def view():
                 tasks = None
         return render_template("tasklist.html", tasks=tasks, view=view)
 
-def get_task(id):
-    
+def get_task(db, id):
+    db.execute(
+        
+    )
