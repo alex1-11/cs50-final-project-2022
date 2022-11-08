@@ -65,7 +65,7 @@ def login():
         # ! https://flask.palletsprojects.com/en/2.2.x/patterns/wtforms/
         username = request.form.get("username")
         if not username:
-            flash("Must provide usename")
+            flash("Must provide usename", "warning")
             return render_template("login.html")
 
         # Ensure password was submitted
