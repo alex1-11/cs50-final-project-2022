@@ -10,7 +10,7 @@ let form_task_edit_title = document.querySelector("#form_task_edit_title")
 const actions = [
     'task_delete',
     'task_mark',
-    'task_title_edit_confirm',
+    'task_title_edit_apply',
     'task_title_edit_cancel',
     'task_edit_title_toggle'
 ]
