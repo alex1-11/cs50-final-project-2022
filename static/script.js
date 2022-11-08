@@ -84,7 +84,7 @@ function taskAction(event) {
     if (this.name == 'task_title_edited') {
         let data = new FormData(form_task_edit_title)
     }
-    elselet data = new FormData()
+    else let data = new FormData()
     data.append(this.name, this.value)
     // Fetch the form data to Flask
     // Convert response to html text, change task's div, reset triggers
@@ -150,7 +150,7 @@ taskEditTitleToggle() {
     var task_div = document.querySelector(`#task_id_${this.value}`)
     task_div.querySelector('.task_title_text').classList.toggle('d-none')
     task_div.querySelector('.task_div_edit_title').classList.toggle('d-none')
-    
+
 
     // var task_title = task_div.querySelector('.task_title_text')
     // var edit_form = task_div.querySelector('.task_div_edit_title')
