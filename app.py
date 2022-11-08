@@ -280,8 +280,11 @@ def index():
                     .execution_options(synchronize_session='fetch')
                 )
                 db.flush()
-                task = 
-
+                task = db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_id"])
+                ).scalars().first()
+                return render_template("task.html", task=task)
 
         return None
 
