@@ -10,9 +10,9 @@
             {% endif %}
         </button>
     </td>
-    <td class="task_{{ task.status }}">
-        <span class="task_title_text">{{ task.title|e }}</span>
-        
+    <td>
+        <span class="task_title_text task_{{ task.status }}">{{ task.title|e }}</span>
+        <input form="form_task_edit_title" class="form-control" autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
     </td>
     <td>
         <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
