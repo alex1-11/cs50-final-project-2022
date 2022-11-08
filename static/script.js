@@ -32,13 +32,13 @@ function taskSetTriggersAll() {
     let task_divs = document.querySelectorAll('.task_div')
     task_divs.forEach(div => taskSetTriggers(div))
     form_task_add_new = document.querySelector("#form_task_add_new")
-    form_task_add_new.addEventListener('submit', task_add_new, false)
+    form_task_add_new.addEventListener('submit', taskAddNew, false)
 }
 taskSetTriggersAll()
 
 
 // Add new task
-function task_add_new(event) {
+function taskAddNew(event) {
     let tasklist_end_div = document.querySelector("#tasklist_end")
     let task_form_data = new FormData(form_task_add_new)
     task_form_data.append('view', active_view)
@@ -68,7 +68,7 @@ function task_add_new(event) {
 
 
 // Action with task (delete to bin, mark complete/undone)
-function task_action(event) {
+function taskAction(event) {
     // Remember the task div (parent area)
     var task_div = document.querySelector(`#task_id_${this.value}`)
     // Create form and store task's data to send to Flask:
