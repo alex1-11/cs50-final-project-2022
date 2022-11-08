@@ -148,7 +148,7 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 // Show form to change task's title
 taskEditTitleToggle() {
     var task_div = document.querySelector(`#task_id_${this.value}`)
-    show/hide
+    task_div.querySelector()
 }
 
 
