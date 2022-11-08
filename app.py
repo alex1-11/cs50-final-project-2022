@@ -279,15 +279,16 @@ def index():
                     ).values(title = request.form["task_title_edited"])
                     .execution_options(synchronize_session='fetch')
                 )
+                db.flush()
+                task = 
 
 
         return None
 
     # GET request shows the UI
     else:
+        # Renders default view - 'today'
         # TODO: Get user's tasks, grouped by contexts
-        # TODO: Views. Remake to use JS, fetch and JSON:
-        # https://flask.palletsprojects.com/en/2.2.x/patterns/javascript/
         with DbSession.begin() as db:
             today = date.today()
             view = "today"
