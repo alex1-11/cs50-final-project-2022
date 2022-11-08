@@ -22,7 +22,7 @@ function taskSetTriggers(task_div) {
     }
     // Showing edit forms is separate here, it runs only in frontend
     task_div.querySelectorAll('task_title_edit_toggle')
-        .forEach(btn => btn.addEventListener('click', taskTitleEditToggle))
+    .forEach(btn => btn.addEventListener('click', taskTitleEditToggle))
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
@@ -83,10 +83,13 @@ function taskAction(event) {
     var task_div = document.querySelector(`#task_id_${this.value}`)
     // Create form and store task's data to send to Flask:
     // name (which action to take) and value (task's id)
+    let data = new FormData()
     if (this.name == 'task_title_edit_apply') {
-        let data = new FormData(form_task_edit_title)
+        data = new FormData(form_task_edit_title)
     }
-    else {let data = new FormData()}
+    else {
+        data = new FormData()
+    }
     data.append(this.name, this.value)
     // Fetch the form data to Flask
     // Convert response to html text, change task's div, reset triggers
@@ -105,6 +108,9 @@ function taskAction(event) {
         console.error('Error: ', error)
     })
 }
+
+
+// TODO: make taskEdit as a separate function
 
 
 // Tasklists / views
@@ -165,9 +171,6 @@ function taskTitleEditToggle() {
     //         edit_form.classList.add('d-none')
     // }
 
-
-
-}
 
 
 
