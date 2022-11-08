@@ -26,6 +26,7 @@ function taskSetTriggers(task_div) {
         task_div.querySelector('button.edit_menu_show').click()
     })
     task_div.querySelector('.edit_menu_show').addEventListener('click', (event) => console.log('edit_menu_show'))
+    
 }
 
 
