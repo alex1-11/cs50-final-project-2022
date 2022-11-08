@@ -49,16 +49,16 @@
                     </div>
                 </div>
             </nav>
-
-            {% if get_flashed_messages() %}
-                <header>
-                    <div class="alert alert-warning mb-0 text-center alert-dismissible" role="alert" id="flashed_messages_div">
-                        {{ get_flashed_messages() | join(" ") }}
-                        <button class="btn-close" type="button" data-bs-dismiss="alert"></button>
-                    </div>
-                </header>
-            {% endif %}
-
+            {% with msg = get_flashed_messages() %}
+                {% if msg %}
+                    <header>
+                        <div class="alert alert-warning mb-0 text-center alert-dismissible" role="alert" id="flashed_messages_div">
+                            {{ get_flashed_messages() | join(" ") }}
+                            <button class="btn-close" type="button" data-bs-dismiss="alert"></button>
+                        </div>
+                    </header>
+                {% endif %}
+            {% endwith %}
             {% block main %}{% endblock %}
 
             <footer class="footer d-flex mt-5 pt-5 allign-items-stretch">
