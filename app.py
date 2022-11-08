@@ -394,7 +394,11 @@ def view():
                 tasks = None
         return render_template("tasklist.html", tasks=tasks, view=view)
 
-def get_task(db, id):
-    db.execute(
-        
-    )
+
+# Helper for actions with tasks
+def render_task(db, id):
+    task = db.execute(
+        select(Task)
+        .where(Task.id == id)
+    ).scalars().first()
+    return render_template("task.html", task=task)
