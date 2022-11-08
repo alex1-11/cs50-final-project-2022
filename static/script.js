@@ -95,7 +95,7 @@ function taskAction(event) {
 
 
 // Tasklists / views
-function view_change(event) {
+function viewChange(event) {
     // Get type of view triggered and pack it for fetch to Flask
     let data = new FormData()
     data.append(this.name, this.value)
@@ -131,7 +131,7 @@ function view_change(event) {
         })
     }).catch(error => console.error('Error: ', error))
 }
-viewlist_btns.forEach(btn => btn.addEventListener('click', view_change, false))
+viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 
 
 // Show form to change task's title
