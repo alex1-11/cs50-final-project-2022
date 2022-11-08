@@ -49,11 +49,11 @@
                     </div>
                 </div>
             </nav>
-            {% with msgs = get_flashed_messages(with_cathegories=true) %}
+            {% with msgs = get_flashed_messages(with_categories=true) %}
                 {% if msgs %}
                     <header>
-                        {% for cathegory, msg in msgs %}
-                                <div class="alert alert-{{ cathegory }} mb-0 text-center alert-dismissible" role="alert" id="flashed_messages_div">
+                        {% for category, msg in msgs %}
+                                <div class="alert alert-{{ category }} mb-0 text-center alert-dismissible" role="alert" id="flashed_messages_div">
                                     <span>{{ msg }}</span>
                                     <button class="btn-close" type="button" data-bs-dismiss="alert"></button>
                                 </div>
