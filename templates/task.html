@@ -34,7 +34,9 @@
                 <span class="align-top">∙∙∙</span>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Change title</a></li>
+                <li>
+                    <button class="dropdown-item task_edit_title_toggle" href="#">Change title</a>
+                </li>
                 <li><a class="dropdown-item" href="#">Change date</a></li>
                 <li>
                     <button form="task_action" type="button" class="task_delete dropdown-item" id="task_del_button_{{ task.id }}" name="task_delete" value="{{ task.id }}">

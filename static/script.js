@@ -12,6 +12,7 @@ const actions = [
     'task_mark',
     'task_title_edit_confirm',
     'task_title_edit_cancel',
+    'task_edit_title_toggle'
 ]
 
 // Set event linsteners on buttons of task_div
@@ -146,7 +147,7 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 
 // Show form to change task's title
 taskEditTitleToggle() {
-    document.querySelector()
+    var task_div = document.querySelector(`#task_id_${this.value}`)
     show/hide
 }
 
