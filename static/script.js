@@ -5,13 +5,6 @@ let active_view = tasklist.querySelector("#active_view").value
 let form_task_add_new = document.querySelector("#form_task_add_new")
 
 
-// Close flashed message
-function closeMessages() {
-    document.querySelector('#flashed_messages_div').remove()
-}
-document.querySelector('#flashed_messages_close').addEventListener('click', closeMessages)
-
-
 // Declare possible actions with task
 const actions = [
     'task_delete',
