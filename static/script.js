@@ -11,7 +11,6 @@ const actions = [
     'task_delete',
     'task_mark',
     'task_title_edit_apply',
-    'task_title_edit_toggle',
 ]
 
 // Set event linsteners on buttons of task_div
