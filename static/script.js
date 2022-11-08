@@ -20,7 +20,9 @@ function taskSetTriggers(task_div) {
     for (let act of actions) {
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
     }
-    task_div.querySelector()
+    // Showing edit forms is separate here, it runs only in frontend
+    task_div.querySelectorAll('task_title_edit_toggle')
+        .forEach(btn => btn.addEventListener('click', taskTitleEditToggle))
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
