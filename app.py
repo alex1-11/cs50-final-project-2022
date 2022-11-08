@@ -393,3 +393,5 @@ def view():
                 print('>>> case: _')
                 tasks = None
         return render_template("tasklist.html", tasks=tasks, view=view)
+
+def get_task(id)
