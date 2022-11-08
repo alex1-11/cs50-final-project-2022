@@ -220,6 +220,24 @@ def index():
                     )
                 return render_template("task.html", task=task)
 
+        # Edit titile of task
+        if request.form.get("task_title_edited"):
+            with DbSession.begin() as db:
+                db.execute(
+                    update(Task)
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.id == request.form["task_id"]
+                    ).values(title = request.form["task_title_edited"])
+                    .execution_options(synchronize_session='fetch')
+                )
+                db.flush()
+                task = db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_id"])
+                ).scalars().first()
+                return render_template("task.html", task=task)
+
         # Delete/restore task
         # Moves task to "trash bin" which makes it possible to undo
         if request.form.get("task_delete"):
@@ -267,24 +285,6 @@ def index():
                     .execution_options(synchronize_session=False)
                 )
             return redirect("/")
-
-        # Edit titile of task
-        if request.form.get("task_title_edited"):
-            with DbSession.begin() as db:
-                db.execute(
-                    update(Task)
-                    .where(
-                        Task.user_id == session["user_id"],
-                        Task.id == request.form["task_id"]
-                    ).values(title = request.form["task_title_edited"])
-                    .execution_options(synchronize_session='fetch')
-                )
-                db.flush()
-                task = db.execute(
-                    select(Task)
-                    .where(Task.id == request.form["task_id"])
-                ).scalars().first()
-                return render_template("task.html", task=task)
 
         return None
 
@@ -393,12 +393,3 @@ def view():
                 print('>>> case: _')
                 tasks = None
         return render_template("tasklist.html", tasks=tasks, view=view)
-
-
-# Helper for actions with tasks
-def render_task(db, id):
-    task = db.execute(
-        select(Task)
-        .where(Task.id == id)
-    ).scalars().first()
-    return render_template("task.html", task=task)
