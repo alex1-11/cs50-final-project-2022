@@ -11,6 +11,7 @@ const actions = [
     'task_delete',
     'task_mark',
     'task_title_edit_apply',
+    '
 ]
 
 // Set event linsteners on buttons of task_div
@@ -40,7 +41,7 @@ function taskSetTriggersAll() {
     // Add event listeners
     task_divs.forEach(div => taskSetTriggers(div))
     form_task_add_new.addEventListener('submit', taskAddNew, false)
-    form_task_edit_title.addEventListener('submit', taskAction, false)
+    forms_task_edit_title.forEach(form => form.addEventListener('submit', taskAction, false))
 }
 taskSetTriggersAll()
 
@@ -84,7 +85,7 @@ function taskAction(event) {
     // name (which action to take) and value (task's id)
     let data = new FormData()
     if (this.name == 'task_title_edit_apply') {
-        data = new FormData(form_task_edit_title)
+        data = new FormData(forms_task_edit_title)
     }
     else {
         data = new FormData()
