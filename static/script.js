@@ -17,6 +17,9 @@ const actions = [
 function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
+        if (act.includes('edit')) {
+            task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
+        }
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
     }
     // Showing edit forms is separate here, it runs only in frontend
