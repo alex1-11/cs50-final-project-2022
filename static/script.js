@@ -10,14 +10,14 @@ let forms_task_edit_title = document.querySelectorAll(".form_task_edit_title")
 const actions = [
     'task_delete',
     'task_mark',
-    'task_title_edit_apply',
+    'edit_title_t',
 ]
 
 // Set event linsteners on buttons of task_div
 function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
-        if (act.includes('edit')) {
+        if (act.includes('submit')) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
             continue
         }
