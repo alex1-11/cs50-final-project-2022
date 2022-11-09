@@ -220,7 +220,8 @@ def index():
                     )
                 return render_template("task.html", task=task)
 
-        # Edit titile of task
+        # Edit title of task
+        print('>>>>', request.form.get("task_title_edited"))
         if request.form.get("task_title_edited"):
             with DbSession.begin() as db:
                 db.execute(
