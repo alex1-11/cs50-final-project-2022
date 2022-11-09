@@ -17,7 +17,7 @@ const actions = [
 function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
-        switch
+        switch (act.includes())
         if (act.includes('form')) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
             continue
