@@ -9,6 +9,7 @@ let form_task_add_new = document.querySelector("#form_task_add_new")
 const actions = [
     'task_delete',
     'task_mark',
+    'task_title_edit_toggle',
     'task_title_edit_form',
 ]
 
@@ -16,14 +17,16 @@ const actions = [
 function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
+        switch
         if (act.includes('form')) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
             continue
         }
+        else if (act.includes) {
+            task_div.querySelector('.task_title_edit_toggle').addEventListener('click', taskTitleEditToggle)
+        }
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
     }
-    // Showing edit forms is separate here, it runs only in frontend
-    task_div.querySelectorAll('.task_title_edit_toggle').forEach(btn => btn.addEventListener('click', taskTitleEditToggle))
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
         event.preventDefault()
