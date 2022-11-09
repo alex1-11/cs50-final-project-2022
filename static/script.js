@@ -19,6 +19,7 @@ function taskSetTriggers(task_div) {
     for (let act of actions) {
         if (act.includes('edit')) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
+            continue
         }
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
     }
