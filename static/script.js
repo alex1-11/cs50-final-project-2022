@@ -17,15 +17,15 @@ const actions = [
 function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
-        switch (act.includes())
         if (act.includes('form')) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
-            continue
         }
-        else if (act.includes) {
-            task_div.querySelector('.task_title_edit_toggle').addEventListener('click', taskTitleEditToggle)
+        else if (act.includes('toggle')) {
+            task_div.querySelector(`.${act}`).addEventListener('click', taskTitleEditToggle)
         }
+        else {
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
+        }
     }
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
     task_div.addEventListener('contextmenu', (event) => {
