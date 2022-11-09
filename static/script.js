@@ -21,7 +21,9 @@ function taskSetTriggers(task_div) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
         }
         else if (act.includes('toggle')) {
-            task_div.querySelector(`.${act}`).addEventListener('click', taskTitleEditToggle)
+            task_div.querySelectorAll(`.${act}`).forEach(
+                toggle => toggle.addEventListener('click', taskTitleEditToggle)
+            )
         }
         else {
         task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
