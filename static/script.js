@@ -4,20 +4,19 @@ const viewlist_btns = viewlist.querySelectorAll("button")
 let active_view = tasklist.querySelector("#active_view").value
 let task_divs = document.querySelectorAll('.task_div')
 let form_task_add_new = document.querySelector("#form_task_add_new")
-let forms_task_edit_title = document.querySelectorAll(".form_task_edit_title")
 
 // Declare possible actions with task (all of them match buttons' classes)
 const actions = [
     'task_delete',
     'task_mark',
-    'edit_title_t',
+    'task_title_edit_form',
 ]
 
 // Set event linsteners on buttons of task_div
 function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
-        if (act.includes('submit')) {
+        if (act.includes('form')) {
             task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
             continue
         }
@@ -40,11 +39,9 @@ function taskSetTriggersAll() {
     // Refresh var-element reference
     task_divs = document.querySelectorAll('.task_div')
     form_task_add_new = document.querySelector("#form_task_add_new")
-    forms_task_edit_title = document.querySelectorAll('.form_task_edit_title')
     // Add event listeners
     task_divs.forEach(div => taskSetTriggers(div))
     form_task_add_new.addEventListener('submit', taskAddNew, false)
-    forms_task_edit_title.forEach(form => form.addEventListener('submit', taskAction, false))
 }
 taskSetTriggersAll()
 
