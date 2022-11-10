@@ -162,6 +162,11 @@ function viewChange(event) {
 viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 
 
+function viewRefresh() {
+    
+}
+
+
 // Show form to change task's title
 function taskTitleEditToggle() {
 
