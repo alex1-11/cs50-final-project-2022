@@ -8,6 +8,7 @@ The app is made with several tools and programming languages:
 - Werkzeug.security
 - SQLAlchemy
 - SQLite3
+- datetime
 - HTML
 - CSS
 - Bootstrap 5.2
@@ -81,7 +82,8 @@ Frontend of the app uses few JS functions provided with Bootstrap:
 - Dropdown menu for edit options;
 - Modal for warning confirmation on Emtying trash bin with deleted tasks;
 - Offcanvas for making responsive view-picker (sidebar) on narrow screens.
-There is also custom `/static/script.js` file, which contains JS code with list of actions possible to apply to a task and functions for placing and refreshing all the event listers on tasks, views, options and buttons. It has helper functions for this purpose:
+There is also custom `/static/script.js` file. All the data provided by user into input forms at fontend gets fetched via this JS with POST requests to backend.
+The script also defines the list of actions possible to apply to a task and functions for placing and refreshing all the event listers on tasks, views, options and buttons. It has helper functions for this last purposes:
 - `taskSetTriggers` which serves for setting triggers on all the buttons being used by app on each `task.html` template via looping through list of possible actions (`const actions`). All the actions on a task are distinguished from each other during the loop to 3 types of events:
     1) submition of forms with input data (if action's title includes 'form', then such form will contain text or date as extra data):
        - 'task_title_edit_form';
@@ -110,21 +112,19 @@ Html templates are being stored inside `/templates/` folder and has the followin
         - `tasklist.html`
         - `task.html`
 
-##### Python: app.py
-Backend is a classic Flask web-application with few routes:
+##### Python: app.py, routes, classes
+Backend is a classic Flask web-application with few **routes**:
 - Decorative route for checking if the user is logged in or not;
 - Login route;
 - Register route;
 - Index route, which has several if-conditons to distinguish separate actions to take with provided data and tasks and pack out the appropriate data from the database;
-- View route to prepare task lists and provide them to frontend. Made with use of 'switch' statement added to Python with 
+- View route to prepare task lists and provide them to frontend. Made with use of `match` statement added to Python with version 3.10, the analog to `switch` statement in other programming languages.
 
-Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described further.
+Every Task is considered as a Python Class object defined with help of SQLAlchemy, and has a set of mandatory and optional attributes described further.
+- title - mandatory, speaks for itself (type: string text);
+- creation datetime - mandatory, is created automatically by SQLite query for informational purposes and is stored in database, but don't get displayed to user;
+- state -
 
-
-
-All the data provided by user into input forms at fontend gets fetched via JS with POST requests
-- title, which speaks for itself;
-- creation datetime - this info is recorded automatically by SQLite for informational purposes and is stored in database, but don't get displayed to user
 In current stage of the project each task can have optional attributes:
 - done ('False' by default)
 - date ('None' by default) - to specify a due date for a task;

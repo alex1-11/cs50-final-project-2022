@@ -6,7 +6,6 @@ from sqlalchemy import create_engine, select, update, delete, not_
 from sqlalchemy.orm import sessionmaker
 from models import User, Setting, Task, Project, Tag, Context, Alarm
 from models import task_tags, user_settings, as_dict
-
 from datetime import date
 from sqlalchemy.dialects.sqlite import DATETIME
 
