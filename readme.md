@@ -46,15 +46,17 @@ There is a sidebar on the left side of the GUI which gives ability to change the
   - Deleted tasks can be restored from the trash bin;
   - After clicking the delete option by mistake user will have chance to instantly restore the task without need to search for it in the Deleted list, cause it's title becomes muted, but will only disappear after refreshing the task list being viewed by changing it or clicking the refresh button at the top left corner of tasks list.
   - The deleted state is defined by `.endswith('_bin')` method. On the deletion the backend will add '_bin' suffix after task's state attribute ('active_bin', 'done_bin'), which allows remembering from which state it was marked as deleted and gives ability to restore the original one by removing the string part containing '_bin'.
+  - Tasks can be permanently deleted by clicking the 'Empty bin' button on the bottom right of the task list, while at 'Deleted' view (button won't display if the bin is already empty).
 
-GUI is made with use of Bootstrap's classes, basic grid system and few handy components and functions such as drop-downs (for task edit options) and offcanvas (for hiding and showing tasklists menu on smaller screens),
+GUI is made with use of Bootstrap's classes, basic grid system and few handy components and functions such as drop-downs (for task edit options), modal (for displaying warning about permanent deletion of tasks when 'Empty bin' button is pressed) and offcanvas (for hiding and showing tasklists menu on smaller screens),
 which made it responsive for using app on devices with different screen width.
 
 In the end of each task list there is and input form for creating new tasks which consits of title, due date fields and the add button.
 After adding new task data which was inputed by user gets packed and fetched by JS to backend (Flask) with POST request.
 This data gets processed by `/` route which distinguishes which form and type of input is it, creates an instance of Task class object and inserts it into the database with use of SQLAlchemy library and SQLite. Then the jinja template of task is being generated and handled back to fetch-block at frontend (`/static/script.js`).
-JS function takes the responce converts the data into `text` and adds the freshly created task as a row of HTML table.
+JS function takes the responce converts the data into `text` and adds the freshly created task as an HTML element, a row in the end of a table. Even empty task lists contain the undisplayed `tasklist_end` row for determing where JS should paste freshly added tasks.
 Task-add function at backend is aware of current tasklist being viewed and will automatically assign today's date when user adds task at 'Today' and 'Upcoming' views if specific due date is not being provided. It also will automatically set the state of a task
+The new task form is not displayed at 'Deleted' view
 
 Task can be marked done/undone by clicking the mark before it's title.
 To see the menu with edit options use `...` sign on the right of each task or just right click on the row of the targeted task. JS will block standart context menu call when doing so and drop down the menu with edit options.
