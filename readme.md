@@ -40,7 +40,7 @@ After logging into account user gets to index route, which made as a single page
 ##### Main interface, views, task lists,
 GUI is made with use of Bootstrap's classes, basic grid system and few handy components and functions such as drop-downs (for task edit options), modal (for displaying warning about permanent deletion of tasks when 'Empty bin' button is pressed) and offcanvas (for hiding and showing tasklists menu on smaller screens), which made it responsive for using app on devices with different screen width.
 
-##### Creating a task
+##### Create a task
 In the end of each task list there is and input form for creating new tasks which consits of title, due date fields and the add button.
 After adding new task data which was inputed by user gets packed and fetched by JS to backend (Flask) with POST request.
 This data gets processed by `/` route which distinguishes which form and type of input is it, creates an instance of Task class object and inserts it into the database with use of SQLAlchemy library and SQLite. Then the jinja template of task is being generated and handled back to fetch-block at frontend (`/static/script.js`).
@@ -48,7 +48,7 @@ JS function takes the responce converts the data into `text` and adds the freshl
 Task-add function at backend is aware of current tasklist being viewed and will automatically assign today's date when user adds task at 'Today' and 'Upcoming' views if specific due date is not being provided. It also will automatically set the state of a task if the function is being called from 'Completed' or any other view.
 The new task form is not displayed at 'Deleted' view.
 
-##### Browsing todos: views on task lists
+##### Browse todos: views on task lists
 There is a sidebar on the left side of the GUI which gives ability to change the views of lists of tasks based on grouping tasks by certain properties:
 - Today: active undone tasks with due dates on today and before today (overdue);
 - Upcoming: active undone tasks with due dates starting from tommorow and further into future;
@@ -56,21 +56,19 @@ There is a sidebar on the left side of the GUI which gives ability to change the
 - Completed: tasks marked as done regardless of due date;
 - Deleted: all the deleted tasks end here.
 
-##### Completing and undoing the task
+##### Complete and undone a task
 Task can be marked done/undone by clicking the mark before it's title. The appropriate toggles are processed at backend after Flask recieves certain form data, which will match with defined if-statements.
 
-##### Editing the task
+##### Edit a task
 To see the menu with edit options use `...` sign on the right of each task or just right click on the row of the targeted task. JS will block standart context menu call when doing so and drop down the menu with edit options.
 Available edit options are:
 - Change title;
 - Change due date;
 - Delete / Restore task.
 By clicking the change title or due date the appropriate section of the task will be turned by JS into input form with current values pretyped in it. Then you can cancel or apply changes. Canceling will toggle the JS script once again and hide the input form back.
+After applying changes to task the data from form will be packed and sended via JS's fetch to backend, the task's info in DB will get updated, new `task.html` template will be generated and handled as responce back to JS scope, which will update the whole row html element of edited task.
 
-
-
-
-##### Deleting and restoring a task, tash bin
+##### Delete and restore a task, empty trash bin
 A few points worth mentioning when deleting a task:
 - When user tries to delete a task it won't get instantly deleted from database, instead it will be put into the 'trash bin';
 - Deleted tasks can be restored from the trash bin;
