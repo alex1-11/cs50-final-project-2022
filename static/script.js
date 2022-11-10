@@ -89,7 +89,7 @@ function taskAction(event) {
     // Create form and store task's data to send to Flask:
     // name (which action to take) and value (task's id)
     let data = new FormData()
-    if (this.name == 'task_title_edit_apply') {
+    if (this == task_div.querySelector('.task_title_edit_apply')) {
         data = new FormData(forms_task_edit_title) // TODO: fix the form reference! Or button or hell knows...
     }
     else {
