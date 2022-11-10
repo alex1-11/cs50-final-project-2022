@@ -76,9 +76,39 @@ A few points worth mentioning when deleting a task:
 - The deleted state is defined by `.endswith('_bin')` method. On the deletion the backend will add '_bin' suffix after task's state attribute ('active_bin', 'done_bin'), which allows remembering from which state it was marked as deleted and gives ability to restore the original one by removing the string part containing '_bin'.
 - Tasks can be permanently deleted by clicking the 'Empty bin' button on the bottom right of the task list, while at 'Deleted' view (button won't display if the bin is already empty).
 
+##### JavaScript
+Frontend of the app uses few JS functions provided with Bootstrap:
+- Dropdown menu for edit options;
+- Modal for warning confirmation on Emtying trash bin with deleted tasks;
+- Offcanvas for making responsive view-picker (sidebar) on narrow screens.
+There is also custom `/static/script.js` file, which contains JS code with list of actions possible to apply to a task and functions for placing and refreshing all the event listers on tasks, views, options and buttons. It has helper functions for this purpose:
+- `taskSetTriggers` which serves for setting triggers on all the buttons being used by app on each `task.html` template via looping through list of possible actions (`const actions`). All the actions on a task are distinguished from each other during the loop to 3 types of events:
+    1) submition of forms with input data (if action's title includes 'form', then such form will contain text or date as extra data):
+       - 'task_title_edit_form';
+       - 'task_date_edit_form';
+    2) clicks on toggles for toggling the edit forms (include 'toggle')
+       - 'task_title_edit_toggle';
+       - 'task_date_edit_toggle';
+    3) clicks on buttons for all other simple actions:
+       - 'task_delete';
+       - 'task_mark'.
+    Such typizations helps having one controller (`taskAction()`) for fetching the data to backend.
+- `taskSetTriggersAll` which loops through all the tasks with `taskSetTriggers` function and also sets triggers on view/tasklist level, such as new task form and view refresh button.
+App's JS file also has functions that manage view changes, such as:
+- `taskTitleEditToggle` for toggling form to edit titles and due dates of the tasks;
+- `viewChange` which loads from database the list of tasks that met a certain criterias, updates the HTML-div with those tasks being rendered through the use of jinja templating and sets all the event listeners to keep the usability of all the buttons after changing the view.
+Other JS functions are:
+- `taskAddNew` for processing data inputed when creating new task (the process is described in the 'Create a task' section);
+- `taskAction` which serves as a controller for all the actions being made with task (see the paragraph on `taskSetTriggers` function above). It distinguishes the input command initialized by user, loads the form data, including the task's id, being stored inside html-elements (value attributes for buttons and hidden type inputs for forms), then send the POST request to backend via `fetch('/', {...})`, and replaces the initial task's html element with the one provided in response, sets event listeners on updated task.
 
-
-
+##### Jinja templates
+Html templates are being stored inside `/templates/` folder and has the following hierarchy:
+- layout.html
+  - login.html
+  - register.html
+  - index.html
+    - tasklist.html
+    - task.html
 
 
 Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described further.
