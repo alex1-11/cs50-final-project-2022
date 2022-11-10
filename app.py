@@ -164,7 +164,6 @@ def register():
 def index():
     """Show dashboard of  TODO: today's tasks, grouped by contexts"""
     if request.method == "POST":
-        # print(">>>>",request.form["task_mark"])
 
         # Add new task (request comes from js fetch())
         if request.form.get("task_new"):
@@ -221,7 +220,6 @@ def index():
                 return render_template("task.html", task=task)
 
         # Edit title of task
-        print('>>>>', request.form.get("task_title_edited"))
         if request.form.get("task_title_edited"):
             with DbSession.begin() as db:
                 db.execute(
@@ -324,10 +322,8 @@ def view():
     view = "today"
     with DbSession.begin() as db:
         view = request.form.get("view")
-        print('>>>', view, type(view))
         match view:
             case 'today':
-                print('>>> case:', view)
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
@@ -339,7 +335,6 @@ def view():
                     .order_by(Task.date)
                 ).scalars().all()
             case 'upcoming':
-                print('>>> case:', view)
                 today = date.today()
                 tasks = db.execute(
                     select(Task)
@@ -351,7 +346,6 @@ def view():
                     .order_by(Task.date)
                 ).scalars().all()
             case 'nodate':
-                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(
@@ -362,7 +356,6 @@ def view():
                 ).scalars().all()
                 pass
             case 'all':
-                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(
@@ -371,7 +364,6 @@ def view():
                     )
                 ).scalars().all()
             case 'completed':
-                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(
@@ -380,7 +372,6 @@ def view():
                     )
                 ).scalars().all()
             case 'deleted':
-                print('>>> case:', view)
                 tasks = db.execute(
                     select(Task)
                     .where(
@@ -391,6 +382,5 @@ def view():
             # Default case - show all tasks
             # TODO: make a setting dependance on default view
             case _:
-                print('>>> case: _')
                 tasks = None
         return render_template("tasklist.html", tasks=tasks, view=view)
