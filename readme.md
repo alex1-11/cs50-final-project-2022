@@ -17,8 +17,7 @@ The app is made with several programming languages and tools:
     - due dates;
     - states (e.g. open tasks, done and deleted ones);
     - creation date and time.
-    - and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. All those are
-
+    - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and created within project's database.*
 
 Every Task is considered as a Class object and has mandatory attribute:
 - title,
