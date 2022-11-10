@@ -19,7 +19,7 @@ Back end (`/app.py`) is written in **Python** with use of few additational libra
 - **Werkzeug.security** for hashing users' passwords;
 - **SQLAlchemy** for interacting with app's database and having pythonic objects (classes) for users, tasks and stuff, which are defined in `/models.py` file.
 
-App has its own database (`/project.db`), which was made with **SQLite3** (`/db-schema.sql`), has different tables with one-to-many and many-to-many relationships (see ) and stores the following data:
+App has its own database (`/project.db`), which was made with **SQLite3** (`/db-schema.sql`), has different tables with one-to-many and many-to-many relationships and stores the following data:
 - user data:
   - user names;
   - hashed passwords;
