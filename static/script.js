@@ -146,10 +146,10 @@ function viewChange(event) {
         )
         // Toggle visibility of #task_add_new block for view of deleted tasks
         if (active_view == 'deleted') {
-            document.querySelector('#task_add_new').classList.add('invisible')
+            document.querySelector('#task_add_new').classList.add('d-none')
         }
         else {
-            document.querySelector('#task_add_new').classList.remove('invisible')
+            document.querySelector('#task_add_new').classList.remove('d-none')
         }
         // Re-add event listeners for in-tasks functionality
         taskSetTriggersAll()
