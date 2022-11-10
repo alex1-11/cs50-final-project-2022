@@ -18,7 +18,7 @@ function taskSetTriggers(task_div) {
     // Goes through all the different buttons
     for (let act of actions) {
         if (act.includes('form')) {
-            task.div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
+            task_div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
         }
         else if (act.includes('toggle')) {
             task_div.querySelectorAll(`.${act}`).forEach(
