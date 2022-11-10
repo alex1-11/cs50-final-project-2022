@@ -12,7 +12,7 @@
     </td>
     <form id="edit_title_t{{ task.id }}" class="task_title_edit_form d-none" name="task_title_edit_form" method="POST"></form>
     <td>
-        <span class="task_title_text task_{{ task.status }}">{{ task.title | e }}</span>
+        <span class="task_current_title task_{{ task.status }}">{{ task.title | e }}</span>
         <div class="task_div_edit_title input-group d-none">
             <input form="edit_title_t{{ task.id }}" class="form-control" autocomplete="off" id="task_title_edited" name="task_title_edited" type="text" value="{{ task.title | e }}" required>
             <input form="edit_title_t{{ task.id }}" type="hidden" name="task_id" value="{{ task.id }}">
@@ -22,7 +22,7 @@
     </td>
     <form id="edit_date_t{{ task.id }}" class="task_date_edit_form d-none" name="task_date_edit_form" method="POST"></form>
     <td>
-        <button type="button" class="task_date_val task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
+        <button type="button" class="task_current_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
             {% if task.date != None %}
                 {{ task.date }}
             {% else %}
