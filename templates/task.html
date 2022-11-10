@@ -22,7 +22,9 @@
     </td>
     <form id="edit_date_t{{ task.id }}" class="task_date_edit_form d-none" name="task_date_edit_form" method="POST"></form>
     <td>
-        <button type="button" class="task_current_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
+        <button type="button" class="task_current_date task_{{ task.status }}" value="{% if task.date != None %}
+        {{ task.date }}
+        {% endif %}" style="display: contents;">
             {% if task.date != None %}
                 {{ task.date }}
             {% else %}
