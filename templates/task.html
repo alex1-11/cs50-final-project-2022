@@ -22,7 +22,7 @@
 
     </td>
     <td>
-        <button type="button" class="task_date task_{{ task.status }} w-75" value="{{ task.date }}" style="">
+        <button type="button" class="task_date task_{{ task.status }}" value="{{ task.date }}" style="display: contents;">
             {% if task.date != None %}
                 {{ task.date }}
             {% else %}
