@@ -167,7 +167,7 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 
 
 function viewRefresh() {
-    viewlist_btns.querySelector('.active').click()
+    viewlist.querySelector('button.active').click()
 }
 
 
