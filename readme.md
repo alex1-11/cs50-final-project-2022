@@ -33,7 +33,7 @@ App has its own database (`/project.db`), which was made with **SQLite3** (`/db-
 Front end is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
 
 User starts at login page, from which he can go to registering form if he didn't created an account yet.
-App supports Flask's message flashing, which will give needed feedback on user's inputs
+App uses Flask's message flashing to give needed feedback on user's wrong inputs during registration and logging-in.
 
 Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described below.
 All the data provided by user into input forms at fontend gets fetched via JS with POST requests
