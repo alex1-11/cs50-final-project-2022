@@ -87,15 +87,16 @@ function taskAction(event) {
     // Distinguish input command, remember the task div (parent area)
     if (this.name == 'task_title_edit_form') {
         var task_div = this.parentElement
+        // Load form data and store it to send to Flask:
         data = new FormData(this)
     }
     else {
         var task_div = document.querySelector(`#task_id_${this.value}`)
+        // Create form and pass task's id to it, to send this data to Flask
         let data = new FormData()
+        // Which action to take goes in `name`, `value` stores task's id
         data.append(this.name, this.value)
     }
-    // Create/update form and store task's data to send to Flask:
-    // name (which action to take) and value (task's id)
     // Fetch the form data to Flask
     // Convert response to html text, change task's div, reset triggers
     fetch('/', {
