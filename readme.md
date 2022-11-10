@@ -112,7 +112,7 @@ Html templates are being stored inside `/templates/` folder and has the followin
         - `tasklist.html`
         - `task.html`
 
-##### Python: app.py, routes, classes
+##### Python: app.py, routes, models.py, classes
 Backend is a classic Flask web-application with few **routes**:
 - Decorative route for checking if the user is logged in or not;
 - Login route;
@@ -120,10 +120,12 @@ Backend is a classic Flask web-application with few **routes**:
 - Index route, which has several if-conditons to distinguish separate actions to take with provided data and tasks and pack out the appropriate data from the database;
 - View route to prepare task lists and provide them to frontend. Made with use of `match` statement added to Python with version 3.10, the analog to `switch` statement in other programming languages.
 
-Every Task is considered as a Python Class object defined with help of SQLAlchemy, and has a set of mandatory and optional attributes described further.
+Every Task is considered as a Python Class object defined with help of SQLAlchemy in `/models.py` file, and has a set of mandatory and optional attributes described further.
 - title - mandatory, speaks for itself (type: string text);
 - creation datetime - mandatory, is created automatically by SQLite query for informational purposes and is stored in database, but don't get displayed to user;
 - state - mandatory, describes a state of a task, possible values: active, done and active_bin, done_bin (for deleted tasks) (type: string text);
+
+*The models.py file also consists of several classes, such as Setting, Project, Tag, Context, Alarm, apart from Task class also having several predefined attributes, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account,  with use of SQLAlchemy and made their way into project's database tables.*
 
 In current stage of the project each task can have optional attributes:
 - done ('False' by default)
