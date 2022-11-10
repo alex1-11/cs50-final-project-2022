@@ -11,6 +11,8 @@ const actions = [
     'task_mark',
     'task_title_edit_toggle',
     'task_title_edit_form',
+    'task_date_edit_toggle',
+    'task_date_edit_form',
 ]
 
 // Set event linsteners on buttons of task_div
@@ -34,7 +36,6 @@ function taskSetTriggers(task_div) {
         event.preventDefault()
         task_div.querySelector('button.edit_menu_show').click()
     })
-
 }
 
 
