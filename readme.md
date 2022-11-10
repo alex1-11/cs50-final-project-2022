@@ -123,7 +123,7 @@ Backend is a classic Flask web-application with few **routes**:
 Every Task is considered as a Python Class object defined with help of SQLAlchemy, and has a set of mandatory and optional attributes described further.
 - title - mandatory, speaks for itself (type: string text);
 - creation datetime - mandatory, is created automatically by SQLite query for informational purposes and is stored in database, but don't get displayed to user;
-- state -
+- state - mandatory, describes a state of a task, possible values: active, done and active_bin, done_bin (for deleted tasks) (type: string text);
 
 In current stage of the project each task can have optional attributes:
 - done ('False' by default)
