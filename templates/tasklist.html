@@ -1,90 +1,92 @@
 <div class="row justify-content-center">
     <div class="col-auto col-lg-9">
-<button id="active_view" value="{{ view }}" class="d-none" type="button"></button>
-<div class="container-fluid container-sm table-responsive">
-    <div class="row d-md-none mb-4">
-        <div class="col text-center">
-            <span class="text-my h5">{{ view | capitalize }}</span>
+        <button id="active_view" value="{{ view }}" class="d-none" type="button"></button>
+        <div class="container-fluid container-sm table-responsive">
+            <div class="row d-md-none mb-4">
+                <div class="col text-center">
+                    <span class="text-my h5">{{ view | capitalize }}</span>
+                </div>
+            </div>
+            <form id="task_action"></form>
+            <form id="form_task_add_new" class="{{ view }}"></form>
+            <table class="table table-sm table-hover align-middle">
+                <thead class="{% if not tasks %} invisible {% endif %}" id="tasklist_header">
+                    <th scope="col"><span class="invisible">----</span></th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Due date</th>
+                    <th scope="col">
+                        <button class="btn btn-outline-secondary view-refresh">↻</button>
+                    </th>
+                </thead>
+                <tbody>
+                    {% if tasks %}
+                        {% for task in tasks %}
+                            {% include "task.html" %}
+                        {% endfor %}
+                    {% else %}
+                        <tr id="notasks">
+                            <td colspan="4" class="text-center py-5">
+                                {% if view == 'today' %}
+                                    <span>No tasks left. Enjoy your day! ;)</span>
+                                {% else %}
+                                    <span>No tasks here</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+
+                    <!-- Add new task block -->
+                    <tr id="tasklist_end"></tr>
+                    <tr id="task_add_new">
+                        <td></td>
+                        <td>
+                            <input form="form_task_add_new" class="form-control" autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
+                        </td>
+                        <td>
+                            <input form="form_task_add_new" class="form-control px-1 w-75" autocomplete="off" id="taskadd_date" name="taskadd_date" placeholder="date" type="date" value="">
+                        </td>
+                        <td>
+                            <button form="form_task_add_new" type="submit" class="btn btn-my py-1">+</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
+
+        {% if view == 'deleted' and tasks %}
+            <!-- Empty bin modal block -->
+            <!-- Button trigger modal -->
+            <div class="container-sm">
+                <div class="row justify-content-between">
+                    <div class="col-1"></div>
+                    <div class="col-1">
+                        <button type="button" class="btn btn-outline-my-teal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Empty bin
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">WARNING!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            This action will lead to inrestorable deletion of tasks in the trash bin. No undo!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <form action="/" method="POST">
+                                <button type="submit" name="bin_empty" value="1" class="btn btn-danger">DELETE PERMANENTLY</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
-    <form id="task_action"></form>
-    <form id="form_task_add_new" class="{{ view }}"></form>
-    <table class="table table-sm table-hover align-middle">
-        <thead class="{% if not tasks %} invisible {% endif %}" id="tasklist_header">
-            <th scope="col"><span class="invisible">----</span></th>
-            <th scope="col">Task</th>
-            <th scope="col">Due date</th>
-            <th scope="col">
-                <button class="btn btn-outline-secondary view-refresh">↻</button>
-            </th>
-        </thead>
-        <tbody>
-            {% if tasks %}
-                {% for task in tasks %}
-                    {% include "task.html" %}
-                {% endfor %}
-            {% else %}
-                <tr id="notasks">
-                    <td colspan="4" class="text-center py-5">
-                        {% if view == 'today' %}
-                            <span>No tasks left. Enjoy your day! ;)</span>
-                        {% else %}
-                            <span>No tasks here</span>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endif %}
-
-            <!-- Add new task block -->
-            <tr id="tasklist_end"></tr>
-            <tr id="task_add_new">
-                <td></td>
-                <td>
-                    <input form="form_task_add_new" class="form-control" autocomplete="off" id="task_new" name="task_new" placeholder="New task" type="text" required>
-                </td>
-                <td>
-                    <input form="form_task_add_new" class="form-control px-1 w-75" autocomplete="off" id="taskadd_date" name="taskadd_date" placeholder="date" type="date" value="">
-                </td>
-                <td>
-                    <button form="form_task_add_new" type="submit" class="btn btn-my py-1">+</button>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
 </div>
-
-{% if view == 'deleted' and tasks %}
-    <!-- Empty bin modal block -->
-    <!-- Button trigger modal -->
-    <div class="container-sm">
-        <div class="row justify-content-between">
-            <div class="col-1"></div>
-            <div class="col-1">
-                <button type="button" class="btn btn-outline-my-teal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Empty bin
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">WARNING!</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    This action will lead to inrestorable deletion of tasks in the trash bin. No undo!
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <form action="/" method="POST">
-                        <button type="submit" name="bin_empty" value="1" class="btn btn-danger">DELETE PERMANENTLY</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endif %}
