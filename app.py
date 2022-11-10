@@ -237,6 +237,24 @@ def index():
                 ).scalars().first()
                 return render_template("task.html", task=task)
 
+        # Edit due date of task
+        if request.form.get("task_date_edited"):
+            with DbSession.begin() as db:
+                db.execute(
+                    update(Task)
+                    .where(
+                        Task.user_id == session["user_id"],
+                        Task.id == request.form["task_id"]
+                    ).values(date = request.form["task_date_edited"])
+                    .execution_options(synchronize_session='fetch')
+                )
+                db.flush()
+                task = db.execute(
+                    select(Task)
+                    .where(Task.id == request.form["task_id"])
+                ).scalars().first()
+                return render_template("task.html", task=task)
+
         # Delete/restore task
         # Moves task to "trash bin" which makes it possible to undo
         if request.form.get("task_delete"):
