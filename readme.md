@@ -14,12 +14,12 @@ The app is made with several tools and programming languages:
 - JavaScript
 - Jinja templates
 
-Back end (`/app.py`) is written in **Python** with use of few additational libraries:
+**Backend** (`/app.py`) is written in **Python** with use of few additational libraries:
 - **Flask** framework for routing http requests;
 - **Werkzeug.security** for hashing users' passwords;
 - **SQLAlchemy** for interacting with app's database and having pythonic objects (classes) for users, tasks and stuff, which are defined in `/models.py` file.
 
-App has its own database (`/project.db`), which was made with **SQLite3** (`/db-schema.sql`), has different tables with one-to-many and many-to-many relationships and stores the following data:
+App has its own **database** (`/project.db`), which was made with **SQLite3** (`/db-schema.sql`), has different tables with one-to-many and many-to-many relationships and stores the following data:
 - user data:
   - user names;
   - hashed passwords;
@@ -30,14 +30,14 @@ App has its own database (`/project.db`), which was made with **SQLite3** (`/db-
   - creation date and time.
   - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and made their way into project's database tables.*
 
-Front end is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
+**Frontend** is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
 
 ##### Starting pages
 User starts at login page, from which he can go to registering form if he didn't created an account yet.
 App uses Flask's message flashing to give needed feedback on user's wrong inputs during forms submitions.
 After logging into account user gets to index route, which made as a single page with dynamically updated task lists.
 
-##### Main interface, views, task lists,
+##### Main interface, views, task lists
 GUI is made with use of Bootstrap's classes, basic grid system and few handy components and functions such as drop-downs (for task edit options), modal (for displaying warning about permanent deletion of tasks when 'Empty bin' button is pressed) and offcanvas (for hiding and showing tasklists menu on smaller screens), which made it responsive for using app on devices with different screen width.
 
 ##### Create a task
@@ -110,6 +110,13 @@ Html templates are being stored inside `/templates/` folder and has the followin
         - `tasklist.html`
         - `task.html`
 
+##### Python: app.py
+Backend is a classic Flask web-application with few routes:
+- Decorative route for checking if the user is logged in or not;
+- Login route;
+- Register route;
+- Index route, which has several if-conditons to distinguish separate actions to take with provided data and tasks and pack out the appropriate data from the database;
+- View route to prepare task lists and provide them to frontend. Made with use of 'switch' statement added to Python with 
 
 Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described further.
 
