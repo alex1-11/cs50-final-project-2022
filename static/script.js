@@ -84,7 +84,10 @@ function taskAddNew(event) {
 // Action with task (delete to bin, mark complete/undone)
 function taskAction(event) {
     event.preventDefault()
-    // Remember the task div (parent area)
+    // Distinguish input command, remember the task div (parent area)
+    if (this.name == 'task_title_edit_form') {
+        
+    }
     var task_div = document.querySelector(`#task_id_${this.value}`)
     var task_title_edit_form = task_div.querySelector(`#edit_title_t${this.value}`)
     // Create form and store task's data to send to Flask:
