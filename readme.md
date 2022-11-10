@@ -3,7 +3,7 @@
 #### Description:
 tskFLOW is a simple minimalistic todo application for tracking tasks and their due dates.
 The app is made with several programming languages and tools:
-- Backend (`/app.py`) is written in **Python** with use of few additational libraries:
+- Back end (`/app.py`) is written in **Python** with use of few additational libraries:
   - **Flask** framework for routing http requests;
   - **Werkzeug.security** for hashing users' passwords;
   - **SQLAlchemy** for interacting with app's database and having pythonic objects (classes) for users, tasks and stuff, which are defined in `/models.py` file.
@@ -17,7 +17,10 @@ The app is made with several programming languages and tools:
     - due dates;
     - states (e.g. open tasks, done and deleted ones);
     - creation date and time.
-    - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and created within project's database.*
+    - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and made their way into project's database tables.*
+
+- Front end is made with use of HTML, CSS, Bootstrap 5.2 and JavaScript
+
 
 Every Task is considered as a Class object and has mandatory attribute:
 - title,
