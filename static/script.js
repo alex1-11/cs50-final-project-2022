@@ -94,7 +94,7 @@ function taskAction(event) {
         event.preventDefault()
     }
     else {
-        let task_div = document.querySelector(`#task_id_${this.value}`)
+        task_div = document.querySelector(`#task_id_${this.value}`)
         // Create form and pass task's id to it, to send this data to Flask
         data = new FormData()
         // Which action to take goes in `name`, `value` stores task's id
