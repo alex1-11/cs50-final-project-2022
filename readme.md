@@ -34,8 +34,14 @@ Front end is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. I
 
 User starts at login page, from which he can go to registering form if he didn't created an account yet.
 App uses Flask's message flashing to give needed feedback on user's wrong inputs during registration and logging-in.
+Interface for logged-in users 
 
-Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described below.
+is made with use of Bootstrap's classes, basic grid system and few handy components such as offcanvas (for showing tasklists menu ) and drop down
+
+Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described further.
+
+
+
 All the data provided by user into input forms at fontend gets fetched via JS with POST requests
 - title, which speaks for itself;
 - creation datetime - this info is recorded automatically by SQLite for informational purposes and is stored in database, but don't get displayed to user
