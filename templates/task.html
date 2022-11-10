@@ -31,7 +31,7 @@
         </button>
 
         <div class="task_div_edit_date input-group d-none">
-            <input form="edit_date_t{{ task.id }}" class="form-control" autocomplete="off" id="task_date_edited" name="task_date_edited" type="text" value="{{ task.date | e }}" required>
+            <input form="edit_date_t{{ task.id }}" class="form-control" autocomplete="off" id="task_date_edited" name="task_date_edited" type="date" value="{{ task.date | e }}" required>
             <input form="edit_date_t{{ task.id }}" type="hidden" name="task_id" value="{{ task.id }}">
             <button form="edit_date_t{{ task.id }}" class="btn btn-outline-secondary task_date_edit_apply" type="submit" title="Apply changes">✓</button>
             <button form="edit_date_t{{ task.id }}" class="btn btn-outline-secondary task_date_edit_toggle" type="button" title="Discard changes" name="task_date_edit_hide" value="{{ task.id }}">✗</button>
