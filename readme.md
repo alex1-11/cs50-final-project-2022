@@ -103,12 +103,12 @@ Other JS functions are:
 
 ##### Jinja templates
 Html templates are being stored inside `/templates/` folder and has the following hierarchy:
-- layout.html
-  - login.html
-  - register.html
-  - index.html
-    - tasklist.html
-    - task.html
+- `layout.html`
+    - `login.html`
+    - `register.html`
+    - `index.html`
+        - `tasklist.html`
+        - `task.html`
 
 
 Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described further.
