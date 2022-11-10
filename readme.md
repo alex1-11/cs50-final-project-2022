@@ -33,8 +33,18 @@ App has its own database (`/project.db`), which was made with **SQLite3** (`/db-
 Front end is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
 
 User starts at login page, from which he can go to registering form if he didn't created an account yet.
-App uses Flask's message flashing to give needed feedback on user's wrong inputs during registration and logging-in.
-Interface for logged-in users 
+App uses Flask's message flashing to give needed feedback on user's wrong inputs during forms submitions.
+After logging into account user gets to index route, which made as a single page with dynamically updated task lists.
+
+There is a sidebar on the left side of the GUI which gives ability to change the views of lists of tasks based on grouping tasks by certain properties:
+- Today: active undone tasks with due dates on today and before today (overdue);
+- Upcoming: active undone tasks with due dates starting from tommorow and further into future;
+- No date: active undone tasks with no due dates set;
+- Completed: tasks marked as done regardless of due date;
+- Deleted: all the deleted tasks go here. A few points worth mentioning:
+  - When user tries to delete a task it won't get instantly deleted from database, instead it will be put into the 'trash bin';
+  - Deleted tasks can be restored from the trash bin;
+  - After clicking the delete option by mistake user will have chance to instantly restore the task without need to search for it in the Deleted list, cause it's title becomes muted, but will only disappear after refreshing the task list being viewed by changing it or clicking the refresh button at the top left corner of tasks list
 
 is made with use of Bootstrap's classes, basic grid system and few handy components such as offcanvas (for showing tasklists menu ) and drop down
 
