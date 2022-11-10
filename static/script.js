@@ -15,7 +15,7 @@ const actions = [
 
 // Set event linsteners on buttons of task_div
 function taskSetTriggers(task_div) {
-    // Goes through all the different buttons
+    // Goes through all the different buttons and forms
     for (let act of actions) {
         if (act.includes('form')) {
             task_div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
@@ -86,14 +86,12 @@ function taskAction(event) {
     event.preventDefault()
     // Remember the task div (parent area)
     var task_div = document.querySelector(`#task_id_${this.value}`)
+    var task_title_edit_form = task_div.querySelector(`#edit_title_t${this.value}`)
     // Create form and store task's data to send to Flask:
     // name (which action to take) and value (task's id)
     let data = new FormData()
-    if (this == task_div.querySelector('.task_title_edit_apply')) {
-        data = new FormData(forms_task_edit_title) // TODO: fix the form reference! Or button or hell knows...
-    }
-    else {
-        data = new FormData()
+    if (this == task_title_edit_form) {
+        data = new FormData(task_title_edit_form) // TODO: fix the form reference! Or button or hell knows...
     }
     data.append(this.name, this.value)
     // Fetch the form data to Flask
