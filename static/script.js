@@ -84,9 +84,10 @@ function taskAddNew(event) {
 // Action with task (delete to bin, mark complete/undone)
 function taskAction(event) {
     // Distinguish input command, remember the task div (parent area)
+    let task_div
     let data
     if (this.name.includes('form')) {
-        let task_div = this.parentElement
+        task_div = this.parentElement
         // Load form data and store it to send to Flask:
         data = new FormData(this)
         event.preventDefault()
