@@ -128,4 +128,5 @@ Every Task is considered as a Python Class object defined with help of SQLAlchem
 *The models.py file also consists of several classes, such as Setting, Project, Tag, Context, Alarm, apart from Task class also having several predefined attributes, which all have not found implementation as app's features at current stage yet, and are to be implemented someday in the future development of this project. See the `roadmap.md` for ideas of future development.*
 
 **Thanks CS50 crew for making it possible for me to make this project!**
-Alex1-11
+--
+Best regardsAlex1-11
