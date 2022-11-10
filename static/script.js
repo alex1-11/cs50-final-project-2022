@@ -4,6 +4,8 @@ const viewlist_btns = viewlist.querySelectorAll("button")
 let active_view = tasklist.querySelector("#active_view").value
 let task_divs = document.querySelectorAll('.task_div')
 let form_task_add_new = document.querySelector("#form_task_add_new")
+let view_refresh = document.querySelector('.view-refresh')
+
 
 // Declare possible actions with task (all of them match buttons' classes)
 const actions = [
@@ -45,9 +47,11 @@ function taskSetTriggersAll() {
     // Refresh var-element reference
     task_divs = document.querySelectorAll('.task_div')
     form_task_add_new = document.querySelector("#form_task_add_new")
+    view_refresh = document.querySelector('.view-refresh')
     // Add event listeners
     task_divs.forEach(div => taskSetTriggers(div))
     form_task_add_new.addEventListener('submit', taskAddNew, false)
+    view_refresh.addEventListener('click', viewRefresh)
 }
 taskSetTriggersAll()
 
@@ -163,7 +167,7 @@ viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 
 
 function viewRefresh() {
-    
+
 }
 
 
