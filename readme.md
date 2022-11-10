@@ -2,24 +2,35 @@
 #### Video Demo:  <URL HERE>
 #### Description:
 tskFLOW is a simple minimalistic todo application for tracking tasks and their due dates.
-The app is made with several programming languages and tools:
-- Back end (`/app.py`) is written in **Python** with use of few additational libraries:
-  - **Flask** framework for routing http requests;
-  - **Werkzeug.security** for hashing users' passwords;
-  - **SQLAlchemy** for interacting with app's database and having pythonic objects (classes) for users, tasks and stuff, which are defined in `/models.py` file.
+The app is made with several tools and programming languages:
+- Python
+- Flask
+- Werkzeug.security
+- SQLAlchemy
+- SQLite3
+- HTML
+- CSS
+- Bootstrap 5.2
+- JavaScript
+- Jinja templates
 
-- App has its own database (`/project.db`), which was made with **SQLite3** (`/db-schema.sql`) contains:
-  - user data:
-    - user names;
-    - hashed passwords;
-  - tasks data:
-    - titles;
-    - due dates;
-    - states (e.g. open tasks, done and deleted ones);
-    - creation date and time.
-    - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and made their way into project's database tables.*
+Back end (`/app.py`) is written in **Python** with use of few additational libraries:
+- **Flask** framework for routing http requests;
+- **Werkzeug.security** for hashing users' passwords;
+- **SQLAlchemy** for interacting with app's database and having pythonic objects (classes) for users, tasks and stuff, which are defined in `/models.py` file.
 
-- Front end is made with use of HTML, CSS, Bootstrap 5.2 and JavaScript
+App has its own database (`/project.db`), which was made with **SQLite3** (`/db-schema.sql`) contains:
+- user data:
+  - user names;
+  - hashed passwords;
+- tasks data:
+  - titles;
+  - due dates;
+  - states (e.g. open tasks, done and deleted ones);
+  - creation date and time.
+  - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and made their way into project's database tables.*
+
+Front end is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
 
 
 Every Task is considered as a Class object and has mandatory attribute:
