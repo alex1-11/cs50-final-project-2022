@@ -32,10 +32,14 @@ App has its own database (`/project.db`), which was made with **SQLite3** (`/db-
 
 Front end is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
 
+User starts at login page, from which he can go to registering form if he didn't created an account yet.
+App supports Flask's message flashing, which will give needed feedback on user's inputs
 
-Every Task is considered as a Class object and has mandatory attribute:
-- title,
-and optional attributes:
+Every Task is considered as a Python Class object and has a set of mandatory and optional attributes described below.
+All the data provided by user into input forms at fontend gets fetched via JS with POST requests
+- title, which speaks for itself;
+- creation datetime - this info is recorded automatically by SQLite for informational purposes and is stored in database, but don't get displayed to user
+In current stage of the project each task can have optional attributes:
 - done ('False' by default)
 - date ('None' by default) - to specify a due date for a task;
 - time ('None' by default) - specify a due time;
