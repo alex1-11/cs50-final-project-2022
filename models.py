@@ -17,6 +17,7 @@ task_tags = Table(
     Column("tag_id", Integer, ForeignKey("tags.id"))
 )
 
+
 user_settings = Table(
     "user_settings",
     Base.metadata,
@@ -24,6 +25,7 @@ user_settings = Table(
     Column("setting_id", Integer, ForeignKey("settings.id")),
     Column("state", Integer)
 )
+
 
 class User(Base):
     __tablename__ = "users"
@@ -34,6 +36,7 @@ class User(Base):
         "Setting", secondary=user_settings, back_populates="users"
     )
 
+
 class Setting(Base):
     __tablename__ = "settings"
     id = Column(Integer, primary_key=True)
@@ -41,6 +44,7 @@ class Setting(Base):
     users = relationship(
         "User", secondary=user_settings, back_populates="settings"
     )
+
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -61,6 +65,7 @@ class Task(Base):
         "Tag", secondary=task_tags, back_populates="tasks"
     )
 
+
 class Project(Base):
     __tablename__ = "projects"
     id = Column(Integer, primary_key=True)
@@ -70,6 +75,7 @@ class Project(Base):
     color = Column(String)
     section = Column(String)
 
+
 class Tag(Base):
     __tablename__ = "tags"
     id = Column(Integer, primary_key=True)
@@ -78,10 +84,12 @@ class Tag(Base):
         "Task", secondary=task_tags, back_populates="tags"
     )
 
+
 class Context(Base):
     __tablename__ = "contexts"
     id = Column(Integer, primary_key=True)
     title = Column(String)
+
 
 class Alarm(Base):
     __tablename__ = "alarms"
@@ -89,12 +97,9 @@ class Alarm(Base):
     task_id = Column(Integer, ForeignKey("tasks.id"))
     datetime = Column(String)
 
-
-
-    # TODO: How to set constraint on columns?
-    # How to define default values for columns?
-
 # Converts object selected from table into dictionary
 # https://riptutorial.com/sqlalchemy/example/6614/converting-a-query-result-to-dict
+
+
 def as_dict(obj):
     return {c.key: getattr(obj, c.key) for c in inspect(obj).mapper.column_attrs}
