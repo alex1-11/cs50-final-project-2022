@@ -129,7 +129,7 @@ Every Task is considered as a Python Class object defined with help of SQLAlchem
 
 
 --
-*Thanks CS50 crew for making all this possible for me!*
+***Thanks CS50 crew for making all this possible for me!***
 --
 *Best regards,*
 *Alex1-11*
