@@ -15,7 +15,7 @@ The app is made with several tools and programming languages:
 - JavaScript
 - Jinja templates
 
-**Backend** (`/app.py`) is written in **Python** with use of few additational libraries:
+**Backend** (`/app.py`) is written in **Python** with use of few additional libraries:
 - **Flask** framework for routing http requests;
 - **Werkzeug.security** for hashing users' passwords;
 - **SQLAlchemy** for interacting with app's database and having pythonic objects (classes) for users, tasks and stuff, which are defined in `/models.py` file.
@@ -29,27 +29,27 @@ App has its own **database** (`/project.db`), which was made with **SQLite3** (`
   - due dates;
   - states (e.g. open tasks, done and deleted ones);
   - creation date and time.
-  - *and tons of other properties, which have not found implementation as app's features yet and are to be inplemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and made their way into project's database tables.*
+  - *and tons of other properties, which have not found implementation as app's features yet and are to be implemented in future development of this project, such as due time, contexts, projects, priority, tags, notes, alarms, frozen state, repeat patterns, completion datetime etc. Most of these are already taken into account, defined in `/models.py` with use of SQLAlchemy and made their way into project's database tables.*
 
 **Frontend** is made with use of **HTML, CSS, Bootstrap 5.2** and **JavaScript**. It also leverages the use of **Jinja2 templates** provided from Flask's backend side.
 
 ##### Starting pages
-User starts at login page, from which he can go to registering form if he didn't created an account yet.
-App uses Flask's message flashing to give needed feedback on user's wrong inputs during forms submitions.
+User starts at login page, from which he can go to registering form if he didn't create an account yet.
+App uses Flask's message flashing to give needed feedback on user's wrong inputs during forms submissions.
 After logging into account user gets to index route, which made as a single page with dynamically updated task lists.
 
 ##### Main interface, views, task lists
-GUI is made with use of Bootstrap's classes, basic grid system and few handy components and functions such as drop-downs (for task edit options), modal (for displaying warning about permanent deletion of tasks when 'Empty bin' button is pressed) and offcanvas (for hiding and showing tasklists menu on smaller screens), which made it responsive for using app on devices with different screen width.
+GUI is made with use of Bootstrap's classes, basic grid system and few handy components and functions such as drop-downs (for task edit options), modal (for displaying warning about permanent deletion of tasks when 'Empty bin' button is pressed) and offcanvas (for hiding and showing task lists menu on smaller screens), which made it responsive for using app on devices with different screen width.
 
 ##### Create a task
-In the end of each task list there is and input form for creating new tasks which consits of title, due date fields and the add button.
-After adding new task data which was inputed by user gets packed and fetched by JS to backend (Flask) with POST request.
+In the end of each task list there is and input form for creating new tasks which consist of title, due date fields and the add button.
+After adding new task data which was inputted by user gets packed and fetched by JS to backend (Flask) with POST request.
 This data gets processed by `/` route which distinguishes which form and type of input is it, creates an instance of Task class object and inserts it into the database with use of SQLAlchemy library and SQLite. Then the jinja template of task is being generated and handled back to fetch-block at frontend (`/static/script.js`).
-JS function takes the responce converts the data into `text` and adds the freshly created task as an HTML element, a row in the end of a table. Even empty task lists contain the undisplayed `tasklist_end` row for determing where JS should paste freshly added tasks.
-Task-add function at backend is aware of current tasklist being viewed and will automatically assign today's date when user adds task at 'Today' and 'Upcoming' views if specific due date is not being provided. It also will automatically set the state of a task if the function is being called from 'Completed' or any other view.
+JS function takes the response converts the data into `text` and adds the freshly created task as an HTML element, a row in the end of a table. Even empty task lists contain the hidden `tasklist_end` row to determine where JS should paste freshly added tasks.
+Task-add function at backend is aware of current task list being viewed and will automatically assign today's date when user adds task at 'Today' and 'Upcoming' views if specific due date is not being provided. It also will automatically set the state of a task if the function is being called from 'Completed' or any other view.
 The new task form is not displayed at 'Deleted' view.
 
-##### Browse todos: views on task lists
+##### Browse to-dos: views on task lists
 There is a sidebar on the left side of the GUI which gives ability to change the views of lists of tasks based on grouping tasks by certain properties:
 - Today: active undone tasks with due dates on today and before today (overdue);
 - Upcoming: active undone tasks with due dates starting from today and further into future;
@@ -58,20 +58,20 @@ There is a sidebar on the left side of the GUI which gives ability to change the
 - Deleted: all the deleted tasks end here.
 
 ##### Complete and undone a task
-Task can be marked done/undone by clicking the mark before it's title. The appropriate toggles are processed at backend after Flask recieves certain form data, which will match with defined if-statements.
+Task can be marked done/undone by clicking the mark before it's title. The appropriate toggles are processed at backend after Flask receives certain form data, which will match with defined if-statements.
 
 ##### Edit a task
-To see the menu with edit options use `...` sign on the right of each task or just right click on the row of the targeted task. JS will block standart context menu call when doing so and drop down the menu with edit options.
+To see the menu with edit options use `...` sign on the right of each task or just right click on the row of the targeted task. JS will block standard context menu call when doing so and drop down the menu with edit options.
 Available edit options are:
 - Change title;
 - Change due date;
 - Delete / Restore task.
-By clicking the change title or due date the appropriate section of the task will be turned by JS into input form with current values pretyped in it. Then you can cancel or apply changes. Canceling will toggle the JS script once again and hide the input form back.
-After applying changes to task the data from form will be packed and sended via JS's fetch to backend, the task's info in DB will get updated, new `task.html` template will be generated and handled as responce back to JS scope, which will update the whole row html element of edited task.
+By clicking the change title or due date the appropriate section of the task will be turned by JS into input form with current values preset in it. Then you can cancel or apply changes. Canceling will toggle the JS script once again and hide the input form back.
+After applying changes to task the data from form will be packed and send via JS's `fetch()` to backend, the task's info in DB will get updated, new `task.html` template will be generated and handled as response back to JS scope, which will update the whole row html element of edited task.
 
 ##### Delete and restore a task, empty trash bin
 A few points worth mentioning when deleting a task:
-- When user tries to delete a task it won't get instantly deleted from database, instead it will be put into the 'trash bin';
+- When user tries to delete a task, it won't get instantly deleted from database, instead it will be put into the 'trash bin';
 - Deleted tasks can be restored from the trash bin;
 - After clicking the delete option by mistake user will have chance to instantly restore the task without need to search for it in the Deleted list, cause it's title becomes muted, but will only disappear after refreshing the task list being viewed by changing it or clicking the refresh button at the top left corner of tasks list.
 - The deleted state is defined by `.endswith('_bin')` method. On the deletion the backend will add '_bin' suffix after task's state attribute ('active_bin', 'done_bin'), which allows remembering from which state it was marked as deleted and gives ability to restore the original one by removing the string part containing '_bin'.
@@ -80,12 +80,12 @@ A few points worth mentioning when deleting a task:
 ##### JavaScript
 Frontend of the app uses few JS functions provided with Bootstrap:
 - Dropdown menu for edit options;
-- Modal for warning confirmation on Emtying trash bin with deleted tasks;
+- Modal for warning confirmation on Emptying trash bin with deleted tasks;
 - Offcanvas for making responsive view-picker (sidebar) on narrow screens.
-There is also custom `/static/script.js` file. All the data provided by user into input forms at fontend gets fetched via this JS with POST requests to backend.
-The script also defines the list of actions possible to apply to a task and functions for placing and refreshing all the event listers on tasks, views, options and buttons. It has helper functions for this last purposes:
+There is also custom `/static/script.js` file. All the data provided by user into input forms at font end gets fetched via this JS with POST requests to backend.
+The script also defines the list of actions possible to apply to a task and functions for placing and refreshing all the event listers on tasks, views, options and buttons. It has helper functions for these last purposes:
 - `taskSetTriggers` which serves for setting triggers on all the buttons being used by app on each `task.html` template via looping through list of possible actions (`const actions`). All the actions on a task are distinguished from each other during the loop to 3 types of events:
-    1) submition of forms with input data (if action's title includes 'form', then such form will contain text or date as extra data):
+    1) submission of forms with input data (if action's title includes 'form', then such form will contain text or date as extra data):
        - 'task_title_edit_form';
        - 'task_date_edit_form';
     2) clicks on toggles for toggling the edit forms (include 'toggle')
@@ -94,13 +94,13 @@ The script also defines the list of actions possible to apply to a task and func
     3) clicks on buttons for all other simple actions:
        - 'task_delete';
        - 'task_mark'.
-    Such typizations helps having one controller (`taskAction()`) for fetching the data to backend.
+    Such typification helps having one controller (`taskAction()`) for fetching the data to backend.
 - `taskSetTriggersAll` which loops through all the tasks with `taskSetTriggers` function and also sets triggers on view/tasklist level, such as new task form and view refresh button.
 App's JS file also has functions that manage view changes, such as:
 - `taskTitleEditToggle` for toggling form to edit titles and due dates of the tasks;
-- `viewChange` which loads from database the list of tasks that met a certain criterias, updates the HTML-div with those tasks being rendered through the use of jinja templating and sets all the event listeners to keep the usability of all the buttons after changing the view.
+- `viewChange` which loads from database the list of tasks that met a certain criteria’s, updates the HTML-div with those tasks being rendered through the use of jinja templating and sets all the event listeners to keep the usability of all the buttons after changing the view.
 Other JS functions are:
-- `taskAddNew` for processing data inputed when creating new task (the process is described in the 'Create a task' section);
+- `taskAddNew` for processing data inputted when creating new task (the process is described in the 'Create a task' section);
 - `taskAction` which serves as a controller for all the actions being made with task (see the paragraph on `taskSetTriggers` function above). It distinguishes the input command initialized by user, loads the form data, including the task's id, being stored inside html-elements (value attributes for buttons and hidden type inputs for forms), then send the POST request to backend via `fetch('/', {...})`, and replaces the initial task's html element with the one provided in response, sets event listeners on updated task.
 
 ##### Jinja templates
@@ -117,7 +117,7 @@ Backend is a classic Flask web-application with few **routes**:
 - Decorative route for checking if the user is logged in or not;
 - Login route;
 - Register route;
-- Index route, which has several if-conditons to distinguish separate actions to take with provided data and tasks and pack out the appropriate data from the database;
+- Index route, which has several if-conditions to distinguish separate actions to take with provided data and tasks and pack out the appropriate data from the database;
 - View route to prepare task lists and provide them to frontend. Made with use of `match` statement added to Python with version 3.10, the analog to `switch` statement in other programming languages.
 
 Every Task is considered as a Python Class object defined with help of SQLAlchemy in `/models.py` file, and has a set of mandatory and optional attributes described further.
