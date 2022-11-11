@@ -171,15 +171,3 @@ function taskTitleEditToggle() {
     task_div.querySelector(`.task_current_${this.name}`).classList.toggle('d-none')
     task_div.querySelector(`.task_div_edit_${this.name}`).classList.toggle('d-none')
 }
-
-
-
-
-
-
-
-// This will convert js datetime to sql datetime new Date().toISOString().slice(0, 19).replace('T', ' ');
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-
-// May get handy (call func/var from string name) https://www.geeksforgeeks.org/how-to-call-function-from-it-name-stored-in-a-string-using-javascript/
