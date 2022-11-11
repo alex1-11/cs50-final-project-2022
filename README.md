@@ -52,7 +52,7 @@ The new task form is not displayed at 'Deleted' view.
 ##### Browse todos: views on task lists
 There is a sidebar on the left side of the GUI which gives ability to change the views of lists of tasks based on grouping tasks by certain properties:
 - Today: active undone tasks with due dates on today and before today (overdue);
-- Upcoming: active undone tasks with due dates starting from tommorow and further into future;
+- Upcoming: active undone tasks with due dates starting from today and further into future;
 - No date: active undone tasks with no due dates set;
 - Completed: tasks marked as done regardless of due date;
 - Deleted: all the deleted tasks end here.
