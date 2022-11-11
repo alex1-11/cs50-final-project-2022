@@ -23,14 +23,12 @@ function taskSetTriggers(task_div) {
     for (let act of actions) {
         if (act.includes('form')) {
             task_div.querySelector(`.${act}`).addEventListener('submit', taskAction, false)
-        }
-        else if (act.includes('toggle')) {
+        } else if (act.includes('toggle')) {
             task_div.querySelectorAll(`.${act}`).forEach(
                 toggle => toggle.addEventListener('click', taskTitleEditToggle)
             )
-        }
-        else {
-        task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
+        } else {
+            task_div.querySelector(`.${act}`).addEventListener('click', taskAction, false)
         }
     }
     // Right click for edit menu https://stackoverflow.com/questions/2405771/is-right-click-a-javascript-event
@@ -63,25 +61,25 @@ function taskAddNew(event) {
     task_form_data.append('view', active_view)
     event.preventDefault()
     fetch('/', {
-        "method": "POST",
-        "body": task_form_data,
-    }).then(response => response.text())
-    .then(text => {
-        // Handle the notasks screen case to update tasklist with new task
-        if (document.querySelector('#notasks')) {
-            document.querySelector('#notasks').remove()
-            document.querySelector('#tasklist_header').classList.remove('invisible')
-        }
-        // Finally add new task to active list
-        tasklist_end_div.insertAdjacentHTML('beforebegin', text)
-        // Add event listeners to the fresh task
-        const task_div = tasklist_end_div.previousElementSibling
-        taskSetTriggers(task_div)
-        // Refresh view
-        viewlist.querySelector('button.active').click()
-    }).catch(error => {
-        console.error('Error: ', error)
-    })
+            "method": "POST",
+            "body": task_form_data,
+        }).then(response => response.text())
+        .then(text => {
+            // Handle the notasks screen case to update tasklist with new task
+            if (document.querySelector('#notasks')) {
+                document.querySelector('#notasks').remove()
+                document.querySelector('#tasklist_header').classList.remove('invisible')
+            }
+            // Finally add new task to active list
+            tasklist_end_div.insertAdjacentHTML('beforebegin', text)
+            // Add event listeners to the fresh task
+            const task_div = tasklist_end_div.previousElementSibling
+            taskSetTriggers(task_div)
+            // Refresh view
+            viewlist.querySelector('button.active').click()
+        }).catch(error => {
+            console.error('Error: ', error)
+        })
     form_task_add_new.reset()
 }
 
@@ -96,8 +94,7 @@ function taskAction(event) {
         // Load form data and store it to send to Flask:
         data = new FormData(this)
         event.preventDefault()
-    }
-    else {
+    } else {
         task_div = document.querySelector(`#task_id_${this.value}`)
         // Create form and pass task's id to it, to send this data to Flask
         data = new FormData()
@@ -107,23 +104,20 @@ function taskAction(event) {
     // Fetch the form data to Flask
     // Convert response to html text, change task's div, reset triggers
     fetch('/', {
-        "method": "POST",
-        "body": data,
-    }).then(response => response.text())
-    .then(text => {
-        // Save the reference point
-        var next_div = task_div.nextElementSibling
-        // This will make reference deprecated
-        task_div.outerHTML = text
-        // Restore reference point and reset triggers on task's buttons
-        taskSetTriggers(next_div.previousElementSibling)
-    }).catch(error => {
-        console.error('Error: ', error)
-    })
+            "method": "POST",
+            "body": data,
+        }).then(response => response.text())
+        .then(text => {
+            // Save the reference point
+            var next_div = task_div.nextElementSibling
+            // This will make reference deprecated
+            task_div.outerHTML = text
+            // Restore reference point and reset triggers on task's buttons
+            taskSetTriggers(next_div.previousElementSibling)
+        }).catch(error => {
+            console.error('Error: ', error)
+        })
 }
-
-
-// TODO: make taskEdit as a separate function
 
 
 // Tasklists / views
