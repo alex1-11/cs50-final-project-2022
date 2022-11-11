@@ -126,36 +126,35 @@ function viewChange(event) {
     let data = new FormData()
     data.append(this.name, this.value)
     fetch('/view', {
-        "method": "POST",
-        "body": data,
-    }).then(response => response.text())
-    .then(text => {
-        tasklist.innerHTML = text
-        // Update current view and change title of page
-        // And capitalize first letter https://stackoverflow.com/a/33704783/20260711
-        active_view = document.querySelector("#active_view").value
-        document.title = "tskFLOW: ".concat(
-            active_view.charAt(0).toUpperCase(),
-            active_view.substring(1)
-        )
-        // Toggle visibility of #task_add_new block for view of deleted tasks
-        if (active_view == 'deleted') {
-            document.querySelector('#task_add_new').classList.add('d-none')
-        }
-        else {
-            document.querySelector('#task_add_new').classList.remove('d-none')
-        }
-        // Re-add event listeners for in-tasks functionality
-        taskSetTriggersAll()
-        // Change active tab style
-        viewlist_btns.forEach(btn => {
-            btn.classList.remove('active')
-            if (btn.value == active_view) {
-                btn.classList.add('active')
+            "method": "POST",
+            "body": data,
+        }).then(response => response.text())
+        .then(text => {
+            tasklist.innerHTML = text
+            // Update current view and change title of page
+            // And capitalize first letter https://stackoverflow.com/a/33704783/20260711
+            active_view = document.querySelector("#active_view").value
+            document.title = "tskFLOW: ".concat(
+                active_view.charAt(0).toUpperCase(),
+                active_view.substring(1)
+            )
+            // Toggle visibility of #task_add_new block for view of deleted tasks
+            if (active_view == 'deleted') {
+                document.querySelector('#task_add_new').classList.add('d-none')
+            } else {
+                document.querySelector('#task_add_new').classList.remove('d-none')
             }
+            // Re-add event listeners for in-tasks functionality
+            taskSetTriggersAll()
+            // Change active tab style
+            viewlist_btns.forEach(btn => {
+                btn.classList.remove('active')
+                if (btn.value == active_view) {
+                    btn.classList.add('active')
+                }
 
-        })
-    }).catch(error => console.error('Error: ', error))
+            })
+        }).catch(error => console.error('Error: ', error))
 }
 viewlist_btns.forEach(btn => btn.addEventListener('click', viewChange, false))
 
