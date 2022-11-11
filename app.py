@@ -60,8 +60,6 @@ def login():
     if request.method == "POST":
 
         # Ensure username was submitted
-        # TODO?: https://flask-wtf.readthedocs.io/en/1.0.x/form/#secure-form
-        # ! https://flask.palletsprojects.com/en/2.2.x/patterns/wtforms/
         username = request.form.get("username")
         if not username:
             flash("Must provide usename", "warning")
@@ -160,7 +158,7 @@ def register():
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    """Show dashboard of  TODO: today's tasks, grouped by contexts"""
+    """Show dashboard of tasks, grouped by due dates and process them"""
     if request.method == "POST":
 
         # Add new task (request comes from js fetch())
@@ -179,12 +177,8 @@ def index():
                     newstatus = 'done'
                 case 'deleted':
                     newstatus = 'active_bin'
-            # TODO?: Prepare add-data depending on project reference
 
             with DbSession.begin() as db:
-                # TODO?: deconstruct project, context, tags,
-                # priority from title
-
                 task_new = Task(
                     # Uses .strip() method to remove whitespaces from input
                     title=request.form.get("task_new").strip(),
@@ -306,7 +300,6 @@ def index():
     # GET request shows the UI
     else:
         # Renders default view - 'today'
-        # TODO: Get user's tasks, grouped by contexts
         with DbSession.begin() as db:
             today = date.today()
             view = "today"
@@ -329,9 +322,6 @@ def index():
 @login_required
 def view():
     """Form html response with tasks list for fetch request"""
-    # TODO: join other tables into selection to pass info
-    # about the project, context, tags etc.
-
     # Connect to db, load up tasks and show them out
     tasks = None
     # Default view setting
@@ -395,8 +385,7 @@ def view():
                         Task.status.endswith('_bin', autoescape=True)
                     )
                 ).scalars().all()
-            # Default case - show all tasks
-            # TODO: make a setting dependance on default view
+            # Default case - show no tasks (incorrect view case)
             case _:
                 tasks = None
         return render_template("tasklist.html", tasks=tasks, view=view)
