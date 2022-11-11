@@ -79,11 +79,10 @@ def login():
 
             # Ensure username exists and password is correct
             if (not user or
-                    not check_password_hash(
-                        user.hash,
-                        request.form["password"]
-                    )
-                ):
+                not check_password_hash(
+                    user.hash,
+                    request.form["password"]
+                )):
                 # Then: Wrong credentials
                 flash("Incorrect username/password", "warning")
                 return render_template("login.html")
