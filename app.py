@@ -226,7 +226,7 @@ def index():
                     .where(
                         Task.user_id == session["user_id"],
                         Task.id == request.form["task_id"]
-                    ).values(title = request.form["task_title_edited"])
+                    ).values(title=request.form["task_title_edited"])
                     .execution_options(synchronize_session='fetch')
                 )
                 db.flush()
@@ -244,7 +244,7 @@ def index():
                     .where(
                         Task.user_id == session["user_id"],
                         Task.id == request.form["task_id"]
-                    ).values(date = request.form["task_date_edited"])
+                    ).values(date=request.form["task_date_edited"])
                     .execution_options(synchronize_session='fetch')
                 )
                 db.flush()
@@ -272,7 +272,7 @@ def index():
                         .values(status=string_status)
                         .execution_options(synchronize_session='fetch')
                     )
-                elif not(task.status.endswith('_bin')):
+                elif not (task.status.endswith('_bin')):
                     db.execute(
                         update(Task)
                         .where(Task.id == request.form["task_delete"])
@@ -359,7 +359,7 @@ def view():
                         Task.user_id == session["user_id"],
                         Task.date >= today,
                         Task.status == 'active'
-                        )
+                    )
                     .order_by(Task.date)
                 ).scalars().all()
             case 'nodate':
