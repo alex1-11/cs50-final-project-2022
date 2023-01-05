@@ -1,5 +1,14 @@
 # tskFLOW
-#### Video Demo: https://youtu.be/4IqvITptAJU
+
+#### Video Demo: https://youtu.be/####
+
+#### Dependecies:
+- Python3
+- Python package installer (`sudo apt install python3-pip`)
+- Flask (`pip install Flask`)
+- Flask-Session (`pip install Flask-Session`)
+- SQLAlchemy (`pip install -U Flask-SQLAlchemy`)
+
 #### Description:
 tskFLOW is a simple minimalistic todo application for tracking tasks and their due dates.
 The app is made with several tools and programming languages:
